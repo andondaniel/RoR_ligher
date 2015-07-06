@@ -1,0 +1,5 @@
+- cache(product) do
+	- if product.shows.any?
+		= render partial: "products/show_product", locals: {product: product}
+	- elsif product.movies.any?
+		= render partial: "products/movie_product", locals: {product: product, movie: product.movies.first}

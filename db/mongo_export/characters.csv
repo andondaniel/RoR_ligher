@@ -1,0 +1,20 @@
+o_id,name,show,icon
+ObjectID(51660f257b1d395aac000003),"Jess",ObjectID(51660f257b1d395aac000001),"/images/jess_33x33.jpg"
+ObjectID(51701af27b1d397947000002),"Schmidt",ObjectID(51660f257b1d395aac000001),"/images/schmidt_33x33.jpg"
+ObjectID(5194f3057b1d3925ca000001),"Winston",ObjectID(51660f257b1d395aac000001),"/images/winston_bishop_33x33.jpg"
+ObjectID(519e5a5d7b1d3973ec000005),"Cece",ObjectID(51660f257b1d395aac000001),"/images/cece_33x33.jpg"
+ObjectID(51a7e2b67b1d393850000001),"Nick",ObjectID(51660f257b1d395aac000001),"/images/nick_miller_33x33.jpg"
+ObjectID(52012d857b1d3942f1000003),"Neal Caffrey",ObjectID(52012d857b1d3942f1000001),
+ObjectID(521bb3357b1d392b8a000003),"Barney Stinson",ObjectID(521bb3357b1d392b8a000001),
+ObjectID(523f5f5602c82d5c38000005),"Peter Burke",ObjectID(52012d857b1d3942f1000001),
+ObjectID(523f96ba02c82d5c32000007),"Elizabeth Purse",ObjectID(52012d857b1d3942f1000001),
+ObjectID(523f992d02c82d5c2f000002),"Mozzie",ObjectID(52012d857b1d3942f1000001),
+ObjectID(523f994202c82d5c3200000e),"Elizabeth Burke",ObjectID(52012d857b1d3942f1000001),
+ObjectID(523f9b7002c82d5c2900000a),"Diana Barrigan",ObjectID(52012d857b1d3942f1000001),
+ObjectID(523f9c6802c82d5c3200000f),"Clinton Jones",ObjectID(52012d857b1d3942f1000001),
+ObjectID(524b251f02c82d4ab3000006),"Rebecca",ObjectID(52012d857b1d3942f1000001),
+ObjectID(5258322502c82d4aad000006),"Jones",ObjectID(52012d857b1d3942f1000001),
+ObjectID(525ad57202c82d4ab9000028),"Neal",ObjectID(52012d857b1d3942f1000001),
+ObjectID(525ae4f702c82d4abc000034),"Clinton",ObjectID(52012d857b1d3942f1000001),
+ObjectID(526abeb802c82d4d4f000021),"Diana",ObjectID(52012d857b1d3942f1000001),
+ObjectID(526b34d702c82d2f24000001),"Elizabeth",ObjectID(52012d857b1d3942f1000001),

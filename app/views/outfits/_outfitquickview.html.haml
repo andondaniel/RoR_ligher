@@ -1,0 +1,77 @@
+.close.exit
+  Close
+- if @movie
+  #product_details
+    %span= link_to "#{@movie.name}", movie_path(2)
+- else
+  #product_details 
+    %span= link_to "#{@outfit.character.name}", show_character_path(id: @outfit.character.slug, show_id: @outfit.show.slug)
+    %span= link_to "- #{@outfit.show.name}", show_episodes_path(:show_id => @outfit.show.slug)
+    %span= link_to "- Season #{@season} - Episode #{@episodenumber}", show_episode_path(id: @episode.slug, show_id: @outfit.show.slug)
+- if outfit.products.verified.length > 4
+  .character-wearing-outfit{style: "height: 400px"}
+    = image_tag(outfit.outfit_images.first.avatar.url(:medium),:style => "height:100%; width: auto")
+  - outfit.products.active.each do |product|
+    - if @show
+      = link_to show_product_path(:format => :js, :show_id => @show.id, :id => product.id), :remote => true do
+        .outfit-products.exit{style: "background-image: url(#{product.product_images.first.avatar.url(:square)}); background-size: cover; background-position: center center"} 
+          - if product.exact_match?(outfit)
+            .exact-match= image_tag("exactmatch.png")
+          .product-description 
+            - if product.brand.name == product.product_sources.first.store.name
+              #{product.brand.name}
+              %br
+              #{product.price}
+            - else
+              #{product.brand.name} from #{product.product_sources.first.store.name}
+              %br
+              #{product.price}
+    - elsif @movie
+      = link_to show_product_path(:format => :js, :show_id => 16, :id => product.id), :remote => true do
+        .outfit-products.exit{style: "background-image: url(#{product.product_images.first.avatar.url(:square)}); background-size: cover; background-position: center center"} 
+          - unless product.any_stock
+            .out-of-stock
+              =image_tag("outofstock.png")
+          - if product.exact_match?(outfit)
+            .exact-match= image_tag("exactmatch.png")
+          .product-description 
+            - if product.brand.name == product.product_sources.first.store.name
+              #{product.brand.name}
+              %br
+              #{product.product_sources.first.price.format}
+            - else
+              #{product.brand.name} from #{product.product_sources.first.store.name}
+              %br
+              #{product.product_sources.first.price.format}
+- else
+  .character-wearing-outfit{style:"display: inline-block; float: none"}
+    = image_tag(outfit.outfit_images.first.avatar.url(:js_popup))
+  - outfit.products.active.each do |product|
+    - if @movie
+      = link_to show_product_path(:format => :js, :show_id => 16, :id => product.id), :remote => true do
+        .outfit-products.exit{style: "background-image: url(#{product.product_images.first.avatar.url(:square)}); background-size: cover; background-position: center center"} 
+          - if product.exact_match?(outfit)
+            .exact-match= image_tag("exactmatch.png")
+          .product-description 
+            - if product.brand.name == product.product_sources.first.store.name
+              #{product.brand.name}
+              %br
+              #{product.product_sources.first.price.format}
+            - else
+              #{product.brand.name} from #{product.product_sources.first.store.name}
+              %br
+              #{product.product_sources.first.price.format}
+    - elsif @show
+      = link_to show_product_path(:format => :js, :show_id => @show.id, :id => product.id), :remote => true do
+        .outfit-products.exit{style: "background-image: url(#{product.product_images.first.avatar.url(:square)}); background-size: cover; background-position: center center"} 
+          - if product.exact_match?(outfit)
+            .exact-match= image_tag("exactmatch.png")
+          .product-description 
+            - if product.brand.name == product.product_sources.first.store.name
+              #{product.brand.name}
+              %br
+              #{product.product_sources.first.price.format}
+            - else
+              #{product.brand.name} from #{product.product_sources.first.store.name}
+              %br
+              #{product.product_sources.first.price.format}

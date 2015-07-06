@@ -1,0 +1,7 @@
+%body#errors
+  .error-overlay
+  .error-center-box
+    .error-logo
+      = image_tag("SpylightBlackLogo.png", :id => "error-page-logo")
+    .spylight-error-tagline Oops! We're having trouble fulfilling your request.
+    .spylight-error-tagline You can #{link_to "give us feedback.", new_feedback_path}

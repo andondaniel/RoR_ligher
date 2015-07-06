@@ -1,0 +1,11 @@
+/ This is the searchbox that appears when you hover over the Search icon
+.search-box.sub-drop-down{ :data => { action: "search" }}
+  #searchplace
+    %i.fa.fa-search
+    %form{method: 'get', action: '/search', id: 'searchform'}
+      %input.placeholder{ type:'text',
+                          placeholder: 'Search by character, show, or keyword',
+                          name: 'search',
+                          id: 'searchbox',
+                          autocomplete: 'off' }
+      %span#press-enter Press Enter 

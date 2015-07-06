@@ -1,0 +1,35 @@
+/ TODO: this code was simply copy-pasted from the movie show page. Class names should be made to be more semantic.
+// CENTER CONTENT
+.character-page-background{style: "width: 100%"}
+  .about-movie
+    .movie-text
+      .name
+        #movie #{@show.name}
+      / .movie-description.noskimwords #{@show.tagline}
+    .overlay
+    = image_tag(@show.show_images.cover.first.avatar.url, :class => "movie-photo")
+
+  .filter-content
+    .choose-a-character Choose A Character
+    - @characters.each do |c|
+      %a{href: "#", class: "filter"}
+        .character-thumbbox
+          .character-thumbbox-img= image_tag(c.character_images.thumbnail.first.avatar.url)
+          .character-thumbbox-name= c.name
+    .movie-options-wrap
+      .show-outfits-or-products#show-outfits SHOW OUTFITS
+      .show-outfits-or-products.nonactive#show-products SHOW PRODUCTS
+    #outfits-list
+      %ul.list
+        - @outfits.each do |outfit|
+          %li{style: "display: inline-block"}
+            = link_to outfit_path(:format => :js, :show_id => @show.id, :id => outfit.id), :remote => true do
+              .outfit-image-box
+                = image_tag(outfit.outfit_images.first.avatar.url(:index_size))
+                .character= outfit.character.name
+                .type outfit
+        = render :partial => "products/product", :collection => @products
+
+#outfit_quick_overview
+
+/ movie_filter.js

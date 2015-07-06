@@ -1,0 +1,45 @@
+/ would the below be the perfect instance to use modules in helpers?
+%ul.show-menu
+  - network.shows.active.each do |show|
+    - if @current_show.network == network
+      - if show == @current_show
+        %li.on.hovered.show-options{id: "show.name"}
+          %a.show-name #{show.name}
+          .show-image-url.display-none= show.show_images.cover.first.avatar.url(:medium)
+          .show-link.display-none= link_to show_path(:id => "#{show.id}")
+          .show-character-submenu-placeholder.display-none
+            = render :partial => 'layouts/characters_submenu', locals: {show: show}
+          .show-episode-submenu-placeholder.display-none
+            = render :partial => 'layouts/episodes_submenu', locals: {show: show}
+      - else
+        %li.on.show-options{id: "show.name"}
+          %a.show-name #{show.name}
+          .show-image-url.display-none= show.show_images.cover.first.avatar.url(:medium)
+          .show-link.display-none= link_to show_path(:id => "#{show.id}")
+          .show-character-submenu-placeholder.display-none
+            = render :partial => 'layouts/characters_submenu', locals: {show: show}
+          .show-episode-submenu-placeholder.display-none
+            = render :partial => 'layouts/episodes_submenu', locals: {show: show}
+    - else 
+      - if show == network.shows.active.first
+        %li.on.hovered.show-options{id: "show.name"}
+          %a.show-name #{show.name}
+          .show-image-url.display-none= show.show_images.cover.first.avatar.url(:medium)
+          .show-link.display-none= link_to show_path(:id => "#{show.id}")
+          .show-character-submenu-placeholder.display-none
+            = render :partial => 'layouts/characters_submenu', locals: {show: show}
+          .show-episode-submenu-placeholder.display-none
+            = render :partial => 'layouts/episodes_submenu', locals: {show: show}
+      - else
+        %li.on.show-options{id: "show.name"}
+          %a.show-name #{show.name}
+          .show-image-url.display-none= show.show_images.cover.first.avatar.url(:medium)
+          .show-link.display-none= link_to show_path(:id => "#{show.id}")
+          .show-character-submenu-placeholder.display-none
+            = render :partial => 'layouts/characters_submenu', locals: {show: show}
+          .show-episode-submenu-placeholder.display-none
+            = render :partial => 'layouts/episodes_submenu', locals: {show: show}
+
+
+
+

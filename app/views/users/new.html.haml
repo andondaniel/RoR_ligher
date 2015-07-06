@@ -1,0 +1,12 @@
+%h2 Register
+.social_sign_in
+  .facebook
+    = link_to "Register with Facebook", '/auth/facebook'
+= semantic_form_for @user do |f|
+  = f.input :email
+  = f.semantic_fields_for :profile do |p|
+    = p.input :first_name
+    = p.input :last_name
+  = f.input :password
+  = f.input :password_confirmation
+  = f.submit "Register"

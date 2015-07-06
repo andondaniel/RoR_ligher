@@ -1,0 +1,30 @@
+.sub-drop-down.category-drop-down.noskimwords{:data => { action: "categories" }} 
+  .padding
+    .category-image-placeholder
+      = image_tag(Product.find(3858).product_images.first.avatar.url(:square))
+      / .overlay
+    .sub-menu.gender
+      .title WOMEN'S FASHION
+      %ul{class: "category-options", style: "float:left"}
+        - @female_category_groups_first.each do |cg|
+          %li{id: "#{cg.name}"}
+            = link_to(cg.name.upcase, category_path(cg.id), :class => "no-access")
+            .category-url.display-none= cg.product_categories.first.products.active.last.product_images.first.avatar.url(:medium) rescue "Image not Found"
+      %ul{class: "category-options", style: "float:left; width: 190px"}
+        - @female_category_groups_second.each do |cg|
+          %li{id: "#{cg.name}"}
+            = link_to(cg.name.upcase, category_path(cg.id), :class => "no-access")
+            .category-url.display-none= cg.product_categories.first.products.active.last.product_images.first.avatar.url(:medium) rescue "Image not Found"
+    .sub-menu.gender
+      .title MEN'S FASHION
+      %ul{class: "category-options", style: "float:left"}
+        - @male_category_groups_first.each do |cg|
+          %li{id: "#{cg.name}"}
+            = link_to(cg.name.upcase, category_path(cg.id), :class => "no-access")
+            .category-url.display-none= cg.product_categories.first.products.active.last.product_images.first.avatar.url(:medium) rescue "Image not Found"
+      %ul{class: "category-options", style: "float:left; width: 190px"}
+        - @male_category_groups_second.each do |cg|
+          %li{id: "#{cg.name}"}
+            = link_to(cg.name.upcase, category_path(cg.id), :class => "no-access")
+            .category-url.display-none= cg.product_categories.first.products.active.last.product_images.first.avatar.url(:medium) rescue "Image not Found"
+

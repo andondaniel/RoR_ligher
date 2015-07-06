@@ -1,0 +1,10 @@
+function lightboxProduct() {
+  $('#quick_overview').lightbox_me({
+    centered: true,
+    zIndex: 100000
+  });
+}
+
+$('#quick_overview').change(lightboxProduct());
+
+$('#quick_overview').html('<%= escape_javascript("#{render :partial => 'productquickview', locals: {product: @product, show: @show}}").html_safe %>');

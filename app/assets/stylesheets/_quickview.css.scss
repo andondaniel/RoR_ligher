@@ -1,0 +1,334 @@
+
+  #quick_overview {
+    position: relative;
+    font-weight: 300;
+    padding: 20px;
+    background-color: whitesmoke;
+    display: none;
+    z-index:2000000;
+
+    .right-side, .left-side {
+      display: inline-block;
+    }
+
+    .left-side {
+      width: 430px;
+    }
+
+    .right-side {
+      vertical-align: top;
+      width: 120px;
+      text-align: center;
+      margin-top: 25px;
+      color: white;
+      padding-bottom: 10px;
+      background-color: darkgray;
+      .look-for-less {
+        padding-bottom: 5px;
+        margin-top: 5px;
+        font-weight: 500;
+      }
+
+
+      .cheaper-product-img {
+        width: 100px;
+        margin: 0 auto;
+        height: 100px;
+        position: relative;
+        overflow: hidden;
+        img {
+          width:100%;
+        }
+
+        .more-info {
+          font-size: 12px;
+          background-color: white;
+          display: none;
+          color: gray;
+          text-align: center;
+          position: absolute;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+        }
+      }
+
+      .cheaper-product-img:hover .more-info {
+        display: block;
+      }
+    }
+
+
+
+
+    .close {
+      border-style: solid;
+      border-width: 1px;
+      border-color: $nearblack;
+      width: 40px;
+      height: 15px;
+      padding: 5px;
+      float: right;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      display: block;
+    }
+
+    #images {
+      width: 430px;
+      height: 210px;
+      padding: 0;
+      display: block;
+      margin: 10px 0px 0px;
+
+      figure.image {
+        width: 210px;
+        height: 210px;
+        padding:0;
+        float: left;
+        overflow: hidden;
+        position: relative;
+
+        img {
+          width: 100%;
+          min-height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+      }
+
+      .alternate-image {
+        display: none;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    #images .image:hover .alternate-image {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+
+
+
+      #quickoverviewsample2 {
+        margin-left: -30%;
+        margin-top: -30%;
+      }
+
+      figure.image:first-child {
+        margin-right: 10px;
+      }
+    
+    }
+
+
+
+
+    #product_name {
+      font-size: 25px;
+      font-weight: 300;
+      margin: 0;
+      text-transform: uppercase;
+      width: 100%;  
+      padding: 15px 0px 10px;
+      line-height: 25px;
+    }
+
+    #product_details {
+      color: gray;
+      font-family: 'proxima-nova';
+      font-size: 15px;
+      width: 85%;
+    }
+
+
+    #product_description {
+      margin: -5px 0px 0px;
+      padding: 0;
+      font-family: 'proxima-nova';
+      font-weight: 100;
+      line-height: 18px;
+      font-size: 15px;
+    }
+
+  h3.action_link {
+
+    a { color: white; }
+
+    text-transform: uppercase;
+    font-size: 13px;
+    display: inline-block;
+    line-height: 13px;
+    padding: 10px 17px;
+
+  }
+
+  #getthis {
+    font-weight: 500;
+    color: white;
+    margin: 0 5px 0 0;
+    background-color: $nearblack;
+
+    &:hover {
+      color: $yellow;
+    }
+  }
+
+  #fb-share {
+    margin-left: 10px;
+  }
+
+   #more {
+    margin: 0 0 0 0;
+    background-color: lightgray;
+   }
+
+
+  
+
+  p#product_source {
+    font-family: 'proxima-nova';
+    width: 100%;
+    font-weight: 500;
+    margin: 10px 0px 20px;
+    font-size: 15px;
+    color: #575757;
+    #from {color: darkgray;}
+    #store {color: #575757;
+      display: inline;
+      text-decoration: underline;}
+  }
+
+  #product_price { font-weight: 500;
+    padding-left: 20px; }
+
+  .share-options {
+    width: 100%;
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    background-color: white;
+    border-radius: 5px 5px 0 0;
+    padding-bottom: 10px;
+
+    .twitter, .facebook {
+      display: block;
+      margin: 0 auto;
+      padding-top: 10px;
+    }
+    .facebook {
+      width: 60px;
+    }
+    .twitter {
+      width: 55px;
+    }
+  }
+
+
+  .more-from-outfit {
+    width: 100%;
+    margin: 15px auto 0;
+    // display: none;
+  }
+    
+  div.image {
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  div.image:last-child {
+    margin-right: 0;
+  }
+  
+
+
+  
+  figure.image {
+   position: relative;
+  }
+
+  .photo_unavailable {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    font-family: 'proxima-nova';
+    font-weight: 500;
+    color: whitesmoke;
+    background-color: black;
+    opacity: .7;
+
+  }
+
+  .from-this-episode {
+    padding: 10px;
+    color: whitesmoke;
+    background-color: black;
+  }
+
+  #link {
+    color: white;
+
+    &:hover {
+      color: yellow;
+    }
+  }
+
+  .product-character{
+    display: none;
+  }
+
+
+/*OUTFIT QUICKVIEW*/
+
+  .outfit-products {
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-square {
+    width: 100%;
+  }
+
+  #product_details {
+    color: darkgray;
+    a {color: darkgray;}
+    a:hover {color: $nearblack}
+  }
+
+  .product-description {
+    @include overlay;
+    display: none;
+    background-color: $nearblack;
+    text-align: center;
+    color: lightgray;
+    padding-top: 80px;
+    font-weight:600;
+    font-family: 'proxima-nova';
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  .outfit-products:hover .product-description {
+    display: block;
+  }
+
+

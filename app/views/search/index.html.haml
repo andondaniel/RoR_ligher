@@ -1,0 +1,122 @@
+.search-page-wrapper{style: "background-color: white"}
+  .search-results-bar
+    .you-searched-for
+      You searched:
+      %span#search-query "#{@query}"
+    Search Results:
+    /note that the count may be different than the number of products displayed in the case where some results are not associated with a movie or show
+    - if @results.length > 0
+      -@results.each_pair do | result_class, result |
+        - if result_class == :products
+          - result = @products
+        - if result_class == :characters
+          - result = @characters
+        - if result_class == :shows
+          - result = @shows
+        - if result_class == :episodes
+          - result = @episodes
+        - if result.length > 0
+          .result-category-button
+            %span.sort{"data-sort" => "#{result_class}"}
+              %a{href: "##{result_class.to_s}"} #{result_class.to_s.pluralize.upcase} (#{result.length})
+    - else
+      %span{style: "font-style: italic"} None
+      %br 
+      %br
+      %div{style: "font-weight: 500; text-align: center"} Sorry, we couldn't find what you're searching for. Try again? 
+      %br 
+      %div{style: "text-align: center"}Sample search queries: Jess, dress, White Collar, blue tie
+
+  .search_list
+    - if @products.length > 0
+      .results_list
+        / EG: EPISODES
+        %a{name: "products", class: "result-type-name"} PRODUCTS
+        %ul.items.list
+          #product-list#episode-page
+            #sort-by-categories
+              Sort By:
+              %ul
+                %li
+                  %span.sort{"data-sort" => "product-price"}
+                    Price
+                %li
+                  %span.sort{"data-sort" => "product-brand"}
+                    Brand
+                %li
+                  %span.sort{"data-sort" => "product-name"}
+                    Name
+            %span#filter-span= render partial: "products/product_filter"
+            %ul.list.products-grid#episode
+              = render @products
+
+    - if @characters.length > 0
+      .results_list
+        / CHARACTERS
+        %a{name: "characters", class: "result-type-name"} CHARACTERS
+        %ul.items.list.characters
+          -@characters.each do |result|
+            %li.character
+              .character_image
+                -if result.show.present?
+                  = link_to image_tag(result.character_images.thumbnail.first.avatar.url(:square)), show_character_path(show_id: "#{result.show.slug}", id: "#{result.slug}")
+                -elsif result.movie.present?
+                  = link_to image_tag(result.character_images.thumbnail.first.avatar.url(:square)), movie_path(id: "#{result.movie.slug}")
+              .character_details
+                = result.name
+                -if result.show.present?
+                  .character-show-name= result.show.name
+                -elsif result.movie.present?
+                  .character-show-name= result.movie.name
+
+    - if @shows.length > 0
+      .results_list
+        / EG: EPISODES
+        %a{name: "shows", class: "result-type-name"} SHOWS
+        %ul.items.list
+          -@shows.each do |result|
+            .show-thumbnail
+              = link_to show_episodes_path(show_id: result.slug) do
+                .show-pic
+                  - if result.show_images.any?
+                    = image_tag(result.show_images.cover.first.avatar.url(:medium))
+                .show_details
+                  = result.name
+
+    - if @episodes.length > 0
+      .results_list
+        / EG: EPISODES
+        %a{name: "episodes", class: "result-type-name"} EPISODES
+        %ul.items.list
+          %ul#episodes-list
+            - @episodes.each do |episode|
+              %li
+                .episode-thumbnail
+                  .episode-pic
+                    .episode-overlay
+                    - if episode.episode_images.any?
+                      = link_to image_tag(episode.episode_images.first.avatar(:medium), :id => "episode-pic"), show_episode_path(id: episode.slug, show_id: episode.show.slug)
+                  .thumbnail-footer
+                    .show-title= episode.show.name
+                    %span.episode-number
+                      = link_to "Season #{episode.season}, Episode #{episode.episode_number}", show_episode_path(id: episode.slug, show_id: episode.show.slug)
+                    %span "#{link_to "#{episode.name}", show_episode_path(id: episode.slug, show_id: episode.show.slug)}"
+
+
+
+        / -if result_class == :productcategories
+        /   -result.each do |result|
+        /     .product_category_details
+        /       = result.name
+
+
+        / -if result_class == :stores
+        /   -result.each do |result|
+        /     .store_details
+        /       = result.name
+        / -if result_class == :brands
+        /   -result.each do |result|
+        /     %li.brand
+        /       .brand_details
+        /         = result.name
+

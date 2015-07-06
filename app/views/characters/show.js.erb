@@ -1,0 +1,62 @@
+// To show products
+<% unless @products.blank? %>
+	$('#more-product-loader').hide();
+	$('#product_page').val( "<%= params[:product_page] %>" );
+
+	// To remove all filters, so that all items including products and outfits can be considered.
+	featureList.filter();
+
+	<% @products.each do |product| %>
+		var product = "<%= escape_javascript( render partial: 'products/product',
+		 locals: {product: product}) %>";
+		$('#outfits-list ul.list').append(product);
+	<% end %>
+		
+	featureList = new List('outfits-list', options);
+	
+	// To filter
+	if (active_attributes.length > 0)
+	  featureList.filter(function(item) {
+	    for (var i = 0; i < active_attributes.length; i++) {
+	      var attributes = item.values().filter_attributes;
+	      if ((attributes.indexOf(active_attributes[i]) == -1) || item.values().type != 'product') {
+	        return false; 
+	      }
+	    }
+	    return true;
+	  });
+	else
+	  featureList.filter(function(item) {
+	    if (item.values().type != 'product')
+	      return false;
+	    else
+	      return true;
+	  });
+
+<% else %>
+	<% if params[:product_page].present? %>
+		$('#more-product-loader').hide();
+		$('#product_page').val('-1');
+	<% end %>
+<% end %>
+
+// To show outfits
+<% unless @outfits.blank? %>
+	$('#more-outfit-loader').hide();
+	$('#outfit_page').val( "<%= params[:outfit_page] %>" );
+	featureList.filter();
+
+	<% @outfits.each do |outfit| %>
+		var outfit = "<%= escape_javascript( render partial: 'outfits/outfit',
+		 locals: {outfit: outfit}) %>";
+		$('#outfits-list ul.list').append(outfit);	
+	<% end %>
+	
+	featureList = new List('outfits-list', options);
+	$('#show-outfits').click();
+<% else %>
+	<% if params[:outfit_page].present? %>
+		$('#more-outfit-loader').hide();
+		$('#outfit_page').val('-1');		
+	<% end %>
+<% end %>

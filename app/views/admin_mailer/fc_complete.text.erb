@@ -1,0 +1,11 @@
+The following episode has been marked as complete by a fashion consultant:
+
+<%= @episode %>
+<%= admin_episode_path(@episode, only_path: false) %>
+
+This episode was created by:
+<% if @episode.creator %>
+<%= @episode.creator.name %>
+<% else %>
+"No Creator Found"
+<% end %>

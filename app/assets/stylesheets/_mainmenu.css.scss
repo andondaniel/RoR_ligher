@@ -1,0 +1,337 @@
+.main-navigation li:hover {
+  color: $yellow;
+}
+
+
+/*THE SEARCH BAR*/
+
+.search-box {
+  display: none;
+  // position: absolute;
+  // top: 150px;
+  height: 70px;
+  position: relative;
+  width: 100%;
+  z-index: 300000;
+  background-color: white;
+  #searchplace {
+    @include absolute-center;
+    width: 360px;
+    height: 25px;
+    font-size: 20px;
+    color: lightgray;
+    font-weight: 100px;
+    .fa-search {
+      float: left;
+    }
+  }
+}
+
+
+#searchplace form {
+  vertical-align: middle;
+  font-size: 20px;
+
+  #press-enter {
+    float: left;
+    position: absolute;
+    text-transform: uppercase;
+    bottom: -18px;
+    color: gray;
+    left: 40px;
+    font-size: 15px;
+    display: none;
+    font-weight: 500;
+  }
+
+
+  .placeholder {
+    padding-left: 20px;
+    font-family: 'proxima-nova';
+    border: none;
+    font-weight: 100;
+    width: 310px;
+    font-size: 18px;
+    float: left;
+  }
+
+  textarea:focus, input:focus {
+    outline: 0;
+  }
+}
+/*END OF SEARCHBAR*/
+
+
+
+.drop-down {
+  position: relative;
+  display: block;
+}
+
+
+/*TV DROP DOWN*/
+
+
+.tv-drop-down, .movie-drop-down {
+  z-index: 200000;
+}
+
+.category-drop-down {
+  z-index: 100000;
+}
+
+.tv-drop-down, .movie-drop-down, .category-drop-down {
+  display: none;
+  width: 100%;
+  background-color: white;
+  height: 240px;
+  border: none;
+  overflow: hidden;
+  a {color: #575757;}
+}
+
+
+.padding {
+  margin: 10px;
+  height: 100%;
+
+  .image-placeholder {
+    width: 300px;
+    height: 185px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    margin-top: 0px;
+    margin-right: 10px;
+    .text {
+      font-family: 'Biko Regular';
+      color: white;
+      z-index: 200;
+      text-align: center;
+      font-size: 40px;
+      @include absolute-center;
+      width: 230px;
+      height: 40px;
+
+    }
+    img { min-width: 100%; min-height: 185px; }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: black;
+      opacity: 0.2;
+    }
+  }
+
+  .sub-menu.episodes {
+    border-right: none;
+    position: relative;
+    ul { 
+      margin-top: 10px;
+      list-style: none;
+      margin-left: 59px;
+
+      li {
+        display: block;
+        text-indent: -59px;
+        font-size: 15px;
+        line-height: 15px;
+        margin-top: 0;
+        margin-bottom: 4px;
+      }
+      li a:hover {
+        color: $yellow;
+      }
+    }
+  }
+
+  .sub-menu {
+    float: left;
+    padding-right: 10px;
+    margin-left: 10px;
+    margin-top: 0px;
+    height: 190px;
+    border-right: 1px solid whitesmoke;
+
+    .title {
+      text-transform: uppercase;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 35px;
+      border-bottom: 1px solid lightgray;
+      color: lightgray;
+    }
+
+    #more-episodes {
+      font-weight: 500;
+      font-size: 12px;
+      text-align: center;
+      line-height: 12px;
+      position: absolute;
+      bottom: 10px;
+    }
+
+    ul {
+      color: gray;
+      list-style: none;
+      margin-top: 5px;
+      li {
+        font-size: 15px;
+        font-weight:500;
+        margin-top: 15px;
+        cursor: pointer;
+      }
+
+      li.on {
+        color: $nearblack;
+        font-weight: 500;
+      }
+    }
+
+    ul.characters {
+      margin-top: 5px;
+      width: 160px;
+      .character-thumbnail {
+        height: 45px;
+        width: 45px;
+        margin: 5px 2px 0px 0px;
+        overflow: hidden;
+        display: inline-block;
+        img {
+          height: 100%;
+        }
+      }
+    }
+
+  }
+
+  .sub-menu.characters {
+    width: 155px;
+    padding-right: 10px;
+    position: relative;
+
+    li a:hover {
+      color: $yellow;
+    }
+  }
+
+  .sub-menu.shows {
+    width: 150px;
+    margin-right: 0px;
+    padding-right: 0px;
+    .title {
+      width: 90%;
+    }
+
+    ul li {
+      margin-top: 5px;
+      padding: 5px 0px 5px 5px;
+    }
+
+    li.hovered {
+      background-color: whitesmoke;
+    }
+
+    li:hover {
+      background-color: whitesmoke;
+      cursor: default;
+    }
+
+    a:hover {
+      color: #575757;
+      cursor: default;
+    }
+  }
+
+  .sub-menu.networks {
+    width: 95px;
+    ul{
+      
+      a:hover { cursor: default; }
+    
+      li {
+        margin-top: 15px;
+        a:hover { cursor: default; }
+
+      }
+
+      li.on {
+        a:hover { cursor: default}
+      }
+
+      li:hover {
+        cursor: default;
+      }
+    }
+  }
+
+  .sub-menu.episodes {
+    width: 260px;
+    padding-right: 0;
+  }
+
+  .sub-menu.gender {
+    width: 340px;
+    height: 220px;
+    margin-top: -5px;
+    ul {
+      width: 150px;
+      li { width: 100%;
+        margin-top: 10px;}
+    }
+  }
+
+  .sub-menu:last-child {
+    border-right: none;
+  }
+
+
+}
+
+
+
+.networks-submenu {
+  // position: absolute;
+  // top: 0px;
+  background-color: whitesmoke;
+  height: 35px;
+  width: 100%;
+
+  ul {
+    margin-left: 20px;
+    text-align: center;
+
+    li {
+      color: #A0A0A0;
+      // width: 50px;
+      padding-right: 18px;
+      padding-left: 18px;
+      margin-right: 40px;
+      padding-top: 10px;
+      border-radius: 4px;
+      padding-bottom: 30px;
+      display: inline-block;
+    }
+
+    li:hover {
+      background-color: white;
+      color: gray;
+    }
+
+    li.on {
+      background-color: white;
+      color: gray;
+      cursor: pointer;
+    }
+  }
+}
+
+img.movie-poster {
+  height: 220px;
+  border: 1px whitesmoke solid;
+}
+
+        

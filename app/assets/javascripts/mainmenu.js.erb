@@ -1,0 +1,112 @@
+$(document).ready(function() {
+
+  function mainNavClickHandler(){
+    var $this = $(this)
+    var id = $this.attr('id')
+    // if(id==="search"){ return; }
+    var $dropdown = $("[data-action="+id+"]")
+
+      // if there is already a drop-down menu that is down already
+      if ($('.main-navigation li').hasClass('active')) {
+
+        // if that drop down menu is the category-drop-down, 
+        if ($this.hasClass('active')) {
+          $dropdown.slideToggle( "medium", function() {
+            $this.toggleClass("active"); 
+          });
+
+        // if it's not, then 
+        } else {
+
+          // hide the other drop down and fadeIn the category dropdown
+          $('.sub-drop-down').hide();
+          $dropdown.fadeIn();
+          $('.main-navigation li').removeClass("active");
+          $this.addClass("active");
+        }
+
+      } else {
+
+        $dropdown.slideToggle( "medium", function() {
+          $this.toggleClass("active"); 
+        });
+
+      }
+
+  }
+
+  // the following tells us what happens when someone clicks on TV, MOVIES, CATEGORIES, or the SEARCH ICON
+  $('.main-navigation').on('click','li', mainNavClickHandler);
+
+// this currently isn't doing anything
+// // When you hover a spec episode link, the episode image shows up
+// 	function showEpisodeimage() {
+//     var url = $(this).children('img').last().attr("src");
+//     $('.image-placeholder > img').attr('src', url);
+//   }
+
+//   $('ul.episodes > li').hoverIntent(showEpisodeimage, jQuery.noop());
+
+
+// When you hover over a SHOW link in the TV submenu, the show image & show name appears
+// TODO: If show is already selected, prevent stuff from being loaded again
+  // $('.show-menu').on('mouseenter', 'li',
+  //   function openOptions() {
+  //     var $this = $(this)
+  //     var url = $this.children('.show-image-url').text();
+  //     var showname = $this.children('a').text();
+  //     var $image_placeholder = $this.parents('.padding').children('.image-placeholder')
+  //     $image_placeholder.children('img').attr('src', url);
+  //     $image_placeholder.children('.text').text(showname);
+  // });
+
+	
+// When you hover over a category option in the category submenu, the category image shows up in the image placeholder
+// TODO: Add code that prevents the image from fading back in if it is already showing.
+  $('.category-options').on('mouseenter', 'li',
+    function openOptions(){
+      var $this = $(this)
+      var url = $this.children('.category-url').text();
+      var $placeholder_image = $this.parents('.padding').children('.category-image-placeholder').children('img')
+      $placeholder_image.hide();
+      $placeholder_image.attr('src', url);
+      $placeholder_image.fadeIn('fast');
+  });
+
+
+// When you open the TV submenu, the first network and its first show is highlighted and opened.
+    
+  	// here, if @current_network is defined, then it should find the element #network and addClass.('on')
+   	// if ($('#network').length) {
+    // 	$('#network').addClass('on');
+   	// } else {
+    // 	$('.networks').first().addClass('on');
+    // }
+
+    // When you hover over a particular network, it simulates a click to the network_menu.js.erb
+
+    // $('.networks-submenu ul').on("click", "li",
+    //   function clickNetwork(){
+    //     var $this = $(this)
+    //     if($this.hasClass('on')){return;}
+    //     $this.parent('a').trigger('click');
+    //     $('.networks').removeClass('on');
+    //     $this.addClass('on');
+    //   });
+
+
+    if ($('.hovered').length == 0) {
+    	$('.show-options').first().addClass('hovered');
+    } else {
+    	return false
+    }
+
+    // $('.show-options').hoverIntent(function(){
+    //   $this = $(this)
+    //   $this.children('a').trigger('click');
+    //   $('.show-options').removeClass('hovered');
+    //   $this.addClass('hovered');
+    // });
+
+});
+

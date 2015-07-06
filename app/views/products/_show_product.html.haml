@@ -1,0 +1,40 @@
+%li.product-box.noskimwords
+  .product-image-box
+    = link_to image_tag(product.product_images.first.avatar.url(:square), :class => "product-img"), show_product_path(:format => :js, :show_id => product.shows.first.id, :id => product.id), :remote => true
+    - unless product.any_stock
+      .out-of-stock
+        =image_tag("outofstock.png")
+    = link_to show_product_path(:format => :js, :show_id => product.shows.first.id, :id => product.id), :remote => true do
+      / Make this product-hover-image into a partial
+      .product-hover-image
+        - if product.outfits.any?
+          - if product.last_episode
+            .photo_caption Last Worn in Season #{product.last_episode.season} Episode #{product.last_episode.episode_number}
+            /elsif product.movie.present?
+            /.photo_caption As seen in #{product.movie.name}
+          - if product.outfits.first.outfit_images.any?
+            = image_tag(product.outfits.first.outfit_images.first.avatar.url(:search_square))
+        - if product.outfit_products.first.exact_match?
+          .exact-match
+            = image_tag("exactmatch.png")
+        - else
+          .similar SIMILAR
+  .price{style: "display:none"}= product.price
+  .product-details
+    .product-name= product.name.titleize
+    .type{style: "display:none"} product
+    .character{style:"display:none"}= product.characters.last.name
+    %span.product-brand= product.brand.name
+    %span.product-source
+      - if (product.product_sources.first.store.name != product.brand.name)
+        = "from " + product.product_sources.first.store.name
+      %br
+    .product-price= product.price
+    
+    / below is the hidden divs for the sorting & filtering:
+    - if product.outfits.any?
+      .product-episode
+    - if product.characters.any?
+      .product-character= product.characters.last ? product.characters.last.name : "No Characters found"
+      .character{style:"display:none"}= product.characters.last.name
+    .filter_attributes{style: "display:none"}= product.filter_attributes

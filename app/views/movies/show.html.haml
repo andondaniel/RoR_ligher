@@ -1,0 +1,77 @@
+- title "Spylight |" + " #{@movie.name}"
+
+
+// CENTER CONTENT
+.character-page-background{style: "width: 100%"}
+  .about-movie
+    .movie-text
+      .name
+        #movie #{@movie.name}
+      .movie-description.noskimwords #{@movie.tagline}
+    .overlay
+    = image_tag(@movie.movie_images.cover.first.avatar.url, :class => "movie-photo")
+
+  .filter-content
+    .choose-a-character Choose A Character
+    - @characters.each do |c|
+      %a{href: "#", class: "filter"}
+        .character-thumbbox
+          .character-thumbbox-img= image_tag(c.character_images.thumbnail.first.avatar.url)
+          .character-thumbbox-name= c.name
+    .movie-options-wrap
+      .show-outfits-or-products#show-outfits SHOW OUTFITS
+      .show-outfits-or-products.nonactive#show-products SHOW PRODUCTS
+    #outfits-list
+      %ul.list
+        - @outfits.each do |outfit|
+          %li{style: "display: inline-block"}
+            = link_to outfit_path(:format => :js, :movie_id => @movie.id, :id => outfit.id), :remote => true do
+              .outfit-image-box
+                = image_tag(outfit.outfit_images.first.avatar.url(:index_size))
+                .character= outfit.character.name
+                .type outfit
+                .outfit-details
+        = render :partial => "products/product", :collection => @products, :locals => {:movie => @movie}
+        
+      #more-outfit-loader.display-none
+        %center
+          = image_tag "loadmore.gif"
+
+      #more-product-loader.display-none
+        %center
+          = image_tag "loadmore.gif"
+
+    = hidden_field_tag 'outfit_page', params[:outfit_page]
+    = hidden_field_tag 'product_page', params[:product_page]
+
+#outfit_quick_overview
+
+/ movie_filter.js
+
+:javascript
+  var outfit_page = 0;
+  var product_page = 0;
+  
+  $(window).scroll(function(){
+    if ( $(window).scrollTop() == $(document).height() - $(window).height()) {
+      if ($('#show-products').hasClass('nonactive')) {
+        if ( ($('#outfit_page').val() == '-1') || ($('#outfit_page').val() == outfit_page) ) return;
+        $('#more-outfit-loader').show();
+        $.ajax({
+          url: "/movies/#{params[:id]}?format=js&outfit_page=" + $('#outfit_page').val(),
+          success: function( data ) {
+          }
+        });
+        outfit_page = $('#outfit_page').val();
+      } else {
+        if ( ($('#product_page').val() == '-1') || ($('#product_page').val() == product_page) ) return;
+        $('#more-product-loader').show();
+        $.ajax({
+          url: "/movies/#{params[:id]}?format=js&product_page=" + $('#product_page').val(),
+          success: function( data ) {
+          }
+        });
+        product_page = $('#product_page').val();
+      }
+    }
+  });

@@ -1,0 +1,461 @@
+/*center content*/
+
+
+#filter-episodes {
+  position: relative;
+  width: 250px;
+  padding-left: 0;
+  padding-right: 0;
+  border-top: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  z-index: 999;
+}
+
+.episode-carousel {
+  width: 820px;
+}
+
+.no-bottom-border {
+  border-bottom: none !important;
+}
+
+.episode-filter-background {
+  width: 960px;
+  background-color: whitesmoke;
+  height: 140px;
+  position: relative;
+  margin-top: -11px;
+  margin-bottom: 10px;
+  border: 1px solid lightgray;
+  margin-left: -20px;
+  display: none;
+}
+
+.episodes-prev {
+  position: absolute;
+  top: 32px;
+  left: 17px;
+  font-size: 70px;
+  color: gray;
+  cursor: pointer;
+  &:hover {
+    color: $yellow;
+  }
+}
+
+.episodes-next {
+  position: absolute;
+  top: 32px;
+  font-size: 70px;
+  right: 17px;
+  color: gray;
+  cursor: pointer;
+  &:hover {
+    color: $yellow;
+  }
+}
+
+.episode-filter {
+
+  width: 840px;
+  margin: 0 auto;
+  height: 130px;
+  background-color: whitesmoke;
+  position: absolute;
+  // opacity: 0.9;
+  // border: 1px solid lightgray;
+  top: 7px;
+  left: 60px;
+  z-index: 100000;
+  overflow: hidden;
+  // left: -1px;
+  // overflow: scroll;
+  text-align: left;
+  display: block;
+  cursor: pointer;
+
+  ul {
+    height: 200px;
+    width: 1000000000px;
+    position: absolute;
+
+    li {
+      display: inline;
+      width: 200px;
+      height: 125px;
+    }
+
+  }
+
+.episode {
+  height: 125px;
+  width: 200px;
+  margin-left: 5px;
+  display:inline-block;
+  color: white;
+  position: relative;
+
+  .overlay {
+    @include overlay;
+    background-color: black;
+    opacity: 0.3;
+  }
+}
+
+// .episode:hover {
+//   background-color: $yellow;
+// }
+
+.episode-img-box {
+  width: 100%;
+  height: 125px;
+  overflow: hidden;
+  float: left;
+  img {height: 100%}
+}
+
+  .episode-info {
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    text-transform: none;
+    font-weight: 600;
+    margin: 10px 0 0 10px;
+    font-size: 12px;
+    text-overflow: ellipsis;
+  }
+}
+
+  .about-character {
+    height: 375px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    font-family: 'proxima-nova';
+    margin: 0;
+
+    .character-photo {
+      min-height: 100%;
+      min-width: 100%;
+    }
+
+    .overlay {
+      @include overlay;
+      background-color: black;
+      opacity: 0.2;
+      z-index: 4500;
+    }
+
+    .banner-overlay {
+      background-color: white;
+      opacity: .4;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 90px;
+      width: 100%;
+      z-index: 5000;
+    }
+
+    .show-title {
+/*      display: inline-block;
+*/      font-size: 30px;
+      // display: none;
+      width: 150px;
+      color: white;
+      text-transform: uppercase;
+      position: absolute;
+      left: 10px;
+      padding: 10px 0px;
+      top: 0px;
+    }
+
+    .browse-by-character {
+      width: 100%;
+      z-index: 5100;
+      position: absolute;
+      top: 0px;
+      left: 10px;
+      font-size: 16px;
+      padding: 0;
+      margin: 0;
+      color: $nearblack;
+
+      > p {
+        padding: 10px 0px 5px;
+        display: inline-block;
+      }
+
+
+      ul#character-thumbnails {
+/*        li:first-child {
+          border-color: yellow;
+        }*/
+        li {
+          display: inline-block;
+          border-style: solid;
+          border-width: 1px; 
+          margin-right: 5px;
+          border-color: white;
+          width: 50px;
+          height: 50px;
+          cursor: pointer;
+          overflow: hidden;
+          img {
+            height: 100%;
+          }
+        }
+      }
+    }
+
+
+    .character-text {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      max-width: 40%;
+      z-index: 5000;
+      text-shadow: 1px 1px $nearblack;
+    }
+  
+    .name {
+      font-size: 30px;
+      width: 100%;
+
+
+      #character {
+        font-weight: bold;
+        display: inline-block;
+        font-family: 'Biko Regular';
+        color: white;
+        font-size: 50px;
+      }
+
+      #actor {
+        display: inline-block;
+        color: white;
+        margin-bottom: 5px;
+      }
+
+    }
+
+    .character-description {
+      font-weight: 600;
+      font-size: 20px;
+      margin: 0px 0px;
+      text-align: left;
+      display: block;
+      color: white; 
+      text-shadow: 1px 1px $nearblack;
+    }
+
+    .frequently-wears {
+      text-align: center;
+      font-weight: 300;
+      font-size: 18px;
+      margin: 30px 0px;
+      color: $nearblack;
+
+
+        ul {
+          li {
+          padding: 5px;
+          text-decoration: underline;
+          }
+        }
+    }
+  }
+
+
+
+  ul.recent-outfits, .movie-outfits {
+    margin-top: 5px;
+    background-color: whitesmoke;
+  
+    .recent-outfit {
+      width: 315px;
+      height: 400px;
+      margin-right: 3px;
+      display: inline-block;
+
+      .recent-outfit-pic {
+        float: left;
+        width: 212px;
+        height: 400px;
+        margin-right: 3px;
+        overflow: hidden;
+        position: relative;
+
+
+        .outfit-description {
+          z-index: 100;
+          position: absolute;
+          bottom: 10px;
+          width: 100%;
+          text-align: center;
+          height:15px;
+          color: white;
+          a {color: white;}
+
+          .episode {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 500;
+          }
+
+        }
+
+        .image-preview {
+          @include overlay;
+          img {
+            min-height: 100%;
+            min-width: 130%;
+            margin-left: -20%;
+          }
+          .product-details-preview {
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+            height: 30px;
+            color: #575757;
+            font-size: 15px;
+            font-weight: 500;
+          }
+        }
+
+        .recent-outfit-image {
+          min-width: 130%;
+          min-height: 100%;
+          margin-left: -30%;
+        }
+        .overlay {
+          @include overlay;
+          background-color: black;
+          opacity: 0.1;
+        }
+      }
+
+      .outfit-product {
+        width: 100px;
+        float: left;
+        overflow: hidden;
+        height: 100px;
+        margin-bottom: 3px;
+        position: relative;
+        img { display: none;}
+        .overlay {
+          @include overlay;
+          background-color: black;
+          opacity: 0.3;
+        }
+      }
+    }
+
+    li.recent-outfit:last-child {
+      margin-right: 0px;
+    }
+
+  }
+  .product-list#character-page {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .product-list {
+    margin: 0px 0px 0px 0px;
+  }
+
+  #sort-by-categories {
+    float: right;
+    text-transform: uppercase;
+    padding: 0px 10px 10px;
+    font-size: 20px; 
+    font-weight: 300;
+    height: 20px;
+    color: gray; 
+    font-family: 'proxima-nova';
+    ul {
+      display: inline-block;
+      padding-left: 20px;
+      li {
+        display: inline;
+        padding-right: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+  
+  .sort-by {
+    display: block;
+    float: none !important;
+  } 
+
+  .sort-by#filter{
+    padding-top: 0px;
+  }
+
+
+.spylight-tooltip-theme {
+  background-color: white;
+  border: 1px solid whitesmoke;
+  color: gray;
+  @include border-radius(5px);
+  display: block;
+}
+
+.spylight-tooltip-theme .tooltipster-content {
+  font-family: 'proxima-nova';
+  font-size: 14px;
+  line-height: 16px;
+  display: block;
+  padding: 8px 10px;
+}
+
+
+.all-items-from-character{
+  margin: 35px 0 15px;
+  font-size: 20px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: gray;
+  text-align: center;
+}
+
+#character-content {
+  border: none;
+  margin-top: -35px;
+}
+
+.filter-option {
+  text-align: center;
+  display: inline-block;
+  clear: both;
+  border: 1px solid lightgray;
+  cursor: pointer;
+  margin: 10px 10px;
+  padding: 10px 20px;
+  background-color: whitesmoke;
+  color: gray;
+}
+
+.flush-left {
+  text-align: left !important;
+  margin: 20px 20px 0px !important;
+}
+
+.center {
+  text-align: center;
+}
+
+#showing-outfits, #showing-products {
+  display: inline-block;
+  font-style: italic;
+  color: gray;
+  margin-left: 10px;
+}
+
+#showing-products {
+  display: none;
+}

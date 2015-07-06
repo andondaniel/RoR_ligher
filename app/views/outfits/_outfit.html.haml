@@ -1,0 +1,8 @@
+%li{style: "display: inline-block"}
+  = link_to outfit_path(:format => :js, :id => outfit.id, :show_id => @show.id), :remote => true do
+    .outfit-details{style: "display: none"}
+      .filter_attributes= outfit.filter_attributes
+    .outfit-image-box
+      = image_tag(outfit.outfit_images.first.avatar.url(:index_size))
+      .character= outfit.character.name
+      .type outfit

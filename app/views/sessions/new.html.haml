@@ -1,0 +1,15 @@
+%h2 Sign in
+.social_sign_in
+  .facebook
+    = link_to "Sign in with Facebook", '/auth/facebook'
+  .register
+    = link_to "Register", new_user_path
+= form_tag sessions_path do
+  .field
+    = label_tag :email
+    = text_field_tag :email, params[:email]
+  .field
+    = label_tag :password
+    = password_field_tag :password
+  .actions
+    = submit_tag "Sign In"

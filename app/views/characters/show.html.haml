@@ -1,0 +1,192 @@
+- title "Spylight |" + " #{@show.name} |" + " #{@character.name}"
+
+// CENTER CONTENT
+.character-page-background{style: "background-color: white; width: 100%"}
+  .about-character
+    .banner-overlay
+    .browse-by-character
+      %p
+        #{@show.name.upcase}: Browse By Character
+        / %i.fa.fa-caret-down
+      %ul#character-thumbnails
+        - @characters.each do |character|
+          %li.tooltip(title="#{character.name.titleize}")
+            - if character.character_images.thumbnail.first
+              = link_to image_tag(character.character_images.thumbnail.first.avatar.url(:small_thumb)), show_character_path(id: character.slug, show_id: @show.slug)
+    .character-text
+      .name
+        #character #{@character.name}
+        #actor (#{@actor})
+      .character-description.noskimwords #{@character_description}
+    .overlay
+    - if @character.character_images.cover.first then
+      = image_tag(@character.character_images.cover.first.avatar.url, :class => "character-photo")
+
+  .product-list.apply-filter#episode-page
+    .all-items-from-character
+      Browse #{@character.first_name}'s Clothes By Episode
+
+    .filter-content#character-content
+      .movie-options-wrap.flush-left
+        .filter-option#filter-episodes
+          Filter By Episode
+          %i.fa.fa-angle-down{style: "margin: 0 0 0 80px"}
+        .episode-filter-background
+          = render :partial => "layouts/episode_filter"
+        .filter-option#open-filter{style: "display: none"}
+          Filter Categories
+          %i.fa.fa-angle-down{style: "margin: 0 0 0 20px"}
+        = render partial: "products/product_filter"
+        / .filter-option.sort#sort-by-price{style: "display: none", :data => {:sort => "price"}}
+        /   Sort By Price
+        /   %i.fa.fa-angle-down{style: "margin: 0 0 0 20px"}
+        #showing-outfits Showing #{@outfits_count} outfits from all episodes
+        #showing-products Showing #{@products_count} products from all episodes
+        .center
+          .show-outfits-or-products#show-outfits SHOW OUTFITS
+          .show-outfits-or-products.nonactive#show-products SHOW PRODUCTS
+      #outfits-list
+        %ul.list
+          - @outfits.each do |outfit|
+            %li{style: "display: inline-block"}
+              = link_to outfit_path(:format => :js, :id => outfit.id, :show_id => @show.id), :remote => true do
+                .outfit-details{style: "display: none"}
+                  .filter_attributes= outfit.filter_attributes
+                .outfit-image-box
+                  = image_tag(outfit.outfit_images.first.avatar.url(:index_size))
+                  .character= outfit.character.name
+                  .type outfit
+          = render :partial => "products/product", :collection => @products.includes(:brand)
+        - if params[:outfit_page] == 1 || params[:product_page] == 1
+          #scroll-prompt
+            %center
+              Scroll down to see more
+
+
+        #more-outfit-loader.display-none
+          %center
+            = image_tag "loadmore.gif"
+
+        #more-product-loader.display-none
+          %center
+            = image_tag "loadmore.gif"
+  // -------
+
+  = hidden_field_tag 'outfit_page', params[:outfit_page]
+  = hidden_field_tag 'product_page', params[:product_page]
+
+#outfit_quick_overview
+
+:javascript
+
+  var outfit_page = 0;
+  var product_page = 0;
+  
+  $(window).scroll(function(){
+    if ( $(window).scrollTop() == $(document).height() - $(window).height()) {
+      if ($('#show-products').hasClass('nonactive')) {
+        if ( ($('#outfit_page').val() == '-1') || ($('#outfit_page').val() == outfit_page) ) return;
+        $('#more-outfit-loader').show();
+        $.ajax({
+          url: "/shows/#{params[:show_id]}/characters/#{params[:id]}?format=js&outfit_page=" + $('#outfit_page').val(),
+          success: function( data ) {
+          }
+        });
+        outfit_page = $('#outfit_page').val();
+      } else {
+        if ( ($('#product_page').val() == '-1') || ($('#product_page').val() == product_page) ) return;
+        $('#more-product-loader').show();
+        $.ajax({
+          url: "/shows/#{params[:show_id]}/characters/#{params[:id]}?format=js&product_page=" + $('#product_page').val(),
+          success: function( data ) {
+          }
+        });
+        product_page = $('#product_page').val();
+      }
+    }
+  });
+
+  $(document).ready(function() {
+    $("ul#show-navigation-top > li").hover(function(){
+        $(this).children("div#slide-top").stop().slideToggle("fast");
+    });
+    
+    $('.tooltip').tooltipster({
+      position: 'bottom',
+      theme: '.spylight-tooltip-theme',
+    });
+  });
+
+  $('#filter-episodes').click(function(){
+    $('.episode-filter-background').slideToggle();
+    $('.filters').hide();
+    $(this).toggleClass("no-bottom-border");
+      var episodeCarousel = $('.episode-carousel').jcarousel({
+          // Core configuration goes here
+      });
+
+
+      $('.episodes-prev').jcarouselControl({
+          target: '-=4',
+          carousel: episodeCarousel
+      });
+
+      $('.episodes-next').jcarouselControl({
+          target: '+=4',
+          carousel: episodeCarousel
+      });
+  });
+  
+  $('#open-filter').click(function(){
+    $(".filters").slideToggle();
+    $('.episode-filter-background').hide();
+    $('#filter-episodes').removeClass("no-bottom-border");
+    $('#open-filter').toggleClass("no-bottom-border");
+  });
+
+  function hideFilter() {
+    setTimeout(
+      function() {
+        if ($('.filters').is(':hover') || $('#open-filter').is(':hover') ) {
+          // do nothing
+        } else {
+           $('.filters').slideUp();
+        }
+      }, 700);
+  }
+
+  $('.recent-outfit-pic').hover(hoverOver, hoverOut);
+
+  function hoverOver() {
+    $(this).find('.overlay').fadeOut();
+    $(this).find('.outfit-description').fadeOut();
+  }
+
+  function hoverOut() {
+    $(this).find('.overlay').fadeIn();
+    $(this).find('.outfit-description').fadeIn();
+  }
+
+  $('.outfit-product').hover(showProduct,hideProduct);
+    function showProduct() {
+      var url = $(this).children('img').attr("src");
+      $(this).parents('.recent-outfit').find('.recent-outfit-pic').children('.overlay').hide();
+      $(this).children('.overlay').hide();
+      $(this).parents('.recent-outfit').find('.recent-outfit-pic').children('.image-preview').children('img').attr('src',url);
+      $(this).parents('.recent-outfit').find('.recent-outfit-pic').children('.image-preview').children('img').fadeIn();
+      var info = $(this).children('.product-info').html();
+      $(this).parents('.recent-outfit').find('.recent-outfit-pic').children('.outfit-description').fadeOut();
+      $(this).parents('.recent-outfit').find('.recent-outfit-pic').children('.image-preview').children('.product-details-preview').append(info);
+    };
+
+
+    function hideProduct() {
+      $(this).parents('.recent-outfit').find('.recent-outfit-pic').children('.image-preview').children('img').attr('src','');
+      $(this).children('.overlay').hide();
+      $('.product-details-preview').empty();
+      $(this).parents('.recent-outfit').find('.recent-outfit-pic').children('.outfit-description').show();
+      $(this).parents('.recent-outfit').find('.recent-outfit-pic').children('.overlay').show();
+    }
+
+    
+

@@ -1,0 +1,6 @@
+.spylight-error-tagline Oops! We can't find what you're looking for.
+.enter-email
+  = form_tag "/search", :class => "waiting_list", method: "get" do
+    = text_field_tag 'search', nil, placeholder: "Try Searching Instead!", class: "placeholder"
+    = button_tag do
+      %i.fa.fa-long-arrow-right

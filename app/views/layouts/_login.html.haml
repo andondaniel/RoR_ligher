@@ -1,0 +1,43 @@
+.close.exit
+  Close
+#login-header
+  = image_tag("loginGraphic.jpg", :id => "loginGraphic")
+  #sign-in-block Sign In
+#fb-sign-in-button
+  %div
+    %i.fa.fa-facebook{style: "margin-left: 15px; margin-right: 30px; display: inline"}
+    %span= link_to "FACEBOOK SIGN IN", '/auth/facebook'
+#orGraphic-div= image_tag("or.png", :id => "orGraphic")
+#email-sign-in
+  %i.fa.fa-envelope-o{style: "margin-right: 30px; display: inline"}
+  %span SIGN IN WITH EMAIL
+
+= form_tag sessions_path, :id => "sign-in-form" do
+  .login-field-block
+    %label.sign-in-form-label{ :for => 'email'} Email
+    %input.sign-in-form-field{ type:'text',
+                                name: 'email',
+                                id: 'email',
+                                autocomplete: 'off' }
+  .login-field-block
+    %label.sign-in-form-label{ :for => 'password' } Password
+    %input.sign-in-form-field{ type: 'password', id: 'password', name: 'password'}
+  .actions
+    = submit_tag("Sign In", :id => "sign-in-submit-btn")
+
+#register-option-block
+  / don't have an account?
+  / %br= link_to "QUICK SIGN UP", new_user_path
+  = link_to home_requestaccess_path(:format=>:js), :remote => true, :class => "exit" do
+    REQUEST EXCLUSIVE ACCESS 
+    %br TO ALL OF SPYLIGHT
+
+
+:javascript
+
+/ this closes the window when a user presses exit
+  $(function() {
+      $('.exit').click(function(e) {
+        return true;
+      });
+    });

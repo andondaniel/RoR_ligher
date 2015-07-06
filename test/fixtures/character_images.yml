@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: character_images
+#
+#  id                  :integer          not null, primary key
+#  url                 :text
+#  alt_text            :string(255)
+#  thumbnail           :boolean
+#  character_id        :integer
+#  created_at          :datetime
+#  updated_at          :datetime
+#  avatar_file_name    :string(255)
+#  avatar_content_type :string(255)
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
+#  cover               :boolean
+#  verified            :boolean
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  url: MyText
+  alt_text: MyString
+  primary: false
+  character_id: 
+
+two:
+  url: MyText
+  alt_text: MyString
+  primary: false
+  character_id: 

@@ -1,0 +1,10 @@
+- if flash[:notice]
+	= flash[:notice]
+
+%h2 Feedback
+
+= semantic_form_for @feedback, url: feedback_url do |f|
+	= f.input :email, label: "Email Address (optional)"
+	= f.input :category, :as => :select, collection: Feedback.feedback_categories, label: "Feedback Type"
+	= f.input :content, label: ""
+	= f.submit "Submit"

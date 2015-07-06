@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+        <ul class='breadcrumb'>
+  <li>
+    <a href='../apidoc.html'>Spylight 1.0</a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>
+    Episodes
+    
+  </li>
+</ul>
+
+<div class='page-header'>
+  <h1>
+    Episodes
+    <br>
+    <small>Episodes grouped by show</small>
+  </h1>
+</div>
+
+  <div>
+<p>The slugs used to identify episodes are of the following format:</p>
+
+<pre>The slug of the associated show, hyphen, the word season, value of the season variable, hyphen, the word episode,  value of the episode_number variable. e.g.,
+new-girl-season1-episode1</pre>
+</div>
+
+  <h2>Supported Formats</h2>
+  json
+
+<div class='accordion' id='accordion'>
+
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/episodes/index.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-index'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/v1/shows/:show_slug/episodes
+          </a><br>
+          <small>Lists all episodes for a given show</small>
+        </h2>
+    </div>
+
+
+    <div id='description-index' class='collapse accordion-body'>
+      
+<p>Returns an Array of all episodes of the selected show. Each episode in the
+array contains nested objects relevant to them. E.g., each episode will
+contain an array of scenes and an array of episode links (links to video
+streams of the episode).</p>
+
+
+        <h3>Supported Formats</h3>
+        json
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">GET /api/v1/shows/new-girl/episodes
+200
+{
+  &quot;episodes&quot;: [
+    {
+      &quot;id&quot;: 8,
+      &quot;name&quot;: null,
+      &quot;season&quot;: 4,
+      &quot;episode_number&quot;: 1,
+      &quot;airdate&quot;: null,
+      &quot;episode_links&quot;: [],
+      &quot;scenes&quot;: []
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;name&quot;: null,
+      &quot;season&quot;: 2,
+      &quot;episode_number&quot;: 8,
+      &quot;airdate&quot;: null,
+      &quot;episode_links&quot;: [],
+      &quot;scenes&quot;: []
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;name&quot;: null,
+      &quot;season&quot;: 2,
+      &quot;episode_number&quot;: 10,
+      &quot;airdate&quot;: null,
+      &quot;episode_links&quot;: [],
+      &quot;scenes&quot;: []
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;name&quot;: null,
+      &quot;season&quot;: 2,
+      &quot;episode_number&quot;: 11,
+      &quot;airdate&quot;: null,
+      &quot;episode_links&quot;: [],
+      &quot;scenes&quot;: []
+    },
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: null,
+      &quot;season&quot;: 2,
+      &quot;episode_number&quot;: 7,
+      &quot;airdate&quot;: null,
+      &quot;episode_links&quot;: [],
+      &quot;scenes&quot;: []
+    }
+  ]
+}</pre>
+
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/episodes/show.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-show'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/v1/shows/:show_slug/episodes/:slug
+          </a><br>
+          <small>Fetches details of a single character</small>
+        </h2>
+    </div>
+
+
+    <div id='description-show' class='collapse accordion-body'>
+      
+
+        <h3>Supported Formats</h3>
+        json
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">GET /api/v1/shows/new-girl/episodes/new-girl-season2-episode7
+200
+{
+  &quot;episode&quot;: {
+    &quot;id&quot;: 1,
+    &quot;name&quot;: null,
+    &quot;season&quot;: 2,
+    &quot;episode_number&quot;: 7,
+    &quot;airdate&quot;: null,
+    &quot;episode_links&quot;: [],
+    &quot;scenes&quot;: []
+  }
+}</pre>
+
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/episodes/create.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-create'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            POST /api/v1/shows/:show_slug/episodes
+          </a><br>
+          <small>Create a new episode</small>
+        </h2>
+    </div>
+
+
+    <div id='description-create' class='collapse accordion-body'>
+      
+<p>Create an episode for a given show. Will return a JSON representation of
+the show for which you just created an episode</p>
+
+
+        <h3>Supported Formats</h3>
+        json
+
+
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>episode </strong><br>
+      <small>
+        optional
+        , nil allowed
+      </small>
+    </td>
+    <td>
+      
+        <br>
+        Value: Must be a Hash
+    </td>
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>episode[name] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Episode&#39;s name</p>
+
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>episode[season] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Season number</p>
+
+        <br>
+        Value: Must be Fixnum.
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>episode[episode_number] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Which episode of a given season it is</p>
+
+        <br>
+        Value: Must be Fixnum.
+    </td>
+  </tr>
+
+  
+
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/episodes/update.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-update'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            PATCH /api/v1/shows/:show_slug/episodes/:slug
+          </a><br>
+          <small>Update an existing episode</small>
+        </h2>
+    </div>
+
+
+    <div id='description-update' class='collapse accordion-body'>
+      
+<p>Used to update an existing episode within a given show. Will return a 204
+response.</p>
+
+
+        <h3>Supported Formats</h3>
+        json
+
+
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>episode </strong><br>
+      <small>
+        optional
+        , nil allowed
+      </small>
+    </td>
+    <td>
+      
+        <br>
+        Value: Must be a Hash
+    </td>
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>episode[name] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Episode&#39;s name</p>
+
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>episode[season] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Season number</p>
+
+        <br>
+        Value: Must be Fixnum.
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>episode[episode_number] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Which episode of a given season it is</p>
+
+        <br>
+        Value: Must be Fixnum.
+    </td>
+  </tr>
+
+  
+
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/episodes/destroy.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-destroy'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            DELETE /api/v1/shows/:show_slug/episodes/:slug
+          </a><br>
+          <small>Delete an existing episode</small>
+        </h2>
+    </div>
+
+
+    <div id='description-destroy' class='collapse accordion-body'>
+      
+<p>Used to delete an existing episode within a given show. Will return a 204
+response.</p>
+
+
+        <h3>Supported Formats</h3>
+        json
+
+
+
+    </div>
+</div>
+
+
+        
+      </div>
+    </div>
+    <hr>
+    <footer>
+</footer>
+  </div>
+  <script type='text/javascript' src='../apidoc/javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../apidoc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../apidoc/javascripts/apipie.js'></script>
+</body>
+</html>

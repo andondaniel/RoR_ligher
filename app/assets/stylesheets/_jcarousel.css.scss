@@ -1,0 +1,176 @@
+/*
+This is the visible area of you carousel.
+Set a width here to define how much items are visible.
+The width can be either fixed in px or flexible in %.
+Position must be relative!
+*/
+.jcarousel {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 745px;
+
+	ul li .main-pic {
+		width: 960px;
+		height: 500px;
+		display: block;
+		overflow: hidden;
+		position: relative;
+		img {
+			width: 100%;
+		}
+	}
+}
+
+
+.outfit-carousel {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+/*
+This is the container of the carousel items.
+You must ensure that the position is relative or absolute and
+that the width is big enough to contain all items.
+*/
+.jcarousel ul {
+	width: 20000em;
+	position: relative;
+
+	/* Optional, required in this case since it's a <ul> element */
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.recent-outfits {
+	width: 20000em;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.movie-outfits {
+	width: 105%;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/*
+These are the item elements. jCarousel works best, if the items
+have a fixed width and height (but it's not required).
+*/
+
+.outfit-carousel li {
+}
+
+.jcarousel li {
+	/* Required only for block elements like <li>'s */
+	float: left;
+	width: 960px;
+	height: 730px;
+	overflow: hidden;
+	position: relative;
+
+	.overlay {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  height: 500px;
+	  width: 100%;
+		background-color: black;	
+		opacity: .3;
+		z-index: 50;
+	}
+
+	.example-items {
+		margin-top: 5px;
+		width: 100%;
+		height: 230px;
+		overflow: hidden;
+
+		.example-item {display: inline;
+			position: relative;
+			width: 235px;
+			margin-right: 5px;
+
+			.overlay {
+				background-color: black;
+				opacity: .3;
+			}
+
+		}
+
+		.example-item-last {
+			margin-right: 0 !important;
+		}
+
+		.example-item:hover .overlay {
+			display:none;
+		}
+		.exampleimage {
+			width: 100%;
+		}
+	}
+}
+
+
+.jcarousel-prev {
+	position: absolute;
+	top: 225px;
+	left: 10px;
+	z-index: 105;
+}
+
+.outfit-control-prev {
+	position: absolute;
+	top: 700px;
+	left: -50px;
+	z-index: 100000;
+	font-size: 100px;
+	color: lightgray;
+}
+
+.jcarousel-next {
+	position: absolute;
+	top: 225px;
+	right: 10px;
+	z-index: 105;
+}
+
+.outfit-control-next {
+	position: absolute;
+	top: 700px;
+	right: -50px;
+	z-index: 100000;
+	font-size: 100px;
+	color: lightgray;
+}
+
+.show-info {
+	color: $yellow;
+	a { color: $yellow;}
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	z-index: 100;
+	font-weight: 500;
+	.network {
+		width: 55px !important;
+	}
+}
+
+.tagline {
+	position: absolute;
+	color: white;
+	font-family: 'Biko Regular';
+	font-size: 60px;
+	text-align: center;
+	line-height: 72px;
+	z-index: 100;
+	width: 500px;
+	left: 230px !important;
+	top: 25% !important;
+}

@@ -1,0 +1,39 @@
+  .all-items-from-category{
+    margin: 0px auto 15px;
+    font-size: 50px;
+    font-weight: 500;
+    color: gray;
+    text-transform: uppercase;
+    padding-top: 20px;
+    text-align: center;
+  }
+
+
+  .category-image-placeholder {
+    width: 200px;
+    height: 220px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    margin-right: 15px;
+    .text {
+      font-family: 'Biko Regular';
+      color: white;
+      z-index: 200;
+      text-align: center;
+      font-size: 40px;
+      @include absolute-center;
+      width: 230px;
+      height: 40px;
+    }
+
+    img { height: 100%; position: absolute; top: 0; left: 0;}
+    .overlay {
+      @include overlay;
+      background-color: black;
+      opacity: 0.3;
+    }
+  }
+
+  .display-none {  }
+

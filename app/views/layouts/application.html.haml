@@ -1,0 +1,135 @@
+!!! 5
+%html
+  %head
+    %meta{:charset => "UTF-8"}
+    %meta{:name => "google-site-verification", :content => "xjJIQ8wCeKqufLjPxMiyTD3P1WSnh7hHeD387v5WSCQ"}
+    %meta{content: "d67d5cbf95ea597e2f21336869359823", name: "p:domain_verify"}
+    %meta{name: "Description", content: "Spylight is a second screen technology that makes content shoppable, enabling viewers to purchase goods and apparel they see on highly popular TV shows."}
+    = favicon_link_tag 'favicon.ico?v=3'
+    = javascript_include_tag "http://use.typekit.net/zgt5esm.js"
+
+    = yield :head
+
+    %script{type:"text/javascript"}
+      try{Typekit.load();}catch(e){}
+
+    = stylesheet_link_tag    "application", media: "all"
+
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+    %title= content_for?(:title) ? content_for(:title) : "Spylight | Shop the screen for exact matches"
+
+  %script{type:"text/javascript"}
+    window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+    appId      : '329559517185226',                        // App ID from the app dashboard
+    status     : true,                                 // Check Facebook Login status
+    xfbml      : true                                  // Look for social plugins on the page
+    });
+    // Additional initialization code such as adding Event Listeners goes here
+    };
+    // Load the SDK asynchronously
+    (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+  
+  %script{type: "text/javascript"}
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44115735-1', 'spylight.com');
+    ga('require', 'displayfeatures');
+    ga('send', 'pageview');
+
+
+  #fb-root
+
+  %body
+    %script{async: "", "data-pin-hover" => "true", src: "//assets.pinterest.com/js/pinit.js", type: "text/javascript"}
+    .log-in-status{style: "display:none"}= @current_user ? "yes" : "no"
+    .wrap
+
+      %header
+        .social
+          %span.social-links
+            %a{href: "https://www.facebook.com/pages/Spylight/147130492137241?sk=timeline"}
+              %i.fa.fa-facebook
+            %a{href: "http://www.pinterest.com/spylightmedia"} 
+              %i.fa.fa-pinterest
+            %a{href: "http://www.twitter.com/spylight"}
+              %i.fa.fa-twitter
+            %a{href: "http://blog.spylight.com"}
+              Lumière
+          %span.log-in
+            - if @current_user
+              = link_to "Sign Out", destroy_session_path
+            - else 
+              %a{style: "cursor: pointer", class: "no-access"} Log In
+
+        .logo= link_to image_tag("SpylightAlternateLogo.png", :id => "nav-logo"), root_path
+
+        / MAIN NAV
+        %ul.main-navigation
+          %li#tv
+            %i.fa.fa-angle-down
+            TV
+          %li#movies
+            %i.fa.fa-angle-down
+            MOVIES
+          %li#categories
+            %i.fa.fa-angle-down
+            PRODUCTS
+          %li#search
+            %i.fa.fa-search
+
+      = render partial: "layouts/searchbox"
+      - if @networks
+        = render partial: "layouts/dropdown"
+      = application_error_messages!
+      = yield
+
+      #quick_overview
+      #mailchimp
+      #requestaccess
+      #login{style: "display:none"}= render :partial => "layouts/login"
+
+      %footer
+        .divider{style: "margin-top: 20px"}
+        %ul.footer-links
+          %li= link_to "Contact/About", about_path
+          / %li The Team
+          %li= link_to "Sign up for latest Spylight News", home_mailchimp_path(:format => :js), :remote => :true
+        .yellow-divider
+        .copyright
+          (c) 2014
+          = image_tag('SpylightAlternateLogo.png')
+
+
+  %analytics
+    = render :partial => "layouts/footer"
+
+
+
+
+
+
+:javascript
+
+/ TODO: Label this code and its functionality
+
+  $(document).on('page:change', function() {
+    return FB.init({
+      status: true,
+      cookie: true,
+      xfbml: true
+    });
+  });

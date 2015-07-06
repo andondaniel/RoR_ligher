@@ -1,0 +1,15 @@
+<div>A new question has been asked:</div>
+<div>
+<%= link_to @question.title, admin_question_path(@question, only_path: false) %>
+</div>
+<div>
+<%= @question.description %>
+</div>
+<div>
+This question was asked by:
+<% if @question.creator %>
+<%= @question.creator.name %>
+<% else %>
+"No Creator Found"
+<% end %>
+</div>

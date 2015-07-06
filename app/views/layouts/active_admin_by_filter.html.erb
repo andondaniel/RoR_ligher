@@ -1,0 +1,99 @@
+<%= yield %>
+<input type='hidden' value="<%= params[:q] %>" id='filter_params'>
+<script>
+$(document).ready(function(){
+	// To convert params string to JSON object
+	if ( $('#filter_params').val() != '')
+		params = JSON.parse($('#filter_params').val().replace(/=>/g, ':'));
+
+	$filter_select2 = $(".filter_select2able");
+	$filter_select2.each(function(i, elm){
+
+		// If multiple is true, to remove one hidden tag of 2 hidden tags
+	  if ( $(elm).siblings(':hidden').size() > 1 )
+	    $(elm).siblings(':hidden').first().remove();
+
+	  // To get information of select tag
+	  source = $(elm).data('source');
+	  multiple = $(elm).attr('multiple') == 'multiple' ? true : false;
+	  placeholder = $(elm).data('placeholder');
+
+	  if (typeof(params) != 'undefined') {
+	  	item = params[$(elm).data('item')];
+	  	if (typeof(item) != 'undefined') {
+		  	if (multiple)
+		  		param = item.join(); 
+		  	else
+		  		param = item;
+		  } else {
+		  	param = '';
+		  }
+	  } else {
+	  	param = '';
+	  }
+
+	  // If multiple is false, to create new hidden tag
+	  if (!multiple) {
+	  	$hidden = $('<input>', {id: $(elm).attr('id'), name: $(elm).attr('name'), type:'hidden'});
+	  	$(elm).parent().append($hidden);	
+	  }
+
+	  $select2 = $(elm).siblings(':hidden');	
+		$select2.val( param );
+
+	  // To remove select tag
+	  $(elm).remove();
+
+	  // To initialize select2
+	  $select2.width('240px');
+	 
+	  $select2.select2({
+	    minimumInputLength: 2,
+	    multiple: multiple,
+	    placeholder: placeholder,
+	    allowClear: true,
+	    ajax: {
+	      url: source,
+	      quietMillis: 100,
+	      dataType: 'json',
+	      data: function(term, page) {
+	        return {
+	          q: term,
+	          page_limit: 10,
+	          page: page
+	        }
+	      },
+	      results: function(data, page) {
+	        var more = (page * 10) < data.total;
+	        return {results: data.records, more: more};
+	      }
+	    },
+	    initSelection : function (element, callback) { 
+	      var result = [];
+
+	      $(element.val().split(',')).each(function (k, v) {
+	        $.ajax({
+	          type: "get",
+	          url: source.replace('search', 'search_by'),
+	          async: false,
+	          dataType: 'json',
+	          data: { id: v},
+	          success: function(data){
+	            if (multiple) { 
+	              result.push({id: data.record.id, text: data.record.text});
+	            } else {
+	            	if ( data.record != null)
+	              	result = { id: data.record.id, text: data.record.text};
+	              else
+	              	result = null;
+	            }
+	          }
+	        });
+	      });
+	      callback(result); 
+	    }
+	  });
+
+	});
+});
+</script>

@@ -1,0 +1,2838 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+        <ul class='breadcrumb'>
+  <li>
+    <a href='../../apidoc.html'>Spylight 1.0</a>
+    <span class='divider'>/</span>
+  </li>
+  <li>
+    <a href='../../apidoc/shows.html'>
+      Shows
+
+    </a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>index</li>
+</ul>
+
+  <div class='page-header'>
+    <h1>
+      GET /api/v1/shows<br>
+      <small>Lists all shows</small>
+    </h1>
+  </div>
+
+<div>
+
+
+<p>Returns an Array of all supported shows. Each show in the array contains
+and id, name, and slug, as well as nested objects relevant to that show.
+E.g., each show lists its characters and episodes.</p>
+
+
+    <h2>Examples</h2>
+      <pre class="prettyprint">GET /api/v1/shows
+200
+{
+  &quot;shows&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;New Girl&quot;,
+      &quot;slug&quot;: &quot;new-girl&quot;,
+      &quot;characters&quot;: [
+        {
+          &quot;id&quot;: 5,
+          &quot;name&quot;: &quot;Nick&quot;,
+          &quot;products&quot;: [
+            {
+              &quot;id&quot;: 24,
+              &quot;name&quot;: &quot;SLIM FLAGSTONE LONG-SLEEVE TEE&quot;,
+              &quot;description&quot;: &quot;We crafted this classic tee in an updated version of our slub cotton—an amazingly soft fabric made from twisted yarns of varying widths that are specially woven to produce a slightly textured look and feel. Not your average tee, its unconventional construction creates a unique \&quot;high-low\&quot; pattern that makes it a wardrobe all-star in any season. Online only.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;slim-flagstone-long-sleeve-tee&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 24,
+                  &quot;price_cents&quot;: 4950,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 55
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 25,
+              &quot;name&quot;: &quot;SLIM-STRAIGHT JEAN IN RESIN CRINKLE WASH&quot;,
+              &quot;description&quot;: &quot;Looking for our vintage slim-straight fit? It&#39;s now called slim-straight. It&#39;s the exact same fit you already know and love—the only thing that&#39;s changed is the name. We wash these jeans with a special treatment to give them a great crinkled look. Since they&#39;re indigo dyed, they&#39;re prone to crocking, or color transfer, so wear (and wash) them with dark colors till they&#39;re worn in.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;slim-straight-jean-in-resin-crinkle-wash&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 25,
+                  &quot;price_cents&quot;: 9600,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 55
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 26,
+              &quot;name&quot;: &quot;LEATHER ROLLER-BUCKLE BELT&quot;,
+              &quot;description&quot;: &quot;Painstakingly crafted right here in the USA, it&#39;s the piece that pulls together every outfit.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;leather-roller-buckle-belt&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 26,
+                  &quot;price_cents&quot;: 5500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 55
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 27,
+              &quot;name&quot;: &quot;Desert Boot-Men&quot;,
+              &quot;description&quot;: &quot;An international cult classic, the iconic men&#39;s Desert® Boot by Clarks Originals® was inspired by crepe-soled boots worn by British officers in World War II. Crafted from natural materials including beeswax leather for supreme comfort, its timeless styling has remained unchanged for over 60 years.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;desert-boot-men&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 27,
+                  &quot;price_cents&quot;: 11999,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 67
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 28,
+              &quot;name&quot;: &quot;BROKEN-IN LONG-SLEEVE TEE&quot;,
+              &quot;description&quot;: &quot;Hard washed for softness and a broken-in appearance, this tee looks and feels like the well-worn favorite you had in college. An exceptionally comfortable layering piece that&#39;s sharp enough to wear on its own, it&#39;s the kind of shirt you can never have too many of.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;broken-in-long-sleeve-tee&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 28,
+                  &quot;price_cents&quot;: 2950,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 55
+                }
+              ]
+            }
+          ],
+          &quot;character_images&quot;: []
+        },
+        {
+          &quot;id&quot;: 4,
+          &quot;name&quot;: &quot;Cece&quot;,
+          &quot;products&quot;: [
+            {
+              &quot;id&quot;: 12,
+              &quot;name&quot;: &quot;&#39;Create&#39; Teardrop Charm&quot;,
+              &quot;description&quot;: &quot;A semiprecious briolette decorates a dreamy silver-washed charm. Choose additional charms and a chain to finalize your custom Dogeared necklace.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;&#39;create&#39;-teardrop-charm&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 12,
+                  &quot;price_cents&quot;: 1500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 59
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 13,
+              &quot;name&quot;: &quot;Parker Wrap Dress - with Zig Zag Beading&quot;,
+              &quot;description&quot;: &quot;Chic chevron is embellished with beads in this color-rich Parker wrap dress. Add delicate golden accessories for a bohemian finish.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;parker-wrap-dress---with-zig-zag-beading&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 13,
+                  &quot;price_cents&quot;: 100,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 57
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 14,
+              &quot;name&quot;: &quot;Bow Clutch&quot;,
+              &quot;description&quot;: &quot;A glittering bow bedecks the front of a sparkle-savvy clutch outfitted with a built-in mirror inside the flap for discreet touch-ups.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;bow-clutch&quot;,
+              &quot;colors&quot;: {
+                &quot;Gray&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 14,
+                  &quot;price_cents&quot;: 100,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 59
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 20,
+              &quot;name&quot;: &quot;Belted Wool Cardigan&quot;,
+              &quot;description&quot;: &quot;A long and drapey open cardigan is gathered with a suede tie belt that subtly defines the shape.\n          Single hook-and-bar closure at neck.\n          Approx. length from shoulder: 38\&quot;.\n          Wool; dry clean.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;belted-wool-cardigan&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 20,
+                  &quot;price_cents&quot;: 100,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 59
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 21,
+              &quot;name&quot;: &quot;Tierna Platform Wedges&quot;,
+              &quot;description&quot;: &quot;An everyday chic platform wedge that will have you looking fashionable in no time.\n- Wedge heel.\n- Patent finish.\n- Round toe and rubber sole.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;tierna-platform-wedges&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 21,
+                  &quot;price_cents&quot;: 100,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 65
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 22,
+              &quot;name&quot;: &quot;We The Free Long Sleeve Cotton Candy Burnout Top&quot;,
+              &quot;description&quot;: &quot;Distressed wash two-tone 3/4-sleeve top. Raw edge hems. Cool rugged and perfectly worn in look and feel. &quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;we-the-free-long-sleeve-cotton-candy-burnout-top&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 22,
+                  &quot;price_cents&quot;: 7800,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 66
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 23,
+              &quot;name&quot;: &quot;Roll Waist Pants&quot;,
+              &quot;description&quot;: &quot;Long, lean stretch-cotton pants are styled with a printed, fold-over waistband, easily adjusted for a high or low rise.\nPattern placement may vary.\nApprox. inseam: 33\&quot;.\nCotton/Lycra® spandex; machine wash.\nBy Hard Tail; made in the USA.\nWomen&#39;s Active &amp; Swim.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;roll-waist-pants&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 23,
+                  &quot;price_cents&quot;: 100,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 59
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 41,
+              &quot;name&quot;: &quot;Shirt&quot;,
+              &quot;description&quot;: &quot;cotton candy burnout top with 3/4 length raglan sleeves and deep scoop neck&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;shirt&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 41,
+                  &quot;price_cents&quot;: 9900,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 70
+                }
+              ]
+            }
+          ],
+          &quot;character_images&quot;: []
+        },
+        {
+          &quot;id&quot;: 3,
+          &quot;name&quot;: &quot;Winston&quot;,
+          &quot;products&quot;: [
+            {
+              &quot;id&quot;: 3,
+              &quot;name&quot;: &quot;Earthkeepers Side Zip Boot with Laces&quot;,
+              &quot;description&quot;: &quot;Black, leather, by Timberland&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;earthkeepers-side-zip-boot-with-laces&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 3,
+                  &quot;price_cents&quot;: 17000,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 59
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 4,
+              &quot;name&quot;: &quot;Harrison Belt&quot;,
+              &quot;description&quot;: &quot;Black dress belt with silver buckle&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;harrison-belt&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 4,
+                  &quot;price_cents&quot;: 7500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 60
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 5,
+              &quot;name&quot;: &quot;Bowery Jean&quot;,
+              &quot;description&quot;: &quot;Bowery jean with 5 pockets; black denim&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;bowery-jean&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 5,
+                  &quot;price_cents&quot;: 100,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 61
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 6,
+              &quot;name&quot;: &quot;C.P.O. Leather Jacket&quot;,
+              &quot;description&quot;: &quot;Leather jacket with snap epaulettes, flap cargo pockets, and concealed zip/snap front closure. &quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;c.p.o.-leather-jacket&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 6,
+                  &quot;price_cents&quot;: 100,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 62
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 7,
+              &quot;name&quot;: &quot;Earthkeepers side zip boot&quot;,
+              &quot;description&quot;: &quot;Side zip leather boot with laces&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;earthkeepers-side-zip-boot&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 7,
+                  &quot;price_cents&quot;: 17000,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 59
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 35,
+              &quot;name&quot;: &quot;VINTAGE POLO&quot;,
+              &quot;description&quot;: &quot;A clean-cut standard that goes with just about anything, the polo has been a men&#39;s wardrobe staple for years. We constructed ours from supersoft cotton to handle the nine-to-five and the five-to-nine with ease. Rock washed for comfort and a lived-in look and feel, it&#39;s cut slimmer than our classic polo but offers a bit more room than our slim fit.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;vintage-polo&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 35,
+                  &quot;price_cents&quot;: 999,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 55
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 36,
+              &quot;name&quot;: &quot;LONG-SLEEVE SLUB CREW NECK&quot;,
+              &quot;description&quot;: &quot;The perfect go-to for laidback days: This long-sleeved tee is lightweight and comfortable, with a crew neckline and slub texture.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;long-sleeve-slub-crew-neck&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 36,
+                  &quot;price_cents&quot;: 11500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 62
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 37,
+              &quot;name&quot;: &quot;SHADOW PLAID BUTTON-DOWN&quot;,
+              &quot;description&quot;: &quot;A super-soft cotton lends incredible comfort to this shadow-plaid button-down shirt, with a single patch pocket on the chest.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;shadow-plaid-button-down&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 37,
+                  &quot;price_cents&quot;: 6900,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 62
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 38,
+              &quot;name&quot;: &quot;Baby Rib Brief&quot;,
+              &quot;description&quot;: &quot;Our version of the traditional brief in untraditional colors.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;baby-rib-brief&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 38,
+                  &quot;price_cents&quot;: 1400,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 56
+                }
+              ]
+            }
+          ],
+          &quot;character_images&quot;: []
+        },
+        {
+          &quot;id&quot;: 2,
+          &quot;name&quot;: &quot;Schmidt&quot;,
+          &quot;products&quot;: [
+            {
+              &quot;id&quot;: 2,
+              &quot;name&quot;: &quot;Brooks Brothers White Shirt&quot;,
+              &quot;description&quot;: &quot;Classic regular fit solid dress shirt with button front and long sleeves. Pure cotton broadcloth. Ainsley collar. Signature shirring at barrel cuffs. Center back pleat. Left chest pocket. Machine wash. Imported. Also available in Traditional, Slim and Extra-Slim fit.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;brooks-brothers-white-shirt&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 2,
+                  &quot;price_cents&quot;: 7950,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 58
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 8,
+              &quot;name&quot;: &quot;Air Adams Cap-Toe Oxford&quot;,
+              &quot;description&quot;: &quot;Black, leather Air Adams Cap-Toe Oxford shoe. &quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;air-adams-cap-toe-oxford&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 8,
+                  &quot;price_cents&quot;: 14994,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 60
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 9,
+              &quot;name&quot;: &quot;Tartan Oxford Cloth Tie&quot;,
+              &quot;description&quot;: &quot;Tartan Oxford Cloth Tie with plaid pattern; Blue and Grey; Cotton&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;tartan-oxford-cloth-tie&quot;,
+              &quot;colors&quot;: {
+                &quot;Gray&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 9,
+                  &quot;price_cents&quot;: 5950,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 55
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 10,
+              &quot;name&quot;: &quot;Classic All-Cotton Regular Fit Solid Dress Shirt&quot;,
+              &quot;description&quot;: &quot;classic regular fit solid dress shirt with button front and long sleeves; cotton; white&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;classic-all-cotton-regular-fit-solid-dress-shirt&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 10,
+                  &quot;price_cents&quot;: 7950,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 58
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 11,
+              &quot;name&quot;: &quot;LUDLOW FIELDING THREE-BUTTON SUIT JACKET IN ENGLISH WOOL&quot;,
+              &quot;description&quot;: &quot;ludlow fielding 2 piece suit with single breasted jacket with notched lapel and matching flat front slacks; navy wool&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;ludlow-fielding-three-button-suit-jacket-in-english-wool&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 11,
+                  &quot;price_cents&quot;: 75000,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 55
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 29,
+              &quot;name&quot;: &quot;Square Buckle Notched Belt&quot;,
+              &quot;description&quot;: &quot;Worn with casual styles, this belt adds a relaxed yet sophisticated look and is a practical wardrobe staple.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;square-buckle-notched-belt&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 29,
+                  &quot;price_cents&quot;: 950,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 55
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 30,
+              &quot;name&quot;: &quot;DOVER POINT  DRESS SHIRT&quot;,
+              &quot;description&quot;: &quot;This modern dress shirt is a solid addition to a workweek wardrobe. Made in our solid stretch cotton poplin.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;dover-point-dress-shirt&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 30,
+                  &quot;price_cents&quot;: 12500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 68
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 31,
+              &quot;name&quot;: &quot;ROADSTER SILK TIE&quot;,
+              &quot;description&quot;: &quot;Sophisticated and sharp, the Roadster tie is made of pure silk and features pin sized dots.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;roadster-silk-tie&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 31,
+                  &quot;price_cents&quot;: 9800,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 68
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 32,
+              &quot;name&quot;: &quot;Air Adams Cap-Toe Oxford&quot;,
+              &quot;description&quot;: &quot;Handcrafted cap-toe oxford constructed of soft, hand-burnished nappa&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;air-adams-cap-toe-oxford&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 32,
+                  &quot;price_cents&quot;: 14994,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 60
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 33,
+              &quot;name&quot;: &quot;Heritage vintage straight chino&quot;,
+              &quot;description&quot;: &quot;Extended tab waist with zip fly closure.\n          Off-seam pockets and coin pocket in front; buttoned flap pockets in back.\n          Our modern, limited-edition Heritage Collection is inspired by our legacy of exploration and discovery, and defined by craftsmanship and authenticity.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;heritage-vintage-straight-chino&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 33,
+                  &quot;price_cents&quot;: 3999,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 69
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 34,
+              &quot;name&quot;: &quot;Buckley Brogue&quot;,
+              &quot;description&quot;: &quot;The Buckley Brogue in bistre is a lace up brogue shoe with classic brogue punch work inspired by a vintage style bought at a London market. This classic style has been constructed using specially sourced leather and designed to provide maximum comfort. Carefully washed and hand burnished for an authentic look, the Buckley Brogue is also available in oxblood and camo .&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;buckley-brogue&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 34,
+                  &quot;price_cents&quot;: 100,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 70
+                }
+              ]
+            }
+          ],
+          &quot;character_images&quot;: []
+        },
+        {
+          &quot;id&quot;: 1,
+          &quot;name&quot;: &quot;Jess&quot;,
+          &quot;products&quot;: [
+            {
+              &quot;id&quot;: 1,
+              &quot;name&quot;: &quot;Ribbed Daily Tank&quot;,
+              &quot;description&quot;: &quot;Tank - calistoga pigment; cotton. 95% Supima Cotton, 5% Lycra Knit. The essential James Perse tank, for daily wear. Fine, ribbed stretch cotton. Length: 26 in.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;ribbed-daily-tank&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 1,
+                  &quot;price_cents&quot;: 4500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 57
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 15,
+              &quot;name&quot;: &quot;Minnie Pant Instretch Twill&quot;,
+              &quot;description&quot;: &quot;A little bit &#39;50s, our Minnie pant is chic and slim-fitting (thanks to a flattering two-way stretch fabric), with an exact-right-length cropped leg.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;minnie-pant-instretch-twill&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 15,
+                  &quot;price_cents&quot;: 8950,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 55
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 16,
+              &quot;name&quot;: &quot;Cece Ballet Flats&quot;,
+              &quot;description&quot;: &quot;Beautifully styled in sumptuous suede (from Italy, of course) and loaded with design details (so they feel as good as they look), these flats feature a cushioned insole for maximum comfort, a rubber sole and a removed shank for maximum flexibility as well as an elasticized topline so they hug your feet just so. Last but not least, we added an interior wedge so you&#39;re not completely one with the ground.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;cece-ballet-flats&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 16,
+                  &quot;price_cents&quot;: 12800,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 55
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 17,
+              &quot;name&quot;: &quot;Hosiery TIghts&quot;,
+              &quot;description&quot;: &quot;Luxury you can feel on the skin…Super-transparent soft tights with incredibly smooth, matt look.\nExcellent stretch and a perfect fit, thanks to the use of double-wrapped elastane in each row\nSoft knitted waistband with the Wolford logo\nBarely visible shadow toe reinforcement\nCotton gusset&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;hosiery-tights&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 17,
+                  &quot;price_cents&quot;: 5500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 63
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 18,
+              &quot;name&quot;: &quot;Classic Crewneck Cardigan (Juniors)&quot;,
+              &quot;description&quot;: &quot;Lithe ribbed trim lines the edges of a soft crewneck cardigan finished with a placket full of tiny buttons.\nFront button closure.\nApprox. length from shoulder: 22\&quot;.\nCotton/other/spandex; machine wash.\nBy BP.; imported.\nBP.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;classic-crewneck-cardigan-(juniors)&quot;,
+              &quot;colors&quot;: {},
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 18,
+                  &quot;price_cents&quot;: 100,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 59
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 19,
+              &quot;name&quot;: &quot;Daytripper Dress&quot;,
+              &quot;description&quot;: &quot;What&#39;s better than a blouse and shirt ensemble? One that only has one zip. LeifNotes&#39; tied twofer is soft, yet structured and easily accessorized.\n          Side pockets\n          Side zip\n          Polyester, rayon, spandex; acetate lining&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;daytripper-dress&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 19,
+                  &quot;price_cents&quot;: 100,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 64
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 39,
+              &quot;name&quot;: &quot;Ted Baker Full Skirt Belted Dress&quot;,
+              &quot;description&quot;: &quot;Ladi belted dress with full skirt and capped sleeves&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;ted-baker-full-skirt-belted-dress&quot;,
+              &quot;colors&quot;: {
+                &quot;Red&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 39,
+                  &quot;price_cents&quot;: 9900,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 57
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 40,
+              &quot;name&quot;: &quot;Long Sleeve Crew Neck&quot;,
+              &quot;description&quot;: &quot;long sleeved shirt with crew neck and 3 shoulder buttons&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;long-sleeve-crew-neck&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 40,
+                  &quot;price_cents&quot;: 9900,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 70
+                }
+              ]
+            }
+          ],
+          &quot;character_images&quot;: []
+        }
+      ],
+      &quot;episodes&quot;: [
+        {
+          &quot;id&quot;: 8,
+          &quot;name&quot;: null,
+          &quot;season&quot;: 4,
+          &quot;episode_number&quot;: 1,
+          &quot;airdate&quot;: null,
+          &quot;episode_links&quot;: [],
+          &quot;scenes&quot;: []
+        },
+        {
+          &quot;id&quot;: 4,
+          &quot;name&quot;: null,
+          &quot;season&quot;: 2,
+          &quot;episode_number&quot;: 8,
+          &quot;airdate&quot;: null,
+          &quot;episode_links&quot;: [],
+          &quot;scenes&quot;: []
+        },
+        {
+          &quot;id&quot;: 3,
+          &quot;name&quot;: null,
+          &quot;season&quot;: 2,
+          &quot;episode_number&quot;: 10,
+          &quot;airdate&quot;: null,
+          &quot;episode_links&quot;: [],
+          &quot;scenes&quot;: []
+        },
+        {
+          &quot;id&quot;: 2,
+          &quot;name&quot;: null,
+          &quot;season&quot;: 2,
+          &quot;episode_number&quot;: 11,
+          &quot;airdate&quot;: null,
+          &quot;episode_links&quot;: [],
+          &quot;scenes&quot;: []
+        },
+        {
+          &quot;id&quot;: 1,
+          &quot;name&quot;: null,
+          &quot;season&quot;: 2,
+          &quot;episode_number&quot;: 7,
+          &quot;airdate&quot;: null,
+          &quot;episode_links&quot;: [],
+          &quot;scenes&quot;: []
+        }
+      ]
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;name&quot;: &quot;White Collar&quot;,
+      &quot;slug&quot;: &quot;white-collar&quot;,
+      &quot;characters&quot;: [
+        {
+          &quot;id&quot;: 14,
+          &quot;name&quot;: &quot;Rebecca&quot;,
+          &quot;products&quot;: [
+            {
+              &quot;id&quot;: 106,
+              &quot;name&quot;: &quot;Black Opaque Tights&quot;,
+              &quot;description&quot;: &quot;Black opaque tights with control top.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;black-opaque-tights&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 106,
+                  &quot;price_cents&quot;: 2800,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 103
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 107,
+              &quot;name&quot;: &quot;Black Kitten Heel Pumps&quot;,
+              &quot;description&quot;: &quot;Black suede pointed-toe kitten heel pumps.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;black-kitten-heel-pumps&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 107,
+                  &quot;price_cents&quot;: 47500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 59
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 108,
+              &quot;name&quot;: &quot;Burgundy Shiny Skinny Jeans&quot;,
+              &quot;description&quot;: &quot;Burgundy coated low-rise skinny jeans.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;burgundy-shiny-skinny-jeans&quot;,
+              &quot;colors&quot;: {
+                &quot;Burgundy&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 108,
+                  &quot;price_cents&quot;: 21900,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 99
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 109,
+              &quot;name&quot;: &quot;Black Scalloped Flats&quot;,
+              &quot;description&quot;: &quot;Black suede ballet flat with scalloped edges.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;black-scalloped-flats&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 109,
+                  &quot;price_cents&quot;: 49500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 98
+                }
+              ]
+            }
+          ],
+          &quot;character_images&quot;: []
+        },
+        {
+          &quot;id&quot;: 13,
+          &quot;name&quot;: &quot;Clinton Jones&quot;,
+          &quot;products&quot;: [
+            {
+              &quot;id&quot;: 70,
+              &quot;name&quot;: &quot;Navy Birdseye Suit&quot;,
+              &quot;description&quot;: &quot;Navy with light blue birdseye 2-piece suit, single-breasted, with two buttons, notched collar, and double vent.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;navy-birdseye-suit&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 70,
+                  &quot;price_cents&quot;: 26999,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 89
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 71,
+              &quot;name&quot;: &quot;Grey Sharkskin Suit&quot;,
+              &quot;description&quot;: &quot;Charcoal grey two-button suit with  self woven detail, grey lining, single vent, and notched collar.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;grey-sharkskin-suit&quot;,
+              &quot;colors&quot;: {
+                &quot;Gray&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 71,
+                  &quot;price_cents&quot;: 27999,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 89
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 72,
+              &quot;name&quot;: &quot;Smooth Leather Belt&quot;,
+              &quot;description&quot;: &quot;Smooth leather belt with no stitching and rectangular metal buckle.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;smooth-leather-belt&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 72,
+                  &quot;price_cents&quot;: 8500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 85
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 73,
+              &quot;name&quot;: &quot;Black Square-toe Lace-ups&quot;,
+              &quot;description&quot;: &quot;Black waterproof calfskin lace-up with square moccasin toe, topstitching and seams down sides.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;black-square-toe-lace-ups&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 73,
+                  &quot;price_cents&quot;: 16500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 79
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 74,
+              &quot;name&quot;: &quot;Brown Belt with Curved Buckle&quot;,
+              &quot;description&quot;: &quot;Brown  feather-edge belt with curved silver buckle.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;brown-belt-with-curved-buckle&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 74,
+                  &quot;price_cents&quot;: 6500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 90
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 75,
+              &quot;name&quot;: &quot;Brown Round-toe Oxfords&quot;,
+              &quot;description&quot;: &quot;Brown leather lace-up with plain toe styling.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;brown-round-toe-oxfords&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 75,
+                  &quot;price_cents&quot;: 16999,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 91
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 101,
+              &quot;name&quot;: &quot;Oxblood Smooth Leather Belt&quot;,
+              &quot;description&quot;: &quot; Smooth oxblood leather with silver square buckle.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;oxblood-smooth-leather-belt&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 101,
+                  &quot;price_cents&quot;: 11000,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 101
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 102,
+              &quot;name&quot;: &quot;Oxblood Round-toe Lace-up Oxfords&quot;,
+              &quot;description&quot;: &quot;Oxblood oxfords with heavy sole and smooth rounded toe.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;oxblood-round-toe-lace-up-oxfords&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 102,
+                  &quot;price_cents&quot;: 14000,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 102
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 103,
+              &quot;name&quot;: &quot;Grey Microcheck Suit&quot;,
+              &quot;description&quot;: &quot;Two-piece two-button light grey micro check nailhead  suit with notched collar, double vents, and flat-front trousers.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;grey-microcheck-suit&quot;,
+              &quot;colors&quot;: {
+                &quot;Gray&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 103,
+                  &quot;price_cents&quot;: 108900,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 58
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 104,
+              &quot;name&quot;: &quot;White and Grey Check Dress Shirt&quot;,
+              &quot;description&quot;: &quot;White button-front dress shirt with grey grid pattern.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;white-and-grey-check-dress-shirt&quot;,
+              &quot;colors&quot;: {
+                &quot;White&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 104,
+                  &quot;price_cents&quot;: 5500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 90
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 105,
+              &quot;name&quot;: &quot;Brown Round-toe Oxfords&quot;,
+              &quot;description&quot;: &quot;Brown leather lace-up with plain toe styling.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;brown-round-toe-oxfords&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 105,
+                  &quot;price_cents&quot;: 16999,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 91
+                }
+              ]
+            }
+          ],
+          &quot;character_images&quot;: []
+        },
+        {
+          &quot;id&quot;: 12,
+          &quot;name&quot;: &quot;Diana Barrigan&quot;,
+          &quot;products&quot;: [
+            {
+              &quot;id&quot;: 68,
+              &quot;name&quot;: &quot;Black maternity tank&quot;,
+              &quot;description&quot;: &quot;Black ribbed maternity tank with scoop neck.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;black-maternity-tank&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 68,
+                  &quot;price_cents&quot;: 2999,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 87
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 69,
+              &quot;name&quot;: &quot;Black Suede Ankle Boot&quot;,
+              &quot;description&quot;: &quot;Black suede ankle boot with inside zipper.  Light wood sole and 3 inch stacked heel.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;black-suede-ankle-boot&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 69,
+                  &quot;price_cents&quot;: 44500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 88
+                }
+              ]
+            }
+          ],
+          &quot;character_images&quot;: []
+        },
+        {
+          &quot;id&quot;: 11,
+          &quot;name&quot;: &quot;Elizabeth Burke&quot;,
+          &quot;products&quot;: [
+            {
+              &quot;id&quot;: 60,
+              &quot;name&quot;: &quot;Tan Snakeskin Clutch&quot;,
+              &quot;description&quot;: &quot;Tan snakeskin leather envelope clutch with rectangle stone closure.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;tan-snakeskin-clutch&quot;,
+              &quot;colors&quot;: {
+                &quot;Tan&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 60,
+                  &quot;price_cents&quot;: 73000,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 82
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 61,
+              &quot;name&quot;: &quot;Indigo skinny jeans&quot;,
+              &quot;description&quot;: &quot;Dark blue denim jeggings, super skinny fit.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;indigo-skinny-jeans&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 61,
+                  &quot;price_cents&quot;: 21800,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 83
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 57,
+              &quot;name&quot;: &quot;Red and Black Top Handle Lizard Satchel&quot;,
+              &quot;description&quot;: &quot;Red, dark red, and black colorblock purse with gold hardware and embossed lizard detail.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;red-and-black-top-handle-lizard-satchel&quot;,
+              &quot;colors&quot;: {
+                &quot;Red&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 57,
+                  &quot;price_cents&quot;: 54500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 80
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 58,
+              &quot;name&quot;: &quot;Teal Fitted Dress&quot;,
+              &quot;description&quot;: &quot;Teal  knee-length fitted dress with teal topstitching, back zipper, square neck with fold details, and overlay shoulders.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;teal-fitted-dress&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 58,
+                  &quot;price_cents&quot;: 228500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 81
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 59,
+              &quot;name&quot;: &quot;Nude Suede Pump&quot;,
+              &quot;description&quot;: &quot;Nude suede pointy-toed pump with patent leather heel&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;nude-suede-pump&quot;,
+              &quot;colors&quot;: {
+                &quot;Nude&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 59,
+                  &quot;price_cents&quot;: 57500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 81
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 62,
+              &quot;name&quot;: &quot;White heathered drop-shoulder cardigan&quot;,
+              &quot;description&quot;: &quot;White cardigan with gray heathering, ribbed pockets and hem, buttonless front, and drop shoulders.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;white-heathered-drop-shoulder-cardigan&quot;,
+              &quot;colors&quot;: {
+                &quot;White&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 62,
+                  &quot;price_cents&quot;: 32500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 62
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 63,
+              &quot;name&quot;: &quot;Taupe Ballet Flats&quot;,
+              &quot;description&quot;: &quot;Taupe leather ballet flats with elastic rim.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;taupe-ballet-flats&quot;,
+              &quot;colors&quot;: {
+                &quot;Tan&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 63,
+                  &quot;price_cents&quot;: 6600,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 84
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 88,
+              &quot;name&quot;: &quot;Nude Suede Pumps&quot;,
+              &quot;description&quot;: &quot;Nude suede pointy-toed pump with patent leather heel&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;nude-suede-pumps&quot;,
+              &quot;colors&quot;: {
+                &quot;Nude&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 88,
+                  &quot;price_cents&quot;: 57500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 81
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 89,
+              &quot;name&quot;: &quot;Tan Snakeskin Clutch&quot;,
+              &quot;description&quot;: &quot;Tan snakeskin leather envelope clutch with rectangle stone closure.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;tan-snakeskin-clutch&quot;,
+              &quot;colors&quot;: {
+                &quot;Tan&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 89,
+                  &quot;price_cents&quot;: 73000,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 82
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 90,
+              &quot;name&quot;: &quot;Orange Silk Blouse&quot;,
+              &quot;description&quot;: &quot;Silk pullover V-neck blouse with three-quarter sleeves.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;orange-silk-blouse&quot;,
+              &quot;colors&quot;: {
+                &quot;Orange&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 90,
+                  &quot;price_cents&quot;: 9750,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 81
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 91,
+              &quot;name&quot;: &quot;White Skinny Jeans&quot;,
+              &quot;description&quot;: &quot;Mid-rise white skinny jean with ankle-length hem with 5-pocket styling and split seam at ankle.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;white-skinny-jeans&quot;,
+              &quot;colors&quot;: {
+                &quot;White&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 91,
+                  &quot;price_cents&quot;: 15800,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 96
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 92,
+              &quot;name&quot;: &quot;Taupe Ballet Flats&quot;,
+              &quot;description&quot;: &quot;Taupe leather ballet flats with elastic rim&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;taupe-ballet-flats&quot;,
+              &quot;colors&quot;: {
+                &quot;Tan&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 92,
+                  &quot;price_cents&quot;: 6600,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 84
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 93,
+              &quot;name&quot;: &quot;White Basic Tank&quot;,
+              &quot;description&quot;: &quot;White cotton knit scoop-neck tank with banded trim.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;white-basic-tank&quot;,
+              &quot;colors&quot;: {
+                &quot;White&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 93,
+                  &quot;price_cents&quot;: 4800,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 97
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 94,
+              &quot;name&quot;: &quot;Gray Fitted Tweed Dress&quot;,
+              &quot;description&quot;: &quot;Gray herringbone tweed fitted v-neck knee-length dress with black patent belt. &quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;gray-fitted-tweed-dress&quot;,
+              &quot;colors&quot;: {
+                &quot;Gray&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 94,
+                  &quot;price_cents&quot;: 139500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 98
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 95,
+              &quot;name&quot;: &quot;Black Collarless Blazer&quot;,
+              &quot;description&quot;: &quot;Long-sleeve black viscose single-breasted blazer with no collar and hook and eye closure.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;black-collarless-blazer&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 95,
+                  &quot;price_cents&quot;: 52519,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 98
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 96,
+              &quot;name&quot;: &quot;Dark Indigo Skinny Jeans&quot;,
+              &quot;description&quot;: &quot;Mid-rise straight-leg jean in dark indigo wash.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;dark-indigo-skinny-jeans&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 96,
+                  &quot;price_cents&quot;: 18900,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 99
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 127,
+              &quot;name&quot;: &quot;White Skinny Jeans&quot;,
+              &quot;description&quot;: &quot;Mid-rise white skinny jean with ankle-length hem with 5-pocket styling and split seam at ankle.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;white-skinny-jeans&quot;,
+              &quot;colors&quot;: {
+                &quot;White&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 127,
+                  &quot;price_cents&quot;: 15800,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 96
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 128,
+              &quot;name&quot;: &quot;Taupe Ballet Flats&quot;,
+              &quot;description&quot;: &quot;Taupe leather ballet flats with elastic rim&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;taupe-ballet-flats&quot;,
+              &quot;colors&quot;: {
+                &quot;Tan&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 128,
+                  &quot;price_cents&quot;: 6600,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 84
+                }
+              ]
+            }
+          ],
+          &quot;character_images&quot;: []
+        },
+        {
+          &quot;id&quot;: 10,
+          &quot;name&quot;: &quot;Mozzie&quot;,
+          &quot;products&quot;: [
+            {
+              &quot;id&quot;: 64,
+              &quot;name&quot;: &quot;Brown tweed suit&quot;,
+              &quot;description&quot;: &quot;Brown plaid tweed two-button suit with double vent and notched collar.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;brown-tweed-suit&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 64,
+                  &quot;price_cents&quot;: 39800,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 69
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 65,
+              &quot;name&quot;: &quot;White Dress Shirt&quot;,
+              &quot;description&quot;: &quot;White cotton self-pinstripe dress shirt.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;white-dress-shirt&quot;,
+              &quot;colors&quot;: {
+                &quot;White&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 65,
+                  &quot;price_cents&quot;: 14500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 85
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 66,
+              &quot;name&quot;: &quot;Brown Wingtips&quot;,
+              &quot;description&quot;: &quot;Tan calfskin wingtip oxford.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;brown-wingtips&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 66,
+                  &quot;price_cents&quot;: 24800,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 60
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 67,
+              &quot;name&quot;: &quot;High-top Boat Sneaker&quot;,
+              &quot;description&quot;: &quot;Brown leather high-top lace-up sneaker with white sole and leather laces.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;high-top-boat-sneaker&quot;,
+              &quot;colors&quot;: {
+                &quot;Tan&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 67,
+                  &quot;price_cents&quot;: 16900,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 86
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 97,
+              &quot;name&quot;: &quot;Solid Black 2-piece Suit&quot;,
+              &quot;description&quot;: &quot;Black two-piece two-button suit with notched collar, double vent, and flat-front trousers.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;solid-black-2-piece-suit&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 97,
+                  &quot;price_cents&quot;: 32900,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 89
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 98,
+              &quot;name&quot;: &quot;White Tuxedo Shirt&quot;,
+              &quot;description&quot;: &quot;Slim-fit point-collar tuxedo shirt with white self-stripe and French cuffs.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;white-tuxedo-shirt&quot;,
+              &quot;colors&quot;: {
+                &quot;White&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 98,
+                  &quot;price_cents&quot;: 14500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 85
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 99,
+              &quot;name&quot;: &quot;Black Lace-up Oxford&quot;,
+              &quot;description&quot;: &quot;Black leather lace-up oxford dress shoe.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;black-lace-up-oxford&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 99,
+                  &quot;price_cents&quot;: 14000,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 100
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 100,
+              &quot;name&quot;: &quot;Black Leather Belt&quot;,
+              &quot;description&quot;: &quot;Black smooth leather and polished rectangular buckle with engraved detail.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;black-leather-belt&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 100,
+                  &quot;price_cents&quot;: 8500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 85
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 129,
+              &quot;name&quot;: &quot;Blue Striped Bathrobe&quot;,
+              &quot;description&quot;: &quot;Navy and white multi pinstripe bathrobe with tie belt.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;blue-striped-bathrobe&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 129,
+                  &quot;price_cents&quot;: 9800,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 107
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 130,
+              &quot;name&quot;: &quot;Terry Mules&quot;,
+              &quot;description&quot;: &quot;Black terry cloth mules.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;terry-mules&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 130,
+                  &quot;price_cents&quot;: 2240,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 108
+                }
+              ]
+            }
+          ],
+          &quot;character_images&quot;: []
+        },
+        {
+          &quot;id&quot;: 9,
+          &quot;name&quot;: &quot;Elizabeth Purse&quot;,
+          &quot;products&quot;: [],
+          &quot;character_images&quot;: []
+        },
+        {
+          &quot;id&quot;: 8,
+          &quot;name&quot;: &quot;Peter Burke&quot;,
+          &quot;products&quot;: [
+            {
+              &quot;id&quot;: 49,
+              &quot;name&quot;: &quot;Grey Canvas Slip-ons&quot;,
+              &quot;description&quot;: &quot;Dusty grey-beige twill slip-ons with white treads.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;grey-canvas-slip-ons&quot;,
+              &quot;colors&quot;: {
+                &quot;Gray&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 49,
+                  &quot;price_cents&quot;: 12500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 77
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 50,
+              &quot;name&quot;: &quot;Charcoal Birdseye Suit&quot;,
+              &quot;description&quot;: &quot;Two-piece, two-button charcoal suit in  light grey birdseye with notched collar.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;charcoal-birdseye-suit&quot;,
+              &quot;colors&quot;: {
+                &quot;Gray&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 50,
+                  &quot;price_cents&quot;: 169500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 57
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 51,
+              &quot;name&quot;: &quot;Black Belt with Silver Buckle&quot;,
+              &quot;description&quot;: &quot;Milgrain reversible black leather belt with pewter buckle.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;black-belt-with-silver-buckle&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 51,
+                  &quot;price_cents&quot;: 1798,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 78
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 52,
+              &quot;name&quot;: &quot;Black \&quot;Hutchins\&quot; Cap-toed Oxfords&quot;,
+              &quot;description&quot;: &quot;Black French calfskin cap-toe oxford with full leather linings.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;black-\&quot;hutchins\&quot;-cap-toed-oxfords&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 52,
+                  &quot;price_cents&quot;: 25000,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 79
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 53,
+              &quot;name&quot;: &quot;Light Blue Striped Dress Shirt&quot;,
+              &quot;description&quot;: &quot;Light blue textured button-front dress shirt with thin white textured stripes.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;light-blue-striped-dress-shirt&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 53,
+                  &quot;price_cents&quot;: 9200,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 58
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 54,
+              &quot;name&quot;: &quot;Grey Pinstripe Suit&quot;,
+              &quot;description&quot;: &quot;Medium grey pinstripe two-piece two-button suit in twill.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;grey-pinstripe-suit&quot;,
+              &quot;colors&quot;: {
+                &quot;Gray&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 54,
+                  &quot;price_cents&quot;: 129800,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 58
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 55,
+              &quot;name&quot;: &quot;Light Blue Polo&quot;,
+              &quot;description&quot;: &quot;Light blue cotton slub polo with two buttons.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;light-blue-polo&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 55,
+                  &quot;price_cents&quot;: 4250,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 55
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 56,
+              &quot;name&quot;: &quot;Faded Denim Jeans&quot;,
+              &quot;description&quot;: &quot;Traditional five pocket styling, relaxed fit denim jean.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;faded-denim-jeans&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 56,
+                  &quot;price_cents&quot;: 8950,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 69
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 77,
+              &quot;name&quot;: &quot;Oxblood Belt&quot;,
+              &quot;description&quot;: &quot;Oxblood leather with gold buckle.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;oxblood-belt&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 77,
+                  &quot;price_cents&quot;: 9800,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 58
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 78,
+              &quot;name&quot;: &quot;Pale-sole leather captoe oxford &quot;,
+              &quot;description&quot;: &quot;Oxblood leather captoe with tan sole.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;pale-sole-leather-captoe-oxford&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 78,
+                  &quot;price_cents&quot;: 18600,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 92
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 79,
+              &quot;name&quot;: &quot;White and blue check dress shirt&quot;,
+              &quot;description&quot;: &quot;White button-front shirt with light blue pinstripe medium check.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;white-and-blue-check-dress-shirt&quot;,
+              &quot;colors&quot;: {
+                &quot;White&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 79,
+                  &quot;price_cents&quot;: 9200,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 58
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 80,
+              &quot;name&quot;: &quot;Teal Crew Neck Tee&quot;,
+              &quot;description&quot;: &quot;Short-sleeve crew neck cotton tee in faded teal.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;teal-crew-neck-tee&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 80,
+                  &quot;price_cents&quot;: 2450,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 55
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 81,
+              &quot;name&quot;: &quot;Faded Straight Leg Jeans&quot;,
+              &quot;description&quot;: &quot;Straight fit jeans in distressed mid-weight denim.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;faded-straight-leg-jeans&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 81,
+                  &quot;price_cents&quot;: 4400,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 93
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 82,
+              &quot;name&quot;: &quot;Navy Lightweight Jacket&quot;,
+              &quot;description&quot;: &quot;Waterproof lightweight cotton jacket with front pockets and zip-up closure.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;navy-lightweight-jacket&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 82,
+                  &quot;price_cents&quot;: 42500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 62
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 83,
+              &quot;name&quot;: &quot;Dark Brown Suede Desert Boots&quot;,
+              &quot;description&quot;: &quot;Chocolate suede lace-up desert boots with crepe sole.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;dark-brown-suede-desert-boots&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 83,
+                  &quot;price_cents&quot;: 11900,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 67
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 84,
+              &quot;name&quot;: &quot;Blue Striped PJ Pant&quot;,
+              &quot;description&quot;: &quot;Blue vertical multi-stripe lightweight cotton drawstring pajama pants.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;blue-striped-pj-pant&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 84,
+                  &quot;price_cents&quot;: 14800,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 94
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 85,
+              &quot;name&quot;: &quot;Straight- fit Faded Indigo Jean&quot;,
+              &quot;description&quot;: &quot;Straight fit jean with traditional 5-pocket styling.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;straight--fit-faded-indigo-jean&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 85,
+                  &quot;price_cents&quot;: 8950,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 69
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 86,
+              &quot;name&quot;: &quot;Black Pinstripe Check White Dress Shirt&quot;,
+              &quot;description&quot;: &quot;White button-front dress shirt with black and charcoal pinstripe check pattern.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;black-pinstripe-check-white-dress-shirt&quot;,
+              &quot;colors&quot;: {
+                &quot;White&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 86,
+                  &quot;price_cents&quot;: 9200,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 58
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 87,
+              &quot;name&quot;: &quot;Navy Virgin Wool Suit&quot;,
+              &quot;description&quot;: &quot;Classic fit wool two-piece two-button suit with straight-leg flat-front trousers and tailored jacket.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;navy-virgin-wool-suit&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 87,
+                  &quot;price_cents&quot;: 119500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 95
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 116,
+              &quot;name&quot;: &quot;Oxblood Belt&quot;,
+              &quot;description&quot;: &quot;Oxblood leather with gold buckle.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;oxblood-belt&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 116,
+                  &quot;price_cents&quot;: 9800,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 58
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 117,
+              &quot;name&quot;: &quot;Black Belt with Silver Buckle&quot;,
+              &quot;description&quot;: &quot;Milgrain reversible black leather belt with pewter buckle.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;black-belt-with-silver-buckle&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 117,
+                  &quot;price_cents&quot;: 1798,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 78
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 118,
+              &quot;name&quot;: &quot;Black Leather Wingtips&quot;,
+              &quot;description&quot;: &quot;Black leather wingtips with fancy punched brogue.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;black-leather-wingtips&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 118,
+                  &quot;price_cents&quot;: 10995,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 92
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 119,
+              &quot;name&quot;: &quot;Light Blue Dress Shirt&quot;,
+              &quot;description&quot;: &quot;Light blue button-front dress shirt with modified point collar and barrel cuffs.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;light-blue-dress-shirt&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 119,
+                  &quot;price_cents&quot;: 9500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 85
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 120,
+              &quot;name&quot;: &quot;Straight- fit Faded Indigo Jean&quot;,
+              &quot;description&quot;: &quot;Straight fit jean with traditional 5-pocket styling.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;straight--fit-faded-indigo-jean&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 120,
+                  &quot;price_cents&quot;: 8950,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 69
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 121,
+              &quot;name&quot;: &quot;Dark Brown Suede Desert Boots&quot;,
+              &quot;description&quot;: &quot;Chocolate suede lace-up desert boots with crepe sole.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;dark-brown-suede-desert-boots&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 121,
+                  &quot;price_cents&quot;: 11900,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 67
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 122,
+              &quot;name&quot;: &quot;White and blue check dress shirt&quot;,
+              &quot;description&quot;: &quot;White button-front shirt with light blue pinstripe medium check.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;white-and-blue-check-dress-shirt&quot;,
+              &quot;colors&quot;: {
+                &quot;White&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 122,
+                  &quot;price_cents&quot;: 9200,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 58
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 123,
+              &quot;name&quot;: &quot;Brown Calfskin Buckle Belt&quot;,
+              &quot;description&quot;: &quot;Calfskin belt with silver rounded buckle.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;brown-calfskin-buckle-belt&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 123,
+                  &quot;price_cents&quot;: 12500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 106
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 124,
+              &quot;name&quot;: &quot;Captoe Leather Oxfords&quot;,
+              &quot;description&quot;: &quot;Brown leather captoe oxfords with subtle topstitching.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;captoe-leather-oxfords&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 124,
+                  &quot;price_cents&quot;: 10995,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 92
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 125,
+              &quot;name&quot;: &quot;Charcoal Pinstripe Suit&quot;,
+              &quot;description&quot;: &quot;Charcoal grey two-piece suit with thin grey pinstripe.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;charcoal-pinstripe-suit&quot;,
+              &quot;colors&quot;: {
+                &quot;Gray&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 125,
+                  &quot;price_cents&quot;: 210000,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 58
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 126,
+              &quot;name&quot;: &quot;Pale-sole leather captoe oxford &quot;,
+              &quot;description&quot;: &quot;Oxblood leather captoe with tan sole.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;pale-sole-leather-captoe-oxford&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 126,
+                  &quot;price_cents&quot;: 18600,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 92
+                }
+              ]
+            }
+          ],
+          &quot;character_images&quot;: []
+        },
+        {
+          &quot;id&quot;: 6,
+          &quot;name&quot;: &quot;Neal Caffrey&quot;,
+          &quot;products&quot;: [
+            {
+              &quot;id&quot;: 43,
+              &quot;name&quot;: &quot;Black Wingtips&quot;,
+              &quot;description&quot;: &quot;Black point-toed wingtips with fancy brogue and cap toe.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;black-wingtips&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 43,
+                  &quot;price_cents&quot;: 29900,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 71
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 44,
+              &quot;name&quot;: &quot;Oxblood Lace-Ups&quot;,
+              &quot;description&quot;: &quot;Smooth leather five-eye balmoral with perforated square cap toe and trim. Grooved welt and stacked leather sole.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;oxblood-lace-ups&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 44,
+                  &quot;price_cents&quot;: 45500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 72
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 45,
+              &quot;name&quot;: &quot;London Grey Check Suit&quot;,
+              &quot;description&quot;: &quot;Two-piece, two-button blue and grey suit with wide windowpane check. Contrast buttons on front fastening and cuffs. From  the Willoughby collection, Paul Smith London range,&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;london-grey-check-suit&quot;,
+              &quot;colors&quot;: {
+                &quot;Gray&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 45,
+                  &quot;price_cents&quot;: 51012,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 73
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 46,
+              &quot;name&quot;: &quot;Chocolate Suede Belt&quot;,
+              &quot;description&quot;: &quot;Rich brown suede belt with dark silver rounded buckle.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;chocolate-suede-belt&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 46,
+                  &quot;price_cents&quot;: 32000,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 74
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 47,
+              &quot;name&quot;: &quot;White tank&quot;,
+              &quot;description&quot;: &quot;White ribbed A-line tank.\n&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;white-tank&quot;,
+              &quot;colors&quot;: {
+                &quot;White&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 47,
+                  &quot;price_cents&quot;: 1200,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 75
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 48,
+              &quot;name&quot;: &quot;Grey  suede loafers&quot;,
+              &quot;description&quot;: &quot;Grey suede penny loafers with round moccasin-stitched toe and penny strap across toes. Leather lined and oiled heel and toe.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;grey-suede-loafers&quot;,
+              &quot;colors&quot;: {
+                &quot;Gray&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 48,
+                  &quot;price_cents&quot;: 19619,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 76
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 76,
+              &quot;name&quot;: &quot;Black Wingtips&quot;,
+              &quot;description&quot;: &quot;Black point-toed wingtips with fancy brogue and cap toe.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;black-wingtips&quot;,
+              &quot;colors&quot;: {
+                &quot;Black&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 76,
+                  &quot;price_cents&quot;: 29999,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 71
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 110,
+              &quot;name&quot;: &quot;White tank&quot;,
+              &quot;description&quot;: &quot;White ribbed A-line tank.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;white-tank&quot;,
+              &quot;colors&quot;: {
+                &quot;White&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 110,
+                  &quot;price_cents&quot;: 1200,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 75
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 111,
+              &quot;name&quot;: &quot;Storm Blue Cotton Chinos&quot;,
+              &quot;description&quot;: &quot;Stretch cotton 5 pocket chinos in grey wash with blue undertones.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;storm-blue-cotton-chinos&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 111,
+                  &quot;price_cents&quot;: 18500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 76
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 112,
+              &quot;name&quot;: &quot;Oxblood Leather Captoe&quot;,
+              &quot;description&quot;: &quot;Smooth leather stitched cap toe six-eye balmoral with hammered welt. Tonal logo-debossed leather sole.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;oxblood-leather-captoe&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 112,
+                  &quot;price_cents&quot;: 55000,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 72
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 113,
+              &quot;name&quot;: &quot;Cornflower Blue Polo&quot;,
+              &quot;description&quot;: &quot;Cornflower blue sweater-knit short-sleeve cotton pique polo with star embroidery in slim fit.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;cornflower-blue-polo&quot;,
+              &quot;colors&quot;: {
+                &quot;Blue&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 113,
+                  &quot;price_cents&quot;: 46000,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 104
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 114,
+              &quot;name&quot;: &quot;Navy Seersucker Plaid Suit&quot;,
+              &quot;description&quot;: &quot;Two-piece, two-button navy seersucker weave suit with light grey windowpane plaid patterning.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;navy-seersucker-plaid-suit&quot;,
+              &quot;colors&quot;: {
+                &quot;Gray&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 114,
+                  &quot;price_cents&quot;: 189500,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 61
+                }
+              ]
+            },
+            {
+              &quot;id&quot;: 115,
+              &quot;name&quot;: &quot;Woven Leather Belt&quot;,
+              &quot;description&quot;: &quot;Handcrafted braided Italian leather belt with pewter buckle.&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;woven-leather-belt&quot;,
+              &quot;colors&quot;: {
+                &quot;Brown&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 115,
+                  &quot;price_cents&quot;: 48000,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 105
+                }
+              ]
+            }
+          ],
+          &quot;character_images&quot;: []
+        }
+      ],
+      &quot;episodes&quot;: [
+        {
+          &quot;id&quot;: 10,
+          &quot;name&quot;: null,
+          &quot;season&quot;: 5,
+          &quot;episode_number&quot;: 5,
+          &quot;airdate&quot;: null,
+          &quot;episode_links&quot;: [],
+          &quot;scenes&quot;: []
+        },
+        {
+          &quot;id&quot;: 9,
+          &quot;name&quot;: null,
+          &quot;season&quot;: 5,
+          &quot;episode_number&quot;: 7,
+          &quot;airdate&quot;: null,
+          &quot;episode_links&quot;: [],
+          &quot;scenes&quot;: []
+        },
+        {
+          &quot;id&quot;: 7,
+          &quot;name&quot;: null,
+          &quot;season&quot;: 5,
+          &quot;episode_number&quot;: 1,
+          &quot;airdate&quot;: null,
+          &quot;episode_links&quot;: [],
+          &quot;scenes&quot;: []
+        },
+        {
+          &quot;id&quot;: 5,
+          &quot;name&quot;: null,
+          &quot;season&quot;: 1,
+          &quot;episode_number&quot;: 4,
+          &quot;airdate&quot;: null,
+          &quot;episode_links&quot;: [],
+          &quot;scenes&quot;: []
+        }
+      ]
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;name&quot;: &quot;How I Met Your Mother&quot;,
+      &quot;slug&quot;: &quot;how-i-met-your-mother&quot;,
+      &quot;characters&quot;: [
+        {
+          &quot;id&quot;: 7,
+          &quot;name&quot;: &quot;Barney Stinson&quot;,
+          &quot;products&quot;: [
+            {
+              &quot;id&quot;: 42,
+              &quot;name&quot;: &quot;The Gray Suitjamas&quot;,
+              &quot;description&quot;: &quot;The Gray Suitjamas&quot;,
+              &quot;approved&quot;: null,
+              &quot;slug&quot;: &quot;the-gray-suitjamas&quot;,
+              &quot;colors&quot;: {
+                &quot;Gray&quot;: null
+              },
+              &quot;product_images&quot;: [],
+              &quot;product_sources&quot;: [
+                {
+                  &quot;id&quot;: 42,
+                  &quot;price_cents&quot;: 8995,
+                  &quot;price_currency&quot;: &quot;USD&quot;,
+                  &quot;status&quot;: null,
+                  &quot;store_id&quot;: 70
+                }
+              ]
+            }
+          ],
+          &quot;character_images&quot;: []
+        }
+      ],
+      &quot;episodes&quot;: [
+        {
+          &quot;id&quot;: 6,
+          &quot;name&quot;: null,
+          &quot;season&quot;: 1,
+          &quot;episode_number&quot;: 1,
+          &quot;airdate&quot;: null,
+          &quot;episode_links&quot;: [],
+          &quot;scenes&quot;: []
+        }
+      ]
+    }
+  ]
+}</pre>
+
+    <h2>Supported Formats</h2>
+    json
+
+
+</div>
+
+
+
+      </div>
+    </div>
+    <hr>
+    <footer>
+</footer>
+  </div>
+  <script type='text/javascript' src='../../apidoc/javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/apipie.js'></script>
+</body>
+</html>

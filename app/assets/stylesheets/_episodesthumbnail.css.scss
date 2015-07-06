@@ -1,0 +1,94 @@
+
+
+
+#selected-episode {
+  position: relative;
+  color: $nearblack;
+  a {color: $nearblack;}
+}
+
+#selected-episode:after {
+  content: "";
+  position: absolute;
+  bottom: -10px; /* value = - border-top-width - border-bottom-width */
+  left: 100px; /* controls horizontal position */
+  border-width: 15px 15px 0; /* vary these values to change the angle of the vertex */
+  border-style: solid;
+  border-color: whitesmoke transparent;
+  /* reduce the damage in FF3.0 */
+    display: block;
+    width: 0;
+    z-index: 800;
+}
+
+
+
+.episode-thumbnail {
+  width: 100%;
+  background-color: $nearblack;
+/*  border-width: 2px;
+  border-style: solid;
+  border-color: white;*/
+  height: 100%;
+  margin: 0 10px 10px 0;
+
+  .episode-pic {
+    width: 100%;
+    height: 100px;
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+
+    #episode-pic {
+    width: 100%;
+    }
+
+    .latest-episode {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 10%;
+      background-color: $nearblack;
+      padding: 3% 0;
+      opacity: .7;
+      color: $yellow;
+      width: 100%;
+      font-weight: 500;
+    }
+  }
+
+  .episode-pic:hover .episode-overlay {
+    display: none;
+  }
+
+  .thumbnail-footer {
+    display: block;
+    width: 100%;
+    padding: 5px 0px;
+    background-color: whitesmoke;
+    font-family: 'proxima-nova';
+    font-size: 15px;
+    color: #575757;
+
+    .episode-number {
+      font-weight: 500;
+    }
+    .episode-title {
+      font-size: 15px;
+      height: 15px;
+      width: 90%;
+      color: #575757;
+      font-weight: 300;
+      margin: 0 auto;
+      @include truncate;
+    }
+
+  }
+}
+
+#bacheloretteparty {
+  border-width: 3px;
+  border-style: solid;
+  border-color: $yellow;
+}

@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: episode_links
+#
+#  id         :integer          not null, primary key
+#  url        :text
+#  title      :string(255)
+#  alt_text   :string(255)
+#  episode_id :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  url: MyText
+  title: MyString
+  alt_text: MyString
+  episode_id: 
+
+two:
+  url: MyText
+  title: MyString
+  alt_text: MyString
+  episode_id: 

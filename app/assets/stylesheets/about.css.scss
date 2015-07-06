@@ -1,0 +1,72 @@
+.about-spylight {
+	font-family: 'Lavanderia Sturdy';
+	font-size: 70px;
+	color: gray;
+	margin-bottom: 30px;
+	display: inline-block;
+	z-index: 100000;
+}
+
+
+.hiring {
+	float: right;
+	text-align: center;
+	margin: -100px -60px 0 0;
+	height: 175px;
+	border-radius: 50%;
+	color: white;
+	position: relative;
+	background-color: $yellow;
+	width: 175px;
+	a {color: white;}
+	a:hover{font-style: normal;color: white;}
+
+	div {
+		@include absolute-center;
+		height: 65px;
+		width: 135px;
+	}
+}
+
+.about-content-wrapper {
+	background-color: white;
+	margin-top: 0px;
+	padding: 20px 25px;
+	color: #646464;
+
+	.promo-pic {
+		width: 49%;
+		z-index: 1000;
+		margin-bottom: 15px;
+		height: 273px;
+
+		display: inline-block;
+		overflow: hidden;
+		position: relative;
+		img {
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+		}
+	}
+
+	.connect-with-spylight {
+		margin-top: 30px;
+		text-transform: uppercase;
+		text-align: center;
+
+		.social-links {
+			margin-top: 15px;
+		}
+
+		.social-link {
+			display: inline-block;
+			background-color: $nearblack;
+			color: white;
+			margin-right: 10px;
+			a {color: white;}
+			a:hover {color: $yellow}
+			padding: 5px 10px;
+		}
+	}
+}

@@ -1,0 +1,185 @@
+// ---------------------------------------------------------------------------
+// Basic Grid
+
+$total-columns  : 12;
+$column-width   : 4em;
+$gutter-width   : 1em;
+$grid-padding   : $gutter-width;
+
+$show-grid-backgrounds  : false;
+
+
+
+// Basic Stuff
+
+a {
+  text-decoration: none;
+}
+
+
+body {
+  // page acts as a container for our grid.
+  @include susy-grid-background;
+
+  //default font is Proxima Nova
+  font-family: 'proxima-nova';
+
+  // header and footer are full-width by default.
+  header, footer { clear: both;  }
+
+  position: relative;
+  background-color: whitesmoke;
+  border-top: 5px solid $yellow;
+
+  a { color: black;}
+  a:hover { color: $yellow ;}
+
+}
+
+.wrap {
+  width: 960px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.display-none {
+  display: none;
+}
+
+
+header {
+
+  .fa.fa-angle-down {
+    color: lightgray;
+  }
+
+  .social {
+
+    width: 100%;
+    margin: 10px 0;
+
+    .social-links {
+      float: left;
+      .fa { display: inline; 
+        margin-right: 20px;}
+    }
+
+    .log-in {
+      float: right;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+  }
+
+  .logo {
+    width: 100%;
+    padding-top: 30px;
+
+    #nav-logo {
+      width: 170px;
+      margin: 0px auto;
+      display: block;
+    }
+    
+  }
+
+
+  ul.main-navigation {
+    display: block;
+    font-size: 18px;
+    margin: 20px auto 10px;
+    text-align: center;
+    color: $nearblack;
+    font-weight: 300;
+    text-transform: uppercase;
+    
+    li:first-child {
+      display: inline;
+      margin: 0;
+    }
+
+    li { 
+      margin-left: 20px;
+      cursor: pointer;
+      padding: 10px;
+      display: inline;
+    }
+
+    li.active {
+      color: $yellow;
+    }
+  }
+
+
+
+}
+
+
+footer {
+  ul.footer-links {
+    margin: 20px 0 15px;
+    font-size: 12px;
+    text-transform: uppercase;
+
+    li {
+      display: inline;
+      margin-right: 50px;
+    }
+  }
+
+  .yellow-divider {
+    height: 5px;
+    background-color: $yellow;
+    width: 100%;
+  }
+
+  .copyright {
+    margin: 10px auto;
+    font-size: 12px;
+    width: 90px;
+    img {
+      width: 45px;
+      margin-bottom: -5px;
+    }
+  }
+}
+
+
+/* Bubble with an isoceles triangle
+------------------------------------------ */
+.triangle {
+  position: relative;
+  padding: 15px;
+  margin: 1em 0 3em;
+  // border: 1px solid $nearblack;
+  // background: #fff;
+}
+
+// .triangle:after {
+//   content: "";
+//   position: absolute;
+//   bottom: -9px;
+//   // left: 66px;
+//   border-width: 9px 9px 0;
+//   border-style: solid;
+//   border-color: lightgray transparent;
+//   display: block;
+//   width: 0;
+// }
+
+.triangle:before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 85px;
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: lightgray transparent;
+  display: block;
+  width: 0;
+}
+
+.pibfi_pinterest .xc_pin {
+  background-image: image-url("pinitbutton.png");
+}

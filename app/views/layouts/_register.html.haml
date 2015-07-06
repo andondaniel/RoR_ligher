@@ -1,0 +1,31 @@
+.close
+  Close
+#login-header
+  = image_tag("loginGraphic.jpg", :id => "loginGraphic")
+  #sign-in-block Sign Up With Spylight
+#fb-sign-in-button
+  %div{style: "width:220px"}
+    %i.fa.fa-facebook{style: "margin-left: 15px; margin-right: 30px; display: inline"}
+    %span= link_to "FACEBOOK SIGN UP", '/auth/facebook'
+#orGraphic-div= image_tag("or.png", :id => "orGraphic")
+#email-sign-in
+  %i.fa.fa-envelope-o{style: "margin-right: 30px; display: inline"}
+  %span SIGN UP WITH EMAIL
+
+= form_tag users_path, :id => "sign-in-form" do
+  .login-field-block
+    %label.sign-in-form-label{ :for => 'email' } Email
+    %input.sign-in-form-field{ type:'text',
+                                name: 'email',
+                                id: 'email',
+                                autocomplete: 'off' }
+  .login-field-block
+    %label.sign-in-form-label{ :for => 'password' } Password
+    %input.sign-in-form-field{ type: 'password', id: 'password', name: 'password'}
+  .actions
+    = submit_tag("Sign Up!", :id => "sign-in-submit-btn", :style => "cursor: pointer")
+
+
+#register-option-block
+  already have an account?
+  %br= link_to "SIGN IN", new_session_path

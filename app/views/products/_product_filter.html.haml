@@ -1,0 +1,45 @@
+%span.sort-by#filter
+  %span#filter-list
+  .filters{data: {categories: @b_array.to_json(only: [ :id, :name ])}}
+    / append data attribute here (JSON version of @b_array (category array))
+    / #filter-type
+    /   - if @gendercount.length > 0
+    /     %div{style: "display: inline-block; width: 125px"} SEX
+    /   - if @categorycount.length > 0
+    /     %div{style: "display: inline-block; width: 265px"} PRODUCT CATEGORY
+    /   - if (@character.nil? && @charactercount.length > 0)
+    /     %div{style: "display: inline-block; width: 200px"} CHARACTER
+    - if @gendercount.length > 0
+      %ul#gender
+        - @gendercount.each do |gender, number|
+          %li
+            %span.filter-button #{gender.titleize}
+            %span#category-count (#{number})
+    -if @categorycount.length > 10
+      %ul#category-1
+        -@categorycount.shift(7).each do |category, number|
+          %li
+            %span.filter-button #{category.titleize}
+            %span#category-count (#{number})
+      %ul#category-2
+        - @categorycount.shift(7).each do |category, number|
+          %li
+            %span.filter-button #{category.titleize}
+            %span#category-count (#{number})
+    -else
+      %ul#category-1{style: "width: 260px"}
+        -@categorycount.each do |category, number|
+          %li
+            %span.filter-button #{category.titleize}
+            %span#category-count (#{number})
+    - unless @character
+      %ul#character
+        -@charactercount.shift(7).each do |character, number|
+          %li
+            %span.filter-button #{character.titleize}
+            %span#category-count (#{number})
+      %ul#character-2
+        -@charactercount.shift(7).each do |character, number|
+          %li
+            %span.filter-button #{character.titleize}
+            %span#category-count (#{number})

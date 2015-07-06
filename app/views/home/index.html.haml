@@ -1,0 +1,182 @@
+= javascript_include_tag "home"
+
+.jcarousel
+  %ul
+    %li
+      .tagline Shop exactly what they're wearing.
+      / .overlay
+      .main-pic
+        .show-info
+          New Girl
+          %br TUE 9/8c
+          %span= image_tag('foxlogo.png', :class => "network")
+        = image_tag('new_girl_landing_page.jpg')
+        %script{:async => "", :charset => "utf-8", :src => "//cdn.thinglink.me/jse/embed.js"}
+      %ul.example-items
+        = link_to show_product_path(:format => :js, :show_id => "new-girl", :id => 6492), :remote => true do
+          %li.example-item
+            = image_tag(Product.find(6492).product_images.first.avatar.url(:square), :class => "exampleimage")
+        = link_to show_product_path(:format => :js, :show_id => "new-girl", :id => 1798), :remote => true do
+          %li.example-item
+            = image_tag(Product.find(1798).product_images.first.avatar.url(:square), :class => "exampleimage")
+        = link_to show_product_path(:format => :js, :show_id => "new-girl", :id => 6496), :remote => true do
+          %li.example-item
+            = image_tag(Product.find(6496).product_images.first.avatar.url(:square), :class => "exampleimage")
+        = link_to show_product_path(:format => :js, :show_id => "new-girl", :id => 6506), :remote => true do
+          %li.example-item.example-item-last
+            = image_tag(Product.find(6506).product_images.first.avatar.url(:square), :class => "exampleimage")
+    %li
+      .tagline Shop exactly what they're wearing.
+      .show-info
+      .overlay
+      .main-pic
+        .show-info
+          White Collar
+          %br THU 9/8c
+          %span= image_tag('foxlogo.png', :class => "network")
+        = image_tag('whitecollarlanding.jpg')
+      %ul.example-items
+        = link_to show_product_path(:format => :js, :show_id => "white-collar", :id => 1021), :remote => true do
+          %li.example-item
+            = image_tag(Product.find(1021).product_images.first.avatar.url(:square), :class => "exampleimage")
+        = link_to show_product_path(:format => :js, :show_id => "white-collar", :id => 1638), :remote => true do
+          %li.example-item
+            = image_tag(Product.find(271).product_images.first.avatar.url(:square), :class => "exampleimage")
+        = link_to show_product_path(:format => :js, :show_id => "white-collar", :id => 271), :remote => true do
+          %li.example-item
+            = image_tag(Product.find(827).product_images.first.avatar.url(:square), :class => "exampleimage")
+        = link_to show_product_path(:format => :js, :show_id => "white-collar", :id => 768), :remote => true do
+          %li.example-item.example-item-last
+            = image_tag(Product.find(768).product_images.first.avatar.url(:square), :class => "exampleimage")
+    %li
+      .tagline Shop exactly what they're wearing.
+      .show-info
+      .overlay
+      .main-pic
+        .show-info
+          Scandal
+          %br THU 10/9c
+        = image_tag('scandals3ep1.jpg')
+      %ul.example-items
+        = link_to show_product_path(:format => :js, :show_id => "scandal", :id => 1776), :remote => true, :class=>"no-access" do
+          %li.example-item
+            = image_tag(Product.find(1776).product_images.first.avatar.url(:square), :class => "exampleimage")
+        = link_to show_product_path(:format => :js, :show_id => "scandal", :id => 1775), :remote => true, :class=>"no-access" do
+          %li.example-item
+            = image_tag(Product.find(1775).product_images.first.avatar.url(:square), :class => "exampleimage")
+        = link_to show_product_path(:format => :js, :show_id => "scandal", :id => 1268), :remote => true, :class=>"no-access" do
+          %li.example-item
+            = image_tag(Product.find(1268).product_images.first.avatar.url(:square), :class => "exampleimage")
+        = link_to show_product_path(:format => :js, :show_id => "scandal", :id => 1164), :remote => true, :class=>"no-access" do
+          %li.example-item.example-item-last
+            = image_tag(Product.find(1164).product_images.first.avatar.url(:square), :class => "exampleimage")
+
+  %a{:class => "jcarousel-prev", :href => "#"}
+    = image_tag('leftarrow.png')
+  %a{:class => "jcarousel-next", :href => "#"}
+    = image_tag('rightarrow.png')
+
+.divider
+
+/ temporarily in place of rendering the quiz partial
+.quiz
+  / carousel
+  .quiz-carousel
+    %ul
+      %li.cover
+        .quiz-title 
+          Ladies, which TV character is your 
+          %div{style: "font-family: 'Lavanderia Regular'; font-size: 80px; text-align: center;"} style soulmate?
+        .next-btn{style: "bottom: 15px; right: 15px;"}
+          Take the quiz
+          %i.fa.fa-long-arrow-right
+      %li{style: "background-color: rgb(63, 92, 117)"}
+        .quiz-question What would you wear to work?
+        .choices
+          .choice.choice-4= image_tag("olivia-work.jpg")
+          .choice.choice-5= image_tag("rachel-work.jpg")
+          .choice.choice-1= image_tag("jess-work.jpg")
+          .choice.choice-2= image_tag("claire-work.jpg")
+          .choice.last-choice.choice-5= image_tag("gloria-work.jpg")
+        .previous-btn GO BACK
+        .done NEXT
+      %li{style: "background-color: goldenrod"}
+        .quiz-question What would you wear to the Oscar's?
+        .choices
+          .choice.choice-4= image_tag("olivia-oscar.jpg")
+          .choice.choice-2= image_tag("claire-oscar.jpg")
+          .choice.choice-3= image_tag("gloria-oscar.jpg")
+          .choice.choice-1= image_tag("jess-oscar.jpg")
+          .choice.last-choice.choice-5= image_tag("rachel-oscar.jpg")
+        .previous-btn GO BACK
+        .done NEXT
+      %li{style: "background-color: #800000"}
+        .quiz-question What would you wear on a date?
+        .choices
+          .choice.choice-1= image_tag("jess-date.jpg")
+          .choice.choice-4= image_tag("olivia-date.jpg")
+          .choice.choice-5= image_tag("rachel-date.jpg")
+          .choice.choice-2= image_tag("claire-date.jpg")
+          .choice.last-choice.choice-3= image_tag("gloria-date.jpg")
+        .previous-btn GO BACK
+        .done NEXT
+      %li{style: "background-color: darkgray"}
+        .quiz-question What would you wear to sleep?
+        .choices
+          .choice.choice-4= image_tag("olivia-sleep.jpg")
+          .choice.choice-1= image_tag("jess-sleep.jpg")
+          .choice.choice-2= image_tag("claire-sleep.jpg")
+          .choice.choice-5= image_tag("rachel-sleep.jpg")
+          .choice.last-choice.choice-3= image_tag("gloria-sleep.jpg")
+        .previous-btn GO BACK
+        .done NEXT
+      %li{style: "background-color: #cc5490"}
+        .quiz-question What would you wear to a girl's night out?
+        .choices
+          .choice.choice-2= image_tag("claire-gno.jpg")
+          .choice.choice-3= image_tag("gloria-gno.jpg")
+          .choice.choice-1= image_tag("jess-gno.jpg")
+          .choice.choice-5= image_tag("rachel-gno.jpg")
+          .choice.last-choice.choice-4= image_tag("olivia-gno.jpg")
+        .previous-btn{style: "right: 330px"} GO BACK
+        .done.show-results SHOW ME MY STYLE SOULMATE
+        .hidden-link#one= link_to "result", result_path(id: 1)
+        .hidden-link#two= link_to "result", result_path(id: 2)
+        .hidden-link#three= link_to "result", result_path(id: 3)
+        .hidden-link#four= link_to "result", result_path(id: 4)
+        .hidden-link#five= link_to "result", result_path(id: 5)
+
+
+.divider
+
+.featured-outfits
+  - @outfits_featured.each_with_index do |outfit, index|
+    .featured-outfit{ :style => index == 1 ? "margin-left: 5px;" : '' }
+      = link_to outfit_path(:format => :js, :show_id => outfit.show.id, :id => outfit.id), :remote => true do
+        .outfit-pic
+          .outfit-description
+            .name #{outfit.character.name.split.first}
+            .show #{outfit.show.name}
+            .episode Season #{outfit.episodes.first.season} Episode #{outfit.episodes.first.episode_number}
+          .overlay
+          .image-preview
+            .product-details
+            %img
+          = image_tag outfit.outfit_images.first.avatar.url(:mobile_full)
+      - outfit.outfit_products.includes({:product => :brand}).take(4).each do |p|
+        = link_to show_product_path(:format => :js, :show_id => "new-girl", :id => p.product.id), :remote => true do
+          .outfit-product
+            = image_tag p.product.product_images.first.avatar.url(:square)
+            .product-info.display-none
+              - if p.product.brand.present?
+                #{p.product.brand.name}
+                %br #{p.product.price}
+.view-all-character
+  - @outfits_featured.each_with_index do |outfit, index|
+    = link_to show_characters_path(show_id: outfit.character.show.slug), :class=>"no-access"  do
+      .view-all{ :style => index == 0 ? "margin-right: 5px;" : '' }
+        = image_tag (outfit.character.character_images.cover.first.avatar.url)
+        .overlay
+          .text View all #{outfit.character.name}
+
+#outfit_quick_overview

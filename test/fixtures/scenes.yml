@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: scenes
+#
+#  id           :integer          not null, primary key
+#  start_time   :integer
+#  end_time     :integer
+#  created_at   :datetime
+#  updated_at   :datetime
+#  episode_id   :integer
+#  deleted_at   :datetime
+#  movie_id     :integer
+#  scene_number :integer
+#  intro        :boolean
+#  verified     :boolean
+#  flag         :boolean          default(FALSE)
+#  approved     :boolean          default(FALSE)
+#  creator_id   :integer
+#  slug         :string(255)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start_time: 1
+  end_time: 1
+
+two:
+  start_time: 1
+  end_time: 1

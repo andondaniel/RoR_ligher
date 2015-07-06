@@ -1,0 +1,11 @@
+function lightboxProduct() {
+  $('#mailchimp').lightbox_me({
+    centered: true,
+    zIndex: 1000000000
+  });
+}
+
+
+$('#mailchimp').change(lightboxProduct());
+
+$('#mailchimp').html('<%= escape_javascript("#{render :partial => 'layouts/mailchimp'}").html_safe %>');

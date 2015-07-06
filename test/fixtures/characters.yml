@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: characters
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  show_id     :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#  slug        :string(255)
+#  description :text
+#  actor       :string(255)
+#  gender      :string(255)
+#  importance  :integer
+#  verified    :boolean
+#  approved    :boolean          default(FALSE)
+#  guest       :boolean          default(FALSE)
+#  deleted_at  :datetime
+#  flag        :boolean
+#  creator_id  :integer
+#  movie_id    :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  show_id: 
+
+two:
+  name: MyString
+  show_id: 

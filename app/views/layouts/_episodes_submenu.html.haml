@@ -1,0 +1,7 @@
+%ul.episodes
+  - show.episodes.active.sort_by { |ep| ep.airdate }.reverse.take(5).each do |ep|
+    %li 
+      = link_to "S#{ep.season}EP#{ep.episode_number} - #{ep.name}", show_episode_path(id: ep.slug, show_id: show.slug), :class=>"no-access"
+      = image_tag(ep.episode_images.primary.first.avatar.url(:medium), style: "display: none")
+- if show.episodes.active.any?
+  #more-episodes= link_to("BROWSE ALL EPISODES", show_episode_path(id: show.episodes.active.sort_by{|e| e.airdate}.last.slug, show_id: show.slug), :class=>"no-access")

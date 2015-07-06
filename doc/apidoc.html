@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+        <ul class='breadcrumb'>
+  <li class='active'><a href='./apidoc.html'>Spylight 1.0</a></li>
+</ul>
+
+<div>
+<p>Spylight RESTful API - See individual resource pages for information on
+:slug formatting guidelines</p>
+</div>
+
+<h1 class='page-header'>Resources</h1>
+
+  <h2>
+    <a href='./apidoc/characters.html'>
+      Characters
+    </a><br>
+    <small>Characters arranged by the show in which they appear</small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href='./apidoc/characters/index.html'>GET /api/v1/shows/:show_slug/characters</a></td>
+            <td width='60%'>Lists all characters for a given show</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/characters/show.html'>GET /api/v1/shows/:show_slug/characters/:slug</a></td>
+            <td width='60%'>Fetches details of a single character</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/characters/create.html'>POST /api/v1/shows/:show_slug/characters</a></td>
+            <td width='60%'>Creates a character with a set of optional attributes</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/characters/update.html'>PATCH /api/v1/shows/:show_slug/characters/:slug</a></td>
+            <td width='60%'>Update an existing character</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/characters/destroy.html'>DELETE /api/v1/shows/:show_slug/characters/:slug</a></td>
+            <td width='60%'>Delete an existing character</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/episodes.html'>
+      Episodes
+    </a><br>
+    <small>Episodes grouped by show</small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href='./apidoc/episodes/index.html'>GET /api/v1/shows/:show_slug/episodes</a></td>
+            <td width='60%'>Lists all episodes for a given show</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/episodes/show.html'>GET /api/v1/shows/:show_slug/episodes/:slug</a></td>
+            <td width='60%'>Fetches details of a single character</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/episodes/create.html'>POST /api/v1/shows/:show_slug/episodes</a></td>
+            <td width='60%'>Create a new episode</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/episodes/update.html'>PATCH /api/v1/shows/:show_slug/episodes/:slug</a></td>
+            <td width='60%'>Update an existing episode</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/episodes/destroy.html'>DELETE /api/v1/shows/:show_slug/episodes/:slug</a></td>
+            <td width='60%'>Delete an existing episode</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/products.html'>
+      Products
+    </a><br>
+    <small>Products seen on our supported shows.</small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href='./apidoc/products/index.html'>GET /api/v1/products</a></td>
+            <td width='60%'>List all products</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/index.html'>GET /api/v1/shows/:show_slug/products</a></td>
+            <td width='60%'>Lists all products for a given show</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/index.html'>GET /api/v1/shows/:show_slug/characters/:character_slug/products</a></td>
+            <td width='60%'>Lists all products for a given character</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/index.html'>GET /api/v1/shows/:show_slug/episodes/:episode_slug/products</a></td>
+            <td width='60%'>Lists all products for a given episode</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/index.html'>GET /api/v1/shows/:show_slug/episodes/:episode_slug/scenes/:scene_id/products</a></td>
+            <td width='60%'>Lists all products for a given scene</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/show.html'>GET /api/v1/products/:product_slug</a></td>
+            <td width='60%'>Display the details of a given product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/show.html'>GET /api/v1/shows/:show_slug/products/:product_slug</a></td>
+            <td width='60%'>Display the details of a given product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/show.html'>GET /api/v1/shows/:show_slug/characters/:character_slug/products/:product_slug</a></td>
+            <td width='60%'>Display the details of a given product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/show.html'>GET /api/v1/shows/:show_slug/episodes/:episode_slug/products/:product_slug</a></td>
+            <td width='60%'>Display the details of a given product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/show.html'>GET /api/v1/shows/:show_slug/episodes/:episode_slug/scenes/:scene_id/products/:product_slug</a></td>
+            <td width='60%'>Display the details of a given product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/create.html'>POST /api/v1/products</a></td>
+            <td width='60%'>Create a new product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/create.html'>POST /api/v1/shows/:show_slug/products</a></td>
+            <td width='60%'>Create a new product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/create.html'>POST /api/v1/shows/:show_slug/characters/:character_slug/products</a></td>
+            <td width='60%'>Create a new product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/create.html'>POST /api/v1/shows/:show_slug/episodes/:episode_slug/products</a></td>
+            <td width='60%'>Create a new product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/create.html'>POST /api/v1/shows/:show_slug/episodes/:episode_slug/scenes/:scene_id/products</a></td>
+            <td width='60%'>Create a new product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/update.html'>PATCH /api/v1/products/:product_slug</a></td>
+            <td width='60%'>Update an existing product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/update.html'>PATCH /api/v1/shows/:show_slug/products/:product_slug</a></td>
+            <td width='60%'>Update an existing product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/update.html'>PATCH /api/v1/shows/:show_slug/characters/:character_slug/products/:product_slug</a></td>
+            <td width='60%'>Update an existing product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/update.html'>PATCH /api/v1/shows/:show_slug/episodes/:episode_slug/products/:product_slug</a></td>
+            <td width='60%'>Update an existing product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/update.html'>PATCH /api/v1/shows/:show_slug/episodes/:episode_slug/scenes/:scene_id/products/:product_slug</a></td>
+            <td width='60%'>Update an existing product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/destroy.html'>DELETE /api/v1/products/:product_slug</a></td>
+            <td width='60%'>Destroy a given product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/destroy.html'>DELETE /api/v1/shows/:show_slug/products/:product_slug</a></td>
+            <td width='60%'>Destroy a given product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/destroy.html'>DELETE /api/v1/shows/:show_slug/characters/:character_slug/products/:product_slug</a></td>
+            <td width='60%'>Destroy a given product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/destroy.html'>DELETE /api/v1/shows/:show_slug/episodes/:episode_slug/products/:product_slug</a></td>
+            <td width='60%'>Destroy a given product</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/products/destroy.html'>DELETE /api/v1/shows/:show_slug/episodes/:episode_slug/scenes/:scene_id/products/:product_slug</a></td>
+            <td width='60%'>Destroy a given product</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/scenes.html'>
+      Scenes
+    </a><br>
+    <small>Scenes grouped by episode</small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href='./apidoc/scenes/index.html'>GET /api/v1/shows/:show_slug/episodes/:episode_slug/scenes</a></td>
+            <td width='60%'>Lists all scenes for a given episode</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/scenes/show.html'>GET /api/v1/shows/:show_slug/episodes/:episode_slug/scenes/:scene_id</a></td>
+            <td width='60%'>Fetches a particular scene</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/scenes/create.html'>POST /api/v1/shows/:show_slug/episodes/:episode_slug/scenes</a></td>
+            <td width='60%'>Creates a new scene within a given episode</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/scenes/update.html'>PATCH /api/v1/shows/:show_slug/episodes/:episode_slug/scenes/:scene_id</a></td>
+            <td width='60%'>Updates the attributes of a particular scene</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/scenes/destroy.html'>DELETE /api/v1/shows/:show_slug/episodes/:episode_slug/scenes/:scene_id</a></td>
+            <td width='60%'>Deletes a particular scene</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/shows.html'>
+      Shows
+    </a><br>
+    <small>Supported Television Shows</small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href='./apidoc/shows/index.html'>GET /api/v1/shows</a></td>
+            <td width='60%'>Lists all shows</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/shows/show.html'>GET /api/v1/shows/:slug</a></td>
+            <td width='60%'>Fetches details of a single show</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/shows/create.html'>POST /api/v1/shows</a></td>
+            <td width='60%'>Create a show</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/shows/update.html'>PATCH /api/v1/shows/:slug</a></td>
+            <td width='60%'>Update an existing show.</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/shows/destroy.html'>DELETE /api/v1/shows/:slug</a></td>
+            <td width='60%'>Delete an existing show.</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/users.html'>
+      Users
+    </a><br>
+    <small>Spylight Users</small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href='./apidoc/users/index.html'>GET /api/v1/users</a></td>
+            <td width='60%'>Lists all users</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/users/show.html'>GET /api/v1/users/:id</a></td>
+            <td width='60%'>Fetches details of a specific user</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/users/create.html'>POST /api/v1/users</a></td>
+            <td width='60%'>Creates a user with a set of optional attributes</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/users/update.html'>PATCH /api/v1/users/:id</a></td>
+            <td width='60%'>Update an existing user</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/users/destroy.html'>DELETE /api/v1/users/:id</a></td>
+            <td width='60%'>Delete an existing user</td>
+          </tr>
+    </tbody>
+  </table>
+
+
+        
+      </div>
+    </div>
+    <hr>
+    <footer>
+</footer>
+  </div>
+  <script type='text/javascript' src='./apidoc/javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='./apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='./apidoc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='./apidoc/javascripts/apipie.js'></script>
+</body>
+</html>

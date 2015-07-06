@@ -1,0 +1,5 @@
+// This is what happens when a user clicks on a specific season in the season dropdown.
+
+
+$('.episode-dropdown').html('<%= escape_javascript("#{render :partial => 'episodes/episode_dropdown', locals: {show: @show, episodes: @episodes}}").html_safe %>');
+

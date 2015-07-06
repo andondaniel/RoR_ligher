@@ -1,0 +1,130 @@
+/ All of this code has to be made more dry... this is a hot fix. Sorry!
+#outfit_quick_overview
+
+.quiz
+	/ carousel
+	.quiz-carousel
+		%ul
+
+	- case @result
+	- when "1"
+		- content_for :head do
+			= tag :meta, property: "fb:app_id", content: "329559517185226"
+			= tag :meta, property: "og:site_name", content: "Spylight"
+			= tag :meta, property: "og:title", content: "My Style Soulmate Is Jess from New Girl"
+			= tag :meta, property: "og:url", content: "http://www.spylight.com"
+			= tag :meta, property: "og:image", content: image_path("Jess-Quiz-result-fb.jpg")
+			= tag :meta, property: "og:description", content: "I just took a quiz on Spylight. Find out who your style soulmate is and shop their wardrobe on spylight.com!"
+
+		.result#result-1
+			.result-header 
+				.your-style-soulmate-is Your Style Soulmate is...
+				.result-name{style: "color: #4bd9f7"} Jess from New Girl
+				.fb-share-button{"data-href" => "http://www.spylight.com/results/1", "data-type" => "button_count"}
+			.outfit-examples-wrapper
+				Here are some of Jess' outfits:
+				%br
+				- Character.find(76).outfits.active.take(3).each do |x|
+					= link_to outfit_path(:format => :js, :show_id => 16, :id => x.id), :remote => true do
+						.outfit-example= image_tag x.outfit_images.first.avatar.url(:mobile_thumb)
+
+			.shop-wardrobe= link_to "SHOP JESS' WARDROBE", show_character_path(id: "76-jess", show_id: "new-girl")
+	- when "2"
+
+		- content_for :head do
+			= tag :meta, property: "fb:app_id", content: "329559517185226"
+			= tag :meta, property: "og:type", content: "quiz"
+			= tag :meta, property: "og:site_name", content: "Spylight"
+			= tag :meta, property: "og:title", content: "My Style Soulmate Is Claire from Modern Family"
+			= tag :meta, property: "og:url", content: "http://www.spylight.com/results/2"
+			= tag :meta, property: "og:image", content: image_path("claire-quiz-result-fb.jpg")
+			= tag :meta, property: "og:description", content: "I just took a quiz on Spylight. Find out who your style soulmate is and shop their wardrobe on spylight.com!"
+		.result#result-2
+			.result-header 
+				.your-style-soulmate-is Your Style Soulmate is...
+				.result-name{style: "color: #e7b097"} Claire from Modern Family
+				.fb-share-button{"data-href" => "http://www.spylight.com/results/2", "data-type" => "button_count"}
+
+			.outfit-examples-wrapper
+				Here are some of Claire's outfits:
+				%br
+				- Character.find(187).outfits.active.take(3).each do |x|
+					= link_to outfit_path(:format => :js, :show_id => 33, :id => x.id), :remote => true do
+						.outfit-example= image_tag x.outfit_images.first.avatar.url(:mobile_thumb)
+			.shop-wardrobe= link_to "SHOP CLAIRE'S WARDROBE", show_character_path(id: "187-claire-dunphy", show_id: "modern-family")
+
+
+	- when "3"
+
+		- content_for :head do
+			= tag :meta, property: "fb:app_id", content: "329559517185226"
+			= tag :meta, property: "og:type", content: "quiz"
+			= tag :meta, property: "og:site_name", content: "Spylight"
+			= tag :meta, property: "og:title", content: "My Style Soulmate Is Gloria from Modern Family"
+			= tag :meta, property: "og:url", content: "http://www.spylight.com/results/3"
+			= tag :meta, property: "og:image", content: image_path("gloria-quiz-result-fb.jpg")
+			= tag :meta, property: "og:description", content: "I just took a quiz on Spylight. Find out who your style soulmate is and shop their wardrobe on spylight.com!"
+
+		.result#result-3
+			.result-header 
+				.your-style-soulmate-is Your Style Soulmate is...
+				.result-name{style: "color: #a97d53"} Gloria from Modern Family
+				.fb-share-button{"data-href" => "http://www.spylight.com/results/3", "data-type" => "button_count"}
+			.outfit-examples-wrapper
+				Here are some of Gloria's outfits:
+				%br
+				- Character.find(186).outfits.active.take(3).each do |x|
+					= link_to outfit_path(:format => :js, :show_id => 33, :id => x.id), :remote => true do
+						.outfit-example= image_tag x.outfit_images.first.avatar.url(:mobile_thumb)
+			.shop-wardrobe= link_to "SHOP GLORIA'S WARDROBE", show_character_path(id: "186-gloria-pritchett", show_id: "modern-family")
+
+
+	- when "4"
+
+		- content_for :head do
+			= tag :meta, property: "fb:app_id", content: "329559517185226"
+			= tag :meta, property: "og:type", content: "quiz"
+			= tag :meta, property: "og:site_name", content: "Spylight"
+			= tag :meta, property: "og:title", content: "My Style Soulmate Is Olivia Pope from Scandal"
+			= tag :meta, property: "og:url", content: "http://www.spylight.com/results/4"
+			= tag :meta, property: "og:image", content: image_path("olivia-quiz-result-fb.jpg")
+			= tag :meta, property: "og:description", content: "I just took a quiz on Spylight. Find out who your style soulmate is and shop their wardrobe on spylight.com!"
+
+
+		.result#result-4
+			.result-header 
+				.your-style-soulmate-is Your Style Soulmate is...
+				.result-name{style: "color: #a97d53"} Olivia Pope from Scandal
+				.fb-share-button{"data-href" => "http://www.spylight.com/results/4", "data-type" => "button_count"}
+			.outfit-examples-wrapper
+				Here are some of Olivia's outfits:
+				%br
+				- Character.find(95).outfits.active.take(3).each do |x|
+					= link_to outfit_path(:format => :js, :show_id => 28, :id => x.id), :remote => true do
+						.outfit-example= image_tag x.outfit_images.first.avatar.url(:mobile_thumb)
+			.shop-wardrobe= link_to "SHOP OLIVIA'S WARDROBE", show_character_path(id: "95-olivia-pope", show_id: "scandal")
+
+
+	- when "5"
+
+		- content_for :head do
+			= tag :meta, property: "fb:app_id", content: "329559517185226"
+			= tag :meta, property: "og:type", content: "quiz"
+			= tag :meta, property: "og:site_name", content: "Spylight"
+			= tag :meta, property: "og:title", content: "My Style Soulmate Is Rachel from Glee"
+			= tag :meta, property: "og:url", content: "http://www.spylight.com/results/5"
+			= tag :meta, property: "og:image", content: image_path("rachel-quiz-result-fb.jpg")
+			= tag :meta, property: "og:description", content: "I just took a quiz on Spylight. Find out who your style soulmate is and shop their wardrobe on spylight.com!"
+
+		.result#result-5
+			.result-header 
+				.your-style-soulmate-is Your Style Soulmate is...
+				.result-name{style: "color: #0f5f70"} Rachel from Glee
+				.fb-share-button{"data-href" => "http://www.spylight.com/results/5", "data-type" => "button_count"}
+			.outfit-examples-wrapper{style: "color: white"}
+				Here are some of Rachel's outfits:
+				%br
+				- Character.find(105).outfits.active.take(3).each do |x|
+					= link_to outfit_path(:format => :js, :show_id => 26, :id => x.id), :remote => true do
+						.outfit-example= image_tag x.outfit_images.first.avatar.url(:mobile_thumb)
+			.shop-wardrobe= link_to "SHOP RACHEL'S WARDROBE", show_character_path(id: "105-rachel-berry", show_id: "glee")

@@ -1,0 +1,43 @@
+%ul.rslides.noskimwords
+  %li
+    .overlay
+    #centertag
+      = image_tag("centerspeechbubble.png", :id => "centerspeechbubble")
+      #tagline
+        Shop what your favorite stars are wearing.
+    .inside-slide
+      = render partial: "sidecarousel"
+      .semitransparent-bg
+    .tvshowlabel
+      #name New Girl
+      #time TUE 9/8c
+      #network= image_tag("foxlogo.png")
+  %li
+    .overlay
+    #centertag
+      = image_tag("centerspeechbubble.png", :id => "centerspeechbubble")
+      #tagline
+        Shop what your favorite stars are wearing.
+    .inside-slide
+      .semitransparent-bg
+      = render partial: "sidecarousel2"
+    .tvshowlabel
+      #name White Collar
+      #time THUR 9/8c
+      #network= image_tag("foxlogo.png")
+  %li
+    .overlay
+    #centertag
+      = image_tag("centerspeechbubble.png", :id => "centerspeechbubble")
+      #tagline
+        Shop what your favorite stars are wearing.
+    .inside-slide
+      .semitransparent-bg
+      = render partial: "sidecarousel3"
+    .tvshowlabel
+      #name Scandal
+      #time THUR 10/9c
+      / #network
+      /   %a{href: '/'}
+      /     = image_tag("foxlogo.png")
+

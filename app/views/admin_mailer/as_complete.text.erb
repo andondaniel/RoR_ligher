@@ -1,0 +1,14 @@
+The following episode has been marked as complete by a audio sync-er:
+
+
+<%= @episode %>
+<%= admin_episode_path(@episode, only_path: false) %>
+
+This episode was created by:
+<% if @episode.creator %>
+<%= @episode.creator.name %>
+<% else %>
+"No Creator Found"
+<% end %>
+
+Note: For audio sync purposes the creator probably does not correspond to the user that marked it as complete.

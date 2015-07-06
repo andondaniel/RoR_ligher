@@ -1,0 +1,146 @@
+#login {
+  position: relative;
+  width: 700px;
+  height: 600px;
+  font-weight: 300;
+  background-color: whitesmoke;
+  display: none;
+  z-index:2000000;
+
+  .close {
+    border-style: solid;
+    border-width: 1px;
+    border-color: $nearblack;
+    width: 40px;
+    height: 15px;
+    padding: 5px;
+    float: right;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+  }
+
+  #loginGraphic {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  #sign-in-block {
+    width: 100%;
+    background-color: #808080;
+    height: 30px;
+    margin: -5px 0px 0px;
+    text-align: center;
+    padding: 5px 0px 0px;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 500;
+    color: white;
+  }
+
+  #fb-sign-in-button {
+    margin: 20px auto;
+    width: 250px;
+    height: 50px;
+    background-color: $facebook;
+    position: relative;
+
+    div {
+      @include absolute-center;
+      font-weight: 400;
+      color: white;
+      width: 200px;
+      height: 15px;
+
+      a {color: white;}
+    }
+  }
+
+  #orGraphic {
+    width: 400px;
+  }
+
+  #orGraphic-div {
+    width: 400px;
+    margin: 10px auto;
+  }
+
+  #email-sign-in {
+    color: #909090;
+    font-weight: 400;
+    width: 220px;
+    margin: 0 auto;
+  }
+
+  #sign-in-submit-btn {
+    background-color: $yellow;
+    color: white;
+    font-weight: 300;
+    border: none;
+    height: 45px;
+    padding: 5px 20px 0px 20px; 
+    text-transform: uppercase;
+    font-family: 'proxima-nova';
+    font-size: 15px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  #sign-in-form {
+    width: 350px;
+    margin: 0 auto;
+  }
+
+  .sign-in-form-label {
+    background-color: white;
+    float: left;
+    line-height: 45px;
+    color: #909090;
+  }
+
+  .login-field-block {
+    background-color: white;
+    height: 45px;
+    padding-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+
+  form {
+    font-family: 'proxima-nova';
+    font-size: 15px;
+    height: 165px;
+    position: relative;
+    textarea:focus, input:focus {
+      outline: 0;
+    }
+
+    input.sign-in-form-field {
+      height: 45px;
+      width: 240px;
+      font-family: 'proxima-nova';
+      border: none;
+      padding-left: 15px;
+      float: right;
+      font-size: 20px;
+      background-color: lightgray !important;
+    }
+
+  }
+
+  #register-option-block {
+    color: gray;
+    margin-top: 20px;
+    font-weight: 300;
+    a {color: #909090;}
+    text-align: center;
+  }
+
+}

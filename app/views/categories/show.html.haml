@@ -1,0 +1,107 @@
+// CENTER CONTENT
+.character-page-background{style: "background-color: white; width: 100%"}
+  .product-list.apply-filter#episode-page
+    .all-items-from-category 
+      %span.gender #{@gender}
+      %span.cgname #{@cg.name}
+    %span#filter-span
+      / = render partial: "products/product_filter"
+    %span#sort-by-categories
+      Sort By:
+      %ul
+        %li
+          %span.sort.price_low_high
+            $ - $$$
+        %li
+          %span.sort.price_high_low
+            $$$ - $
+        %li
+          %span.sort.alphabetical
+            A - Z
+    %ul.list.products-grid
+      = render @products
+
+    #ajax-loader.display-none
+      %center
+        = image_tag "loadmore.gif"
+  // -------
+= hidden_field_tag 'page', params[:page]
+= hidden_field_tag 'price_low_high', params[:price_low_high]
+= hidden_field_tag 'price_high_low', params[:price_high_low]
+= hidden_field_tag 'alphabetical', params[:alphabetical]
+
+#outfit_quick_overview
+
+:javascript
+
+  $(document).ready(function() {
+
+    $('.category-drop-down').show(function( event ) {
+      event.preventDefault();
+    });
+
+    var category = $('.cgname').text();
+
+    $('#'+category).children('a').css("color", "#FFC909");
+    $('#categories').css("color", "#FFC909");
+
+    var url = $('#'+category).children('.category-url').text();
+    $('.category-image-placeholder').children('img').attr('src', url);
+
+    $('.product-box').hoverIntent(fadeToggle);
+
+  });
+
+  function fadeToggle() {
+    $(this).children('.product-image-box').children('a').children('.product-hover-image').fadeToggle();
+  };
+
+
+  function ajaxProductLoad() {
+    
+  };
+
+  var page = 0;
+
+  $('.price_low_high').click(function(){
+    $('#price_low_high').val("true");
+    $('#price_high_low').val("false");
+    $('#price_alphabetical').val("false");
+    $('#page').val(1);
+    $.ajax({
+      url: "/categories/#{params[:id]}?format=js" + "&price_low_high=" + $('#price_low_high').val(),
+      success: function( data ) {}
+    });
+  })
+
+  $('.price_high_low').click(function(){
+    $('#price_high_low').val("true");
+    $('#price_low_high').val("false");
+    $('#alphabetical').val("false");
+    $.ajax({
+      url: "/categories/#{params[:id]}?format=js" + "&price_high_low=" + $('#price_high_low').val(),
+      success: function( data ) {}
+    });
+  })
+
+  $('.alphabetical').click(function(){
+    $('#price_low_high').val("false");
+    $('#price_high_low').val("false");
+    $('#alphabetical').val("true");
+    $.ajax({
+      url: "/categories/#{params[:id]}?format=js" + "&alphabetical=" + $('#alphabetical').val(),
+      success: function( data ) {}
+    });
+  })
+
+  $(window).scroll(function(){
+    if ( $(window).scrollTop() == $(document).height() - $(window).height()) {
+      if ($('#page').val() == page || page == -1 ) return; // To reduce duplicated request
+      page = $('#page').val();
+      $('#ajax-loader').show();
+      $.ajax({
+        url: "/categories/#{params[:id]}?format=js&page=" + $('#page').val() + "&alphabetical=" + $('#alphabetical').val() + "&price_high_low=" + $('#price_high_low').val() + "&price_low_high=" + $('#price_low_high').val(),
+        success: function( data ) {}
+      });
+    }
+  });

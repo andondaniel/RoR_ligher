@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: questions
+#
+#  id          :integer          not null, primary key
+#  title       :string(255)
+#  description :string(255)
+#  text        :string(255)
+#  answered    :boolean
+#  created_at  :datetime
+#  updated_at  :datetime
+#  creator_id  :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  description: MyString
+  text: MyString
+  answered: false
+  creator_id: 1
+
+two:
+  title: MyString
+  description: MyString
+  text: MyString
+  answered: false
+  creator_id: 1

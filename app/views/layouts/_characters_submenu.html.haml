@@ -1,0 +1,8 @@
+%ul.characters
+	- show.characters.active.where(guest: false).order(:importance).limit(6).each do |character|
+		= link_to show_character_path(id: character.slug, show_id: show.slug), :class=>"no-access" do
+			.character-thumbnail
+				= image_tag(character.character_images.thumbnail.first.avatar.url(:small_thumb))
+				= image_tag(character.character_images.cover.first.avatar.url(:medium), style: "display: none")
+
+#more-episodes= link_to("BROWSE ALL CHARACTERS", show_characters_path(id: show.characters.first.slug, show_id: show.slug), :class=>"no-access")

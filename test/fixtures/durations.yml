@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: durations
+#
+#  id         :integer          not null, primary key
+#  start_time :integer
+#  end_time   :integer
+#  scene_id   :integer
+#  created_at :datetime
+#  updated_at :datetime
+#  verified   :boolean
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start_time: 1
+  end_time: 1
+  scene_id: 
+
+two:
+  start_time: 1
+  end_time: 1
+  scene_id: 

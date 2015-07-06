@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: shows
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  slug       :string(255)
+#  deleted_at :datetime
+#  approved   :boolean
+#  flag       :boolean
+#  creator_id :integer
+#  network_id :integer
+#  verified   :boolean
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: 'test show'
+  slug: test-show
+
+
+two:
+  name: 'test show'
+  slug: test-show

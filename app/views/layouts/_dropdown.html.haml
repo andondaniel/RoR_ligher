@@ -1,0 +1,132 @@
+.drop-down 
+  / CSS: _mainmenu.css.scss
+  .sub-drop-down.tv-drop-down.noskimwords{ :data => { action: "tv" } }
+    .networks-submenu
+      %ul
+        - @networks.each do |network|
+          - if network == @current_network
+            %li{class: "networks", id: "network"}
+              #{network.name.upcase}
+              .network-image-url.display-none= network.shows.approved.first.show_images.cover.first.avatar.url(:medium)
+              .network-submenu-show-image-url.display-none
+                = network.shows.active.first.show_images.cover.first.avatar.url(:medium)
+              .network-submenu-shows-first-name.display-none
+                = network.shows.active.first.name
+              .network-submenu-placeholder.display-none
+                = render :partial => 'layouts/show_submenu', locals: {network: network}
+              .network-character-submenu-placeholder.display-none
+                = render :partial => 'layouts/characters_submenu', locals: {show: network.shows.active.first}
+              .network-episode-submenu-placeholder.display-none
+                = render :partial => 'layouts/episodes_submenu', locals: {show: network.shows.active.first}
+          - else 
+            %li{class: "networks"}
+              #{network.name.upcase}
+              .network-image-url.display-none= network.shows.approved.first.show_images.cover.first.avatar.url(:medium) if network.shows.approved.any?
+              .network-submenu-show-image-url.display-none
+                = network.shows.active.first.show_images.cover.first.avatar.url(:medium)
+              .network-submenu-shows-first-name.display-none
+                = network.shows.active.first.name
+              .network-submenu-placeholder.display-none
+                = render :partial => 'layouts/show_submenu', locals: {network: network}
+              .network-character-submenu-placeholder.display-none
+                = render :partial => 'layouts/characters_submenu', locals: {show: network.shows.active.first}
+              .network-episode-submenu-placeholder.display-none
+                = render :partial => 'layouts/episodes_submenu', locals: {show: network.shows.active.first}
+    .padding
+      .image-placeholder
+        = image_tag(@current_show.show_images.cover.first.avatar.url(:medium)) if @current_show
+        .overlay
+        .text= @current_show.name if @current_show
+      .sub-menu.shows#fox-shows
+        .title Shows
+        #submenu-placeholder
+          = render :partial => 'layouts/show_submenu', locals: {network: @current_network} if @current_network
+      .sub-menu.characters
+        .title Characters
+        #character-submenu-placeholder
+          = render :partial => 'layouts/characters_submenu', locals: {show: @current_show} if @current_show
+      .sub-menu.episodes#new-girl-episodes
+        .title Episodes
+        #episode-submenu-placeholder
+          = render :partial => "layouts/episodes_submenu", locals: {show: @current_show} if @current_show
+  .sub-drop-down.movie-drop-down.noskimwords{ :data => { action: "movies" }}
+    .padding
+      %ul
+        - Movie.active.each do |m|
+          %li{style: "display: inline-block"}= link_to image_tag(m.movie_images.poster.first.avatar.url(:mobile_poster), :class => "movie-poster"), movie_path(id: m.id)
+
+  = render partial: "layouts/categories_submenu"
+
+:javascript
+  $(".networks-submenu ul > li").hoverIntent(hoverSubMenu, jQuery.noop());
+
+  function hoverSubMenu() {
+    if ( $(this).hasClass('on') ) {
+      return true;
+    }
+
+    $('.image-placeholder > img').attr('src', $('.network-submenu-show-image-url', this).html());  
+    $('.image-placeholder').children('.text').html($('.network-submenu-shows-first-name', this).html());
+    $('#submenu-placeholder').hide().html($('.network-submenu-placeholder', this).html()).fadeIn();
+    $('#character-submenu-placeholder').hide().html($('.network-character-submenu-placeholder', this).html()).fadeIn();
+    $('#episode-submenu-placeholder').html($('.network-episode-submenu-placeholder', this).html()).fadeIn();
+
+    // This changes the show image & name upon hovering over a show link
+    $('ul.show-menu li').hoverIntent(openOptions, jQuery.noop());
+
+    $('.character-thumbnail').hoverIntent(showCharacterimage, jQuery.noop());
+
+    $('ul.episodes > li').hoverIntent(showEpisodeimage, jQuery.noop());
+
+    $('ul.show-menu > li').hoverIntent(showShowImage, jQuery.noop());
+
+    // When you hover over a SHOW, the ajax link is "clicked" and the characters and episodes appear.
+    // This code is not movable to mainmenu.js.erb
+    $('.show-options').hoverIntent(function(){
+      $this = $(this);
+      if (!$(this).hasClass('hovered')) { 
+        $(this).siblings().removeClass('hovered');
+        $this.addClass('hovered');
+
+        $('.image-placeholder > img').attr('src', $('.show-image-url', this).html());  
+        $('.image-placeholder').children('.text').html($('.show-name', this).html());
+        $('#character-submenu-placeholder').hide().html($('.show-character-submenu-placeholder', this).html()).fadeIn();
+        $('#episode-submenu-placeholder').html($('.show-episode-submenu-placeholder', this).html()).fadeIn();
+        $('.character-thumbnail').hoverIntent(showCharacterimage, jQuery.noop());
+        $('ul.episodes > li').hoverIntent(showEpisodeimage, jQuery.noop());
+      }
+    });
+
+    $('.networks-submenu ul > li').removeClass('on');
+    $(this).addClass('on');
+  }
+  // To force to click first when page loads
+  hoverSubMenu.call($('.networks-submenu ul > li').first());
+
+  function openOptions() {
+    var url = $(this).children('.show-image-url').text();
+    var showname = $(this).children('a').text();
+    $(this).parents('.padding').children('.image-placeholder').children('img').attr('src', url);
+    $(this).parents('.padding').children('.image-placeholder').children('.text').text(showname);
+  }
+  
+  // when you hover a character's thumbnail, the character shows on the main menu picture on the left
+  // QUESTION: Why does this not work when put into mainmenu.js.erb? I suspect it's because the event doesn't retrigger even after the show is switched... but how to fix this problem?
+  function showCharacterimage() {
+    var url = $(this).children('img').last().attr("src");
+    $('.image-placeholder > img').attr('src', url);
+  }
+
+  // For character submenu
+  function showEpisodeimage() {
+    var url = $(this).children('img').last().attr("src");
+    $('.image-placeholder > img').attr('src', url);
+  }
+
+  
+  function showShowImage() {
+    var $this = $(this)
+    var url = $this.children('.show-image-url').text();
+    var showname = $this.children('a').text();
+    $('.image-placeholder > img').attr('src', url);
+  }

@@ -1,0 +1,54 @@
+#outfit_quick_overview {
+  position: relative;
+  width: auto;
+  max-width: 1036px;
+  padding: 20px;
+  background-color: whitesmoke;
+  display: none;  
+
+  .close {
+    border-style: solid;
+    border-width: 1px;
+    border-color: $nearblack;
+    width: 40px;
+    height: 15px;
+    padding: 5px;
+    float: right;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+  }
+
+  #product_details {
+    margin: 0 0 10px 0;
+
+  }
+
+
+  .character-wearing-outfit {
+    float: left;
+    margin-right: 3px;
+  	width: 200px;
+  	height: 200px;
+  	overflow: hidden;
+
+  	img{
+  		width: 100%;
+  	}
+  }
+
+	.outfit-product-image {
+		float: left;
+    margin-right: 3px;
+		width: 200px;
+		height: 200px;
+		overflow:hidden;
+
+		img {
+			width: 100%;
+		}
+	}
+}

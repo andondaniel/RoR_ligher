@@ -1,0 +1,31 @@
+rails g scaffold show name
+rails g scaffold episode season:integer episode_number:integer name airdate:datetime show:references
+rails g scaffold episode_links url:text title alt_text episode:references
+rails g scaffold scenes start_time:integer end_time:integer
+rails g scaffold scene_appearances start_time:integer end_time:integer product:references scene:references
+rails g scaffold character name show:references
+rails g scaffold character_images url:text alt_text primary:boolean character:references
+rails g scaffold products name description:text qr_code:text approved episode:references character:references brand:references
+rails g scaffold product_picture url alt_text product:references
+rails g scaffold product_source url:text price:money status store:references product:references
+rails g scaffold stores name
+rails g scaffold color name color_code
+rails g scaffold product_category name
+rails g scaffold brand name
+
+
+
+rails destroy scaffold show
+rails destroy scaffold episode
+rails destroy scaffold episode_links
+rails destroy scaffold scenes
+rails destroy scaffold scene_appearances
+rails destroy scaffold character
+rails destroy scaffold character_images
+rails destroy scaffold products
+rails destroy scaffold product_picture
+rails destroy scaffold product_source
+rails destroy scaffold stores
+rails destroy scaffold color
+rails destroy scaffold product_category
+rails destroy scaffold brand

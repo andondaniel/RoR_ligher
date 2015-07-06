@@ -1,0 +1,19 @@
+# == Schema Information
+#
+# Table name: brands
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  slug       :string(255)
+#  creator_id :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+
+two:
+  name: MyString

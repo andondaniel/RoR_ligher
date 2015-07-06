@@ -1,0 +1,40 @@
+# == Schema Information
+#
+# Table name: episodes
+#
+#  id             :integer          not null, primary key
+#  season         :integer
+#  episode_number :integer
+#  name           :string(255)
+#  airdate        :datetime
+#  show_id        :integer
+#  created_at     :datetime
+#  updated_at     :datetime
+#  slug           :string(255)
+#  tagline        :string(255)
+#  verified       :boolean
+#  approved       :boolean          default(FALSE)
+#  deleted_at     :datetime
+#  flag           :boolean
+#  creator_id     :integer
+#  paid           :boolean
+#  air_length     :integer
+#  fc_completed   :boolean
+#  as_completed   :boolean
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  season: 1
+  episode_number: 1
+  name: MyString
+  airdate: 2013-10-02 19:23:26
+  show_id: 
+
+two:
+  season: 1
+  episode_number: 1
+  name: MyString
+  airdate: 2013-10-02 19:23:26
+  show_id: 

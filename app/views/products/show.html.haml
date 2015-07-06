@@ -1,0 +1,22 @@
+- content_for :head do
+	= tag :meta, property: "fb:app_id", content: "329559517185226"
+	= tag :meta, property: "og:type", content: "product"
+	= tag :meta, property: "og:site_name", content: "Spylight"
+	= tag :meta, property: "product:price:amount", content: @product.product_sources.first.price
+	= tag :meta, property: "product:price:currency", content: @product.product_sources.first.price_currency
+	= tag :meta, property: "og:title", content: @product.name
+	= tag :meta, property: "og:url", content: product_url(@product)
+	= tag :meta, property: "og:image", content: @product.product_images.first.avatar.url(:square)
+	= tag :meta, property: "og:image", content: @product.outfits.first.outfit_images.first.avatar.url(:quickview)
+	= tag :meta, property: "og:description", content: "I found the #{@product.brand.name} #{@product.name} on Spylight. Find out which Hollywood star was wearing it at spylight.com!"
+	= tag :meta, property: "og:brand", content: @product.brand.name
+
+%body.page.product-page
+
+	#quick_overview{style: "display: block; margin: 0 auto"}
+		- if @show
+			= render "products/productquickview", product: @product, show: @show
+		- elsif @movie
+			= render "products/productquickview", product: @product, show: Show.find(16)
+		- else 
+			= render "products/productquickview", product: @product, show: Show.find(16)

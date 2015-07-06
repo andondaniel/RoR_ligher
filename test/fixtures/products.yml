@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id             :integer          not null, primary key
+#  name           :string(255)
+#  description    :text
+#  qr_code        :text
+#  character_id   :integer
+#  brand_id       :integer
+#  created_at     :datetime
+#  updated_at     :datetime
+#  slug           :string(255)
+#  verified       :boolean
+#  approved       :boolean          default(FALSE)
+#  deleted_at     :datetime
+#  flag           :boolean
+#  creator_id     :integer
+#  product_set_id :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  qr_code: MyText
+  approved: MyString
+  character_id:
+  brand_id:
+
+two:
+  name: MyString
+  description: MyText
+  qr_code: MyText
+  approved: MyString
+  character_id:
+  brand_id:

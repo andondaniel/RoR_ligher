@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: stars
+#
+#  id            :integer          not null, primary key
+#  user_id       :integer
+#  starable_id   :integer
+#  starable_type :string(255)
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  starable_id: 1
+  starable_type: MyString
+
+two:
+  user_id: 1
+  starable_id: 1
+  starable_type: MyString

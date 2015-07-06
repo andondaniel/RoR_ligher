@@ -1,0 +1,32 @@
+%ul#accordion
+  - @outfits_by_character.take(5).each_with_index do |(character, outfits), index|
+    %li{class: "slide#{index}"}
+      .slide_handle
+        %div
+          = character.name.split.first
+      .slide_content
+        - if outfits.any? then
+          %ul{class: "outfits", id: "makeMeScrollable#{index}"}
+            .scrollWrapper
+              .scrollableArea
+                - outfits.each do |outfit|
+                  %li
+                    .img-box
+                      = link_to(image_tag(outfit.outfit_images.first.avatar.url(:medium), :class => "outfit"), outfit_path(:format => :js, :show_id => @show.id, :id => outfit.id), :remote => true)
+                %li{style: "display:inline-block"}
+                  = link_to show_character_path(id: character.slug, show_id: @show.slug) do
+                    .img-box{style: "background-image: url('#{character.character_images.thumbnail.first.avatar(:medium)}'); background-size: cover; background-position: center"}
+                      .overlay
+                      .text See all #{character.name}
+                  
+
+
+
+:javascript
+
+  $("ul#accordion > li").hover(function(){
+      $(this).children("div#slide-top").stop().slideToggle(500);
+    });
+
+
+

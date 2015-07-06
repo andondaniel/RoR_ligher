@@ -1,0 +1,202 @@
+// Place all the styles related to the Search controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+/*TOP SEARCH BAR*/
+	.you-searched-for {
+		margin: 5px 0px 20px;
+		text-transform: uppercase;
+		font-size: 25px;
+		color: white;
+
+		#search-query {
+			font-weight: 500;
+		}
+
+	}
+
+	.result-type-name {
+		font-size: 50px;
+		text-align: center;
+		color: whitesmoke;
+		margin-left: 20px;
+	}
+
+
+	.search-results-bar {
+		padding: 2%;
+		font-family: 'proxima-nova';
+		font-size: 20px;
+		font-weight: 300;
+		color: white;
+		background-color: darkgray;
+	}
+
+	.result-category-button {
+		display: inline-block;
+		color: #575757;
+		font-weight: 300;
+		padding: 5px 10px;
+		background-color: white;
+		font-size: 16px;
+		a{color: #575757;};
+		a:hover {
+			color: black;
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+/*CHARACTER RESULTS*/
+	.character_image {
+		width: 200px;
+		height: 200px;
+		overflow: hidden;
+		display: inline-block;
+		margin-right: 10px;
+
+		img {
+			height: 100%;
+		}
+	}
+
+	.character_details {
+		font-weight: 300;
+		font-size: 20px;
+		text-align: center;
+		color: #575757;
+	}
+
+
+
+
+
+
+/*SHOW RESULTS */
+	.show-thumbnail {
+		width: 350px;
+		height: 250px;
+		text-align: center;
+		display: inline-block;
+
+		.show-pic {
+			width: 100%;
+			height: 200px;
+			overflow: hidden;
+			img {
+				width: 100%;
+			}
+		}
+
+		.show_details {
+			text-align: center;
+			font-size: 25px;
+		}
+	}
+
+	ul.items.list.characters {
+		margin: 20px;
+	}
+
+	.search_list {
+
+		font-family: 'proxima-nova';
+		margin: 2% 0;
+		min-height: 1000px;
+		
+		a {
+			color: gray;
+		}
+
+		.results_list {
+
+			width: 100%;
+			margin-bottom: 50px;
+
+			ul.items.list {
+
+				width: 100%;
+
+				li {
+					display: inline-block;
+				}
+
+				ul#episodes-list {
+					margin: 10px 10px;
+				}
+
+				.episode-thumbnail {
+					width: 300px;
+					display: inline-block;
+					background-color: whitesmoke;
+
+
+					.episode-pic {
+						height: 160px;
+						img {width: 100%;}
+					}
+
+					.thumbnail-footer{
+						a{font-size: 15px; font-weight:500;};
+						text-align: center;
+					}
+				}
+
+					.character { display: inline-block;}
+
+				li.item {
+
+					display: inline-block;
+					width: 30%;
+					margin: 5px 0px 5px;
+
+					&:last-child {
+					}
+
+
+
+					.product_image_box {
+						height: 275px;
+						width: 100%;
+						overflow: hidden;
+
+						.product_image {
+							height: 100%;
+						}
+
+					}
+
+					div.brand_details {
+
+					}
+
+					div.character_details {
+
+					}
+
+					.product_details {
+						font-size: 15px;
+						line-height: 20px;
+
+						a:hover { color: black };
+					}
+
+				}
+
+			}
+
+		}
+
+
+
+	}
+

@@ -1,0 +1,11 @@
+function lightboxProduct() {
+  $('#requestaccess').lightbox_me({
+    centered: true,
+    zIndex: 1000000000
+  });
+}
+
+
+$('#requestaccess').change(lightboxProduct());
+
+$('#requestaccess').html('<%= escape_javascript("#{render :partial => 'layouts/requestaccess'}").html_safe %>');

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+        <ul class='breadcrumb'>
+  <li>
+    <a href='../../apidoc.html'>Spylight 1.0</a>
+    <span class='divider'>/</span>
+  </li>
+  <li>
+    <a href='../../apidoc/products.html'>
+      Products
+
+    </a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>show</li>
+</ul>
+
+  <div class='page-header'>
+    <h1>
+      GET /api/v1/products/:product_slug<br>
+      <small>Display the details of a given product</small>
+    </h1>
+  </div>
+  <div class='page-header'>
+    <h1>
+      GET /api/v1/shows/:show_slug/products/:product_slug<br>
+      <small>Display the details of a given product</small>
+    </h1>
+  </div>
+  <div class='page-header'>
+    <h1>
+      GET /api/v1/shows/:show_slug/characters/:character_slug/products/:product_slug<br>
+      <small>Display the details of a given product</small>
+    </h1>
+  </div>
+  <div class='page-header'>
+    <h1>
+      GET /api/v1/shows/:show_slug/episodes/:episode_slug/products/:product_slug<br>
+      <small>Display the details of a given product</small>
+    </h1>
+  </div>
+  <div class='page-header'>
+    <h1>
+      GET /api/v1/shows/:show_slug/episodes/:episode_slug/scenes/:scene_id/products/:product_slug<br>
+      <small>Display the details of a given product</small>
+    </h1>
+  </div>
+
+<div>
+
+
+<p>Details included are: id, name, description, approved(whether or not
+an admin as approved the item to go live), slug, a hash of colors the
+product is available in(keys correspond to color codes), an array of
+product_images, and an array of product_sources</p>
+
+
+    <h2>Examples</h2>
+      <pre class="prettyprint">GET /api/v1/shows/new-girl/characters/jess/products/ribbed-daily-tank
+200
+{
+  &quot;product&quot;: {
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;Ribbed Daily Tank&quot;,
+    &quot;description&quot;: &quot;Tank - calistoga pigment; cotton. 95% Supima Cotton, 5% Lycra Knit. The essential James Perse tank, for daily wear. Fine, ribbed stretch cotton. Length: 26 in.&quot;,
+    &quot;approved&quot;: null,
+    &quot;slug&quot;: &quot;ribbed-daily-tank&quot;,
+    &quot;colors&quot;: {},
+    &quot;product_images&quot;: [],
+    &quot;product_sources&quot;: [
+      {
+        &quot;id&quot;: 1,
+        &quot;price_cents&quot;: 4500,
+        &quot;price_currency&quot;: &quot;USD&quot;,
+        &quot;status&quot;: null,
+        &quot;store_id&quot;: 57
+      }
+    ]
+  }
+}</pre>
+
+    <h2>Supported Formats</h2>
+    json
+
+
+</div>
+
+
+
+      </div>
+    </div>
+    <hr>
+    <footer>
+</footer>
+  </div>
+  <script type='text/javascript' src='../../apidoc/javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/apipie.js'></script>
+</body>
+</html>

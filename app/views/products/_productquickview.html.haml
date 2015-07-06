@@ -1,0 +1,144 @@
+.close
+  Close
+.left-side
+  #product_details
+    - if product.movies.any?
+      %span= link_to "#{product.characters.first.name}", show_character_path(show_id: "#{@show.slug}", id: "#{product.characters.first.slug}", character_id: "#{product.characters.first.id}")
+      %span= "- #{product.movies.first.name}"
+    - elsif @show
+      %span= link_to "#{product.characters.first.name}", show_character_path(show_id: "#{@show.slug}", id: "#{product.characters.first.slug}", character_id: "#{product.characters.first.id}")
+      %span= link_to "- #{@show.name}", show_episodes_path(:show_id => @show.slug)
+      %span= link_to "- Season #{@season} - Episode #{@episodenumber}", show_episode_path(id: @episode.slug, show_id: @show.slug)
+    - else
+  #images
+    %figure.image{style: "margin-right: 7px"}
+      - unless product.any_stock
+        .out-of-stock
+          =image_tag("outofstock.png")
+      = image_tag product.product_images.first.avatar.url(:square),:id => "product", :style => "bottom: 0px"      
+      - if product.product_images.length > 1
+        .alternate-image
+          = image_tag product.product_images.second.avatar.url(:square)
+      /image from the retail website
+    %figure.image
+      - if product.outfits.first.outfit_images.any?
+        - if product.outfits.first.episodes.first
+          = image_tag product.outfits.first.outfit_images.first.avatar.url(:quickview), :alt => "#{product.outfits.first.character.name} wore #{product.name} in S#{product.outfits.first.episodes.first.season}EP#{product.outfits.first.episodes.first.episode_number} of #{product.outfits.first.show.name}. Shop the screen at Spylight.com!"
+        - else
+          = image_tag product.outfits.first.outfit_images.first.avatar.url(:quickview), :alt => "#{product.outfits.first.character.name} wore #{product.name}. Shop the screen at Spylight.com!"
+      - elsif product.product_images.second
+        .photo_unavailable
+          Outfit Photo Unavailable
+        = image_tag(product.product_images.second.avatar.url(:square))
+      - elsif product.characters.first.character_images.any?
+        .photo_unavailable
+          Outfit Photo Unavailable
+        = image_tag(product.characters.first.character_images.thumbnail.first.avatar.url(:medium))
+  #product_name= product.name
+  %p#product_description= product.description
+  %p#product_source 
+    #{product.brand.name}
+    - if product.product_sources.any?
+      - if product.product_sources.first.store.present?
+        %span#from from #{link_to "#{product.product_sources.first.store.name}", "#{product.product_sources.first.url}", :id => "store"}
+      %span#product_price
+        - unless product.product_sources.first.price.format == "$0.01"
+          = product.product_sources.first.price.format
+        - else
+          price not available
+      %a{href: "#{product.product_sources.first.url}", target: '_blank'}
+        %h3.action_link#getthis Get This
+      %h3.action_link.triangle#more
+        More from this outfit
+      %a{:href => "http://www.facebook.com/share.php?u=#{product_url(@product)}", :onClick => "return fbs_click(500, 300)", :target => "_blank", :title => "Share This on Facebook"}
+        %h3.action_link#fb-share{style: "background-color: #3B5998; padding: 7px 17px; display: inline-block;"}
+          %i.fa.fa-facebook{style: "color: white; font-size: 20px;"}
+      %h3.action_link#twitter-share{style: "background-color: #4099FF; padding: 7px 12px; display: inline-block;"}
+        - if product.outfits.first.show
+          %a.twitter.popup{"href" => "http://twitter.com/share", "data-hashtags" => "#{product.outfits.first.show.name}", "data-text" => "#{product.outfits.first.character.name} wore #{product.name} in S#{product.outfits.first.episodes.first.season}EP#{product.outfits.first.episodes.first.episode_number} of #{product.outfits.first.show.name}. Shop the screen at Spylight.com!", "data-url" => "#{product_url(@product)}", "data-via" => "spylight"}
+            %i.fa.fa-twitter{style: "color: white; font-size: 20px;"}
+        - else
+          %a.twitter.popup{"href" => "http://twitter.com/share", "data-hashtags" => "#{product.outfits.first.movie.name}", "data-text" => "#{product.outfits.first.character.name} wore #{product.name}. Shop the screen at Spylight.com!", "data-url" => "#{product_url(@product)}", "data-via" => "spylight"}
+            %i.fa.fa-twitter{style: "color: white; font-size: 20px;"}
+      %h3.action_link#twitter-share{style: "background-color: #C92228; padding: 7px 13px; display: inline-block;"}
+        %i.fa.fa-pinterest{style: "color: white; font-size: 20px;"}
+  .more-from-outfit
+    - p = product.outfits.first.products - [product]
+    - p.delete_if{|p| p.product_images.any? == false}
+    - if p.length > 0
+      - p.each do |o|
+        = link_to(show_product_path(:format => :js, :show_id => show.id, :id => o.id), :remote => true ) do
+          .image{:style => "background-image: url(#{o.product_images.first.avatar.url(:thumb)}); background-size: cover; height: 104px; width: 104px; background-position: center top"}
+    - else
+      %span{style: "font-style: italic"} This item is the only item in this outfit.
+- if product.cheaper_products && product.cheaper_products.count > 0
+  .right-side
+    .look-for-less 
+      Get The Look
+    - product.cheaper_products.each do |cp|
+      .cheaper-product-img
+        = link_to cp.product_sources.first.url do
+          = image_tag(cp.product_images.first.avatar.url(:thumb))
+          .more-info
+            %br
+            %br= cp.brand.name
+            %br= cp.product_sources.first.price.format
+
+
+:javascript
+
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
+  function fbs_click(width, height) {
+    var url = '#{product_url(@product)}'
+    var leftPosition, topPosition;
+    //Allow for borders.
+    leftPosition = (window.screen.width / 2) - ((width / 2) + 10);
+    //Allow for title and status bars.
+    topPosition = (window.screen.height / 2) - ((height / 2) + 50);
+    var windowFeatures = "status=no,height=" + height + ",width=" + width + ",resizable=yes,left=" + leftPosition + ",top=" + topPosition + ",screenX=" + leftPosition + ",screenY=" + topPosition + ",toolbar=no,menubar=no,scrollbars=no,location=no,directories=no";
+    u=location.href;
+    t=document.title;
+    window.open('http://www.facebook.com/sharer.php?u='+url,'sharer', windowFeatures);
+    return false;
+  }
+
+  $(document).ready(function() {
+  
+      $('.popup').click(function(event) {
+        var width  = 575,
+            height = 400,
+            left   = ($(window).width()  - width)  / 2,
+            top    = ($(window).height() - height) / 2,
+            url    = this.href,
+            opts   = 'status=1' +
+                     ',width='  + width  +
+                     ',height=' + height +
+                     ',top='    + top    +
+                     ',left='   + left;
+
+        window.open(url, 'twitter', opts);
+
+        return false;
+      });
+
+    $('#share').click(function(){
+      $('.share-options').slideToggle(500);
+    });
+
+    var img     = document.getElementById('product'),
+      new_img = new Image(),
+      img_width,
+      img_height;
+
+    new_img.onload = function() {
+      img_width  = this.width;
+      img_height = this.height;
+    
+      if (img_width > img_height) {
+        $("#product").css({"width": "auto", "height": "100%"});
+      }
+    }
+  new_img.src = img.src;
+
+  });

@@ -1,0 +1,144 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// HOMEPAGE
+
+.divider {
+	height: 2px;
+	background-color: $nearblack;
+	width: 100%;
+}
+
+.featured-outfits {
+	clear:both;
+	margin-top: 20px;
+}
+
+.outfit-pic:hover .overlay {
+	display: none;
+}
+.outfit-pic:hover .outfit-description {
+	display: none;
+}
+
+
+.featured-outfit {
+	width: 475px;
+	display: inline-block;
+
+
+
+
+	.outfit-pic {
+		.outfit-description {
+			z-index: 100;
+			@include absolute-center;
+			text-align: center;
+			height:120px;
+			color: white;
+			a {color: white;}
+			.name {
+				font-family: 'Lavanderia Regular';
+				font-size: 72px;
+				font-weight: 100;
+			}
+			.show {
+				font-size: 20px;
+				text-transform: uppercase;
+				font-weight: 500;
+			}
+			.episode {
+				font-weight: 200;
+				font-size: 18px;
+			}
+		}
+
+
+
+		width: 370px;
+		margin-right: 5px;
+		overflow: hidden;
+		position: relative;
+		float: left;
+		height: 415px;
+		.overlay {
+			background-color: black;
+			opacity: .3;
+			@include overlay;
+			img {
+				width: 100%;
+			}
+		}
+
+		.image-preview {
+			@include overlay;
+			img {
+				width: 100%;
+			}
+			.product-details {
+				position: absolute;
+				bottom: 5px;
+				left: 5px;
+				height: 30px;
+				color: #575757;
+				font-size: 15px;
+				font-weight: 500;
+			}
+		}
+		img {
+			min-width: 100%;
+			min-height: 100%;
+		}
+	}
+
+	.outfit-product {
+		float: left;
+		width: 100px;
+		height: 100px;
+		margin-bottom: 5px;
+		position: relative;
+		overflow: hidden;
+		.overlay {
+			background-color: black;
+			opacity: .3;
+			@include overlay;
+		}
+		img {
+			width: 100%;
+		}
+	}
+
+}
+
+.view-all {
+	width: 475px;
+	display: inline-block;
+	height: 75px;
+	position: relative;
+	overflow: hidden;
+	img {
+		width: 100%;
+		margin-top: -40px;
+	}
+
+	#neal-pic {
+		margin-top: -100px;
+	}
+	.text {
+		position: absolute;
+		text-align: right;
+		top: 30px;
+		color: white;
+		width: 95%;
+		font-family: 'Biko Regular';
+		text-transform: uppercase;
+		font-weight: 300;
+		font-size: 20px;
+	}
+	.overlay {
+		@include overlay;
+		background-color: black;
+		opacity: 0.3;
+	}
+}

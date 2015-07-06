@@ -1,0 +1,63 @@
+#db dump
+#on old server
+pg_dump -U spylight spylight_production > ~/6302014_dump_file.sql
+#on local computer
+scp -i ~/.ec2/sl_adam root@prod-db01.spylight.com:~/6302014_dump_file.sql ~/
+
+
+#create instances
+ALIAS=prod-db01 ROLES=postgresql_master cap rubber:create
+ALIAS=prod-app01 ROLES=app cap rubber:create
+ALIAS=prod-app02 ROLES=app cap rubber:create
+ALIAS=prod-web01 ROLES=web cap rubber:create
+ALIAS=prod-tools ROLES=web_tools cap rubber:create
+
+#install ruby & packages
+cap rubber:bootstrap
+
+#on local computer
+scp -i ~/.ec2/sl_adam ~/Desktop/final-dev-dump.sql  root@prod-db01@spylight.com:~/
+#ssh into db01 from deploy machine
+ssh -i ~/.ec2/sl_adam root@prod-db01@spylight.com
+#on prod-db01
+psql -U spylight spylight_production < ~/6302014_dump_file.sql
+
+#deploy to scaled instances
+cap deploy:cold
+
+#redirect www.spylight.com and spylight.com to the ip of prod-web01 through AWS console
+--done
+
+#explore search functionality to see if elastic search is running
+-- app servers needed to have elasticsearch installed and started:
+sudo apt-get update
+sudo apt-get install openjdk-7-jre-headless -y
+wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.1.0.deb
+sudo dpkg -i elasticsearch-1.1.0.deb
+sudo /etc/init.d/elasticsearch start
+
+#indexes also needed to be created
+rake environment tire:import:all
+
+#check tools to see if it is possible to monitor the load balancing/check for bottlenecks
+#check SMTP to make sure emails can still be sent when FC events trigger them
+
+#images couldnt be validated, imagemagick needed to be installed on app servers
+apt-get install imagemagick
+
+install redis for delayed image processing
+
+wget http://download.redis.io/redis-stable.tar.gz
+tar xvzf redis-stable.tar.gz
+cd redis-stable
+make
+make install
+sudo mkdir /etc/redis
+sudo mkdir /var/redis
+sudo cp utils/redis_init_script /etc/init.d/redis_6379
+sudo cp redis.conf /etc/redis/6379.conf
+sudo mkdir /var/redis/6379
+
+cap rubber:add_role (resque_worker,resque_scheduler for application servers)
+
+

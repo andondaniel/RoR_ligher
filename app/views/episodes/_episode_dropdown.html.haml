@@ -1,0 +1,11 @@
+.selected-episode
+	Select Episode
+	%i.fa.fa-angle-down{style: "float:right"}
+.more-episodes
+	- @episodes.each do |ep|
+		= link_to show_episode_path(id: ep.slug, show_id: @show.slug) do
+			.episode
+				.episode-img-box= image_tag(ep.episode_images.first.avatar(:medium), :id => "episode-pic")
+				.episode-info
+					S#{ep.season} Episode #{ep.episode_number}
+					%br #{ep.name}

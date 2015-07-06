@@ -1,0 +1,5 @@
+// This is what happens when a user clicks on a show in the TV submenu
+
+$('#character-submenu-placeholder').html('<%= escape_javascript("#{render :partial => 'layouts/characters_submenu', locals: {show: @show}}").html_safe %>');
+$('#episode-submenu-placeholder').html('<%= escape_javascript("#{render :partial => 'layouts/episodes_submenu', locals: {show: @show}}").html_safe %>');
+

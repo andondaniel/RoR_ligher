@@ -1,0 +1,22 @@
+.quiz
+  .quiz-carousel
+    %ul
+      %li.cover
+        .quiz-title= @quiz.title
+        .next-btn{style: "bottom: 15px; right: 15px;"}
+          Take the quiz
+          %i.fa.fa-long-arrow-right
+    - @quiz.quiz_questions.each do |quiz_question|
+      %ul
+        %li.question{style: "background-color: rgb(63, 92, 117)"}
+          .quiz-question
+            = quiz_question.text
+            .choices
+              - quiz_question.options.each do |option|            
+                .choice-admin
+                  .choice-text
+                    = option.text
+                  .choice-img
+                    = option.option_image.present? ? image_tag(option.option_image.avatar.url(:cover)) : "No Image Found"            
+              .previous-btn GO BACK
+              .done NEXT

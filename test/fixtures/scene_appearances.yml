@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start_time: 1
+  end_time: 1
+  product_id: 
+  scene_id: 
+
+two:
+  start_time: 1
+  end_time: 1
+  product_id: 
+  scene_id: 

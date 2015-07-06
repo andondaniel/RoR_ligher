@@ -1,0 +1,26 @@
+// This changes the image in the imageplaceholder to the first show in the list of shows
+var show = "<%= escape_javascript(@network.shows.active.first.show_images.cover.first.avatar.url(:medium)) %>"
+$('.image-placeholder > img').attr('src', show);
+
+// This changes the text to the name of the first show in the network
+$('.image-placeholder').children('.text').html('<%= @network.shows.active.first.name %>');
+
+// These are the events that happen when a user selects a new NETWORK (eg FOX or NETFLIX)
+// It takes the FIRST ACTIVE SHOW of that NETWORK and shows the characters and the episodes
+$('#submenu-placeholder').hide().html('<%= escape_javascript("#{render :partial => 'layouts/show_submenu', locals: {network: @network}}").html_safe %>').fadeIn();
+$('#character-submenu-placeholder').hide().html('<%= escape_javascript("#{render :partial => 'layouts/characters_submenu', locals: {show: @network.shows.active.first}}").html_safe %>').fadeIn();
+$('#episode-submenu-placeholder').html('<%= escape_javascript("#{render :partial => 'layouts/episodes_submenu', locals: {show: @network.shows.active.first}}").html_safe %>').fadeIn();
+
+
+
+// This changes the show image & name upon hovering over a show link
+  $(function() {
+    $('ul.show-menu li').hoverIntent(openOptions, jQuery.noop());
+    function openOptions() {
+      var url = $(this).children('.show-image-url').text();
+      var showname = $(this).children('a').text();
+      $(this).parents('.padding').children('.image-placeholder').children('img').attr('src', url);
+      $(this).parents('.padding').children('.image-placeholder').children('.text').text(showname);
+    }
+  });
+

@@ -1,0 +1,121 @@
+/*FILTER BY*/
+
+
+
+#filter-span {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+#open-filter {
+  position: relative;
+  z-index: 10000;
+}
+
+#filter {background:#FFF;
+  display: inline;
+
+  span#filter-list {
+    cursor: pointer;
+    color:#575757;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  .filter-tag {padding: 2px 3px 2px 5px;
+    margin-left: 10px;
+    background-color: #575757;
+    color: white !important;
+    font-weight: 500;
+    font-size: 15px;
+    }
+
+  .filter-close {
+    background-color: lightgray;
+    width: 18px;
+    display: inline-block;
+    color: #575757;
+    cursor: pointer;
+    margin: 0 0 0 5px;
+    i {
+      margin: 0 0 0 3px;
+      text-align: center;
+    }
+
+
+  }
+}
+
+
+.filter-button:hover{color: white; background-color: #575757; padding: 2px 5px;}
+
+
+.filters {
+  display: none;
+  position: absolute;
+
+  width: 450px;
+  top: 85px;
+  text-align: left;
+  border-top: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+
+  background-color: whitesmoke;
+  color: white;
+
+  float: none;
+  text-transform: none;
+  z-index: 99;
+  left: 306px;
+  a {color: white;};
+  a:hover {color: white; background-color: $nearblack; padding: 2px 5px;}
+  font-family: 'proxima-nova';
+  font-size: 15px !important;
+  font-weight: 500 !important;
+
+
+  #filter-type {
+    margin: 0px 10px 0px 10px;
+    font-weight: 500px;
+    color: gray;
+    > div {
+      padding: 20px 5px 0px 5px;
+    }
+  }
+
+  ul {
+    width: 120px;
+    float: left;
+    padding: 0px !important;
+    margin: 10px 0px 10px 20px;
+
+    li {
+      padding: 7px 0px !important;
+      list-style: none;
+      color: #575757;
+      font-weight: 600;
+      cursor: pointer;
+      a {color: #575757;};
+      a:hover {color: white !important; background-color: #575757; padding: 2px 5px;}
+
+      display: block !important;
+    }
+  }
+}
+
+span#category-count {
+  font-weight: 500;
+}
+
+ul#character {
+  width: 150px;
+}
+
+ul#character-2 {
+  width: 150px;
+}

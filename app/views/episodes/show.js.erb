@@ -1,0 +1,90 @@
+// To show products
+<% unless @products.blank? %>
+	$('#more-product-loader').hide();
+	$('#product_page').val( "<%= params[:product_page] %>" );
+
+	// To remove all filters, so that all items including products and outfits can be considered.
+	featureList.filter();
+
+	<% @products.each do |product| %>
+		var product = "<%= escape_javascript( render partial: 'products/product',
+		 locals: {product: product}) %>";
+		$('#outfits-list ul.list').append(product);
+	<% end %>
+		
+	featureList = new List('outfits-list', options);
+
+	if ($('.selected').length) {
+
+	  // find that character's name
+	  var character = $('.selected').find('.character-thumbbox-name').text();
+
+	  featureList.filter(function(item) {
+	    // show only outfits and items that belong to that character
+	    if ((item.values().type == "product") && (item.values().character == character)) {
+	      return true;
+	    } else {
+	      return false;
+	    }
+	  });
+	} else {
+		featureList.filter(function(item) {
+	    // show only outfits and items that belong to that character
+	    if (item.values().type == "product") {
+	      return true;
+	    } else {
+	      return false;
+	    }
+	  });
+	}
+	
+<% else %>
+	<% if params[:product_page].present? %>
+		$('#more-product-loader').hide();
+		$('#product_page').val('-1');
+	<% end %>
+<% end %>
+
+// To show outfits
+<% unless @outfits.blank? %>
+	$('#more-outfit-loader').hide();
+	$('#outfit_page').val( "<%= params[:outfit_page] %>" );
+	featureList.filter();
+
+	<% @outfits.each do |outfit| %>
+		var outfit = "<%= escape_javascript( render partial: 'outfits/outfit',
+		 locals: {outfit: outfit}) %>";
+		$('#outfits-list ul.list').append(outfit);	
+	<% end %>
+	
+	featureList = new List('outfits-list', options);
+	
+	if ($('.selected').length) {
+
+	  // find that character's name
+	  var character = $('.selected').find('.character-thumbbox-name').text();
+
+	  featureList.filter(function(item) {
+	    // show only outfits and items that belong to that character
+	    if ((item.values().type == "outfit") && (item.values().character == character)) {
+	      return true;
+	    } else {
+	      return false;
+	    }
+	  });
+	} else {
+		featureList.filter(function(item) {
+	    // show only outfits and items that belong to that character
+	    if (item.values().type == "outfit") {
+	      return true;
+	    } else {
+	      return false;
+	    }
+	  });
+	}
+<% else %>
+	<% if params[:outfit_page].present? %>
+		$('#more-outfit-loader').hide();
+		$('#outfit_page').val('-1');		
+	<% end %>
+<% end %>

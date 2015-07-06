@@ -1,0 +1,26 @@
+<% unless @products.blank? %>
+	$('#ajax-loader').hide();
+	$('#page').val( "<%= params[:page] %>" );
+
+
+	<% if params[:page] == 1 %>
+		$('ul.list.products-grid').html("");
+	<% end %>
+	
+	<% @products.each do |product| %>
+		<% unless product.blank? %>
+			var product = "<%= escape_javascript( render partial: 'products/product',
+			 locals: {product: product}) %>";
+			$('ul.list.products-grid').append(product);
+		<% end %>
+	<% end %>
+
+	
+
+
+	$('.product-box').hoverIntent(fadeToggle);
+	
+<% else %>
+	$('#ajax-loader center').html('No more results');
+	page = -1; // To disallow make request more
+<% end %>

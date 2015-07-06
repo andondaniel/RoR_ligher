@@ -1,0 +1,16 @@
+/ Begin MailChimp Signup Form
+%link{href: "//cdn-images.mailchimp.com/embedcode/slim-081711.css", rel: "stylesheet", type: "text/css"}/
+:css
+  #mc_embed_signup{style: "background: #ffffff; clear:left; font:14px proxima-nova; width: 400px;"}
+  /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+     We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+#mc_embed_signup
+  %form#mc-embedded-subscribe-form.validate{action: "http://spylight.us3.list-manage1.com/subscribe/post?u=0aa34ed6535816bf4865920a9&id=b981041d41", method: "post", name: "mc-embedded-subscribe-form", novalidate: "", target: "_blank", style: "background-color: #fff; width: 400px"}
+    %label{for: "mce-EMAIL", style: "margin-top: 5px"} REQUEST EXCLUSIVE ACCESS TO SPYLIGHT.COM
+    %input#mce-EMAIL.email{name: "EMAIL", placeholder: "email address", required: "", type: "email", value: "", style: "font-family: 'proxima-nova'; width: 390px;"}/
+    / real people should not fill this in and expect good things - do not remove this or risk form bot signups
+    %div{style: "position: absolute; left: -5000px;"}
+      %input{name: "b_0aa34ed6535816bf4865920a9_b981041d41", type: "text", value: ""}/
+    .clear
+      %input#mc-embedded-subscribe.button{name: "subscribe", type: "submit", value: "SUBMIT", style: "font-family: proxima-nova;margin-left: 250px; margin-bottom: 0"}/
+/ End mc_embed_signup

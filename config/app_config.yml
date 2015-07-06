@@ -1,0 +1,12 @@
+development:
+  facebook:
+    app_id: 1499284716953120
+    app_serect: da0d078f2cd0f0daf12e6f1f6bfea8e0
+test:
+  facebook:
+    app_id: 1499284716953120
+    app_serect: da0d078f2cd0f0daf12e6f1f6bfea8e0
+production:
+  facebook:
+    app_id: 329559517185226
+    app_serect: 9d5b11655d55d2ba741b2fceae820684

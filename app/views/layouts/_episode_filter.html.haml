@@ -1,0 +1,17 @@
+.episode-filter
+	.episode-carousel
+		%ul
+			- @outfitepisodes.each do |ep|
+				%li
+					= link_to show_episode_path(id: ep.slug, show_id: @show.slug) do
+						.episode
+							.overlay
+							.episode-img-box= image_tag(ep.episode_images.first.avatar(:medium), :id => "episode-pic")
+							.episode-info
+								S#{ep.season} Episode #{ep.episode_number}
+								%br #{ep.name}
+							.filter_attributes{style: "display: none"}= ep.id
+
+%i.fa.fa-angle-left.episodes-prev
+%i.fa.fa-angle-right.episodes-next
+

@@ -1,0 +1,17 @@
+common: &common
+  adapter: postgresql
+  pool: 5
+  username: spylight
+  password:
+
+development:
+  <<: *common
+  database: spylight_development
+
+test:
+  <<: *common
+  database: spylight_test
+
+production:
+  <<: *common
+  database: spylight_production

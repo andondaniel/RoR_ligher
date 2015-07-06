@@ -1,0 +1,62 @@
+---
+- !ruby/object:Rubber::Configuration::InstanceItem
+  name: staging
+  domain: spylight.com
+  roles:
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: web
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: haproxy
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: app
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: passenger
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: apache
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: db
+    options:
+      primary: true
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: postgresql
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: postgresql_master
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: collectd
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: monit
+    options: {}
+  instance_id: i-a0891a83
+  image_type: m3.medium
+  image_id: ami-5ffaa636
+  security_groups:
+  - spylight_staging_default
+  - spylight_staging_staging
+  - spylight_staging_web
+  - spylight_staging_haproxy
+  - spylight_staging_app
+  - spylight_staging_passenger
+  - spylight_staging_apache
+  - spylight_staging_db
+  - spylight_staging_postgresql
+  - spylight_staging_postgresql_master
+  - spylight_staging_collectd
+  - spylight_staging_monit
+  external_host: ec2-54-198-143-94.compute-1.amazonaws.com
+  external_ip: 54.198.143.94
+  internal_host: ip-10-234-184-187.ec2.internal
+  internal_ip: 10.234.184.187
+  zone: us-east-1b
+  provider: aws
+  platform: linux
+  root_device_type: instance-store
+- volumes: {}
+  static_ips: {}

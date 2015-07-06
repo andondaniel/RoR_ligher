@@ -1,0 +1,11 @@
+function lightboxProduct() {
+  $('#outfit_quick_overview').lightbox_me({
+    centered: true,
+    zIndex: 100000,
+    closeSelector: ".exit",
+  });
+}
+
+$('#outfit_quick_overview').change(lightboxProduct());
+
+$('#outfit_quick_overview').html('<%= escape_javascript("#{render :partial => 'outfitquickview', locals: {outfit: @outfit, show: @show}}").html_safe %>');

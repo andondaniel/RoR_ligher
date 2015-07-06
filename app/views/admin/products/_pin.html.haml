@@ -1,0 +1,10 @@
+- if p.outfits.select{|x| x.outfit_images.any?} && p.outfit_products.select{|x| x.exact_match}.count >= 1
+	- o = p.outfits.select{|x| x.outfit_images.any?}.last
+	.pin
+		.outfit-photo= image_tag(o.outfit_images.first.avatar.url(:mobile_full))
+		.product-photo
+			= image_tag(p.product_images.first.avatar.url(:mobile_full), id: "product-pic")
+			= image_tag("exactmatch.png", :id => "exact-match")
+		.spylight-logo= image_tag("SpylightAlternateLogo.png")
+	%br
+- else "No Outfits Available for Pinning"

@@ -1,0 +1,13 @@
+function lightboxProduct() {
+  $('#login').lightbox_me({
+    centered: true,
+    zIndex: 100000,
+    onLoad: function() { 
+            $('#login').find('input:first').focus()
+            }
+      });
+    closeSelector: ".exit",
+  });
+}
+
+$('#login').change(lightboxProduct());

@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: product_images
+#
+#  id                  :integer          not null, primary key
+#  url                 :string(255)
+#  alt_text            :string(255)
+#  product_id          :integer
+#  created_at          :datetime
+#  updated_at          :datetime
+#  avatar_file_name    :string(255)
+#  avatar_content_type :string(255)
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
+#  verified            :boolean
+#  primary             :boolean
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  url: MyString
+  alt_text: MyString
+  product_id: 
+
+two:
+  url: MyString
+  alt_text: MyString
+  product_id: 

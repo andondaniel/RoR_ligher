@@ -1,0 +1,31 @@
+# == Schema Information
+#
+# Table name: product_sources
+#
+#  id             :integer          not null, primary key
+#  url            :text
+#  price_cents    :integer          default(0), not null
+#  price_currency :string(255)      default("USD"), not null
+#  status         :string(255)
+#  store_id       :integer
+#  product_id     :integer
+#  created_at     :datetime
+#  updated_at     :datetime
+#  in_stock       :boolean
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  url: MyText
+  price_cents: 1
+  status: MyString
+  store_id: 
+  product_id: 
+
+two:
+  url: MyText
+  price_cents: 1
+  status: MyString
+  store_id: 
+  product_id: 

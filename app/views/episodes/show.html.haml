@@ -1,0 +1,222 @@
+%head
+  %title= "Spylight" + " " + "#{@show.name}" + "#{@episode.name}"
+
+.episode-page-wrap{style: "width: 100%"}  
+
+  .center-content
+    .episode-selector-menu
+      .show-name
+        %div= @show.name
+      .season-dropdown 
+        .selected-season
+          Season #{@episode.season}
+          %i.fa.fa-angle-down{style: "float:right"}
+        .more-seasons
+          - @show.seasons.each do |s|
+            = link_to episodes_seasons_path(:format => :js, :season => s, :show_id => @show.id, :id => @episode.id), :remote => true do
+              .season
+                %div SEASON #{s}
+      .episode-dropdown
+        .selected-episode
+          Episode #{@episode.episode_number}
+          %i.fa.fa-angle-down{style: "float:right"}
+        .more-episodes
+          - @episodes.each do |ep|
+            = link_to show_episode_path(id: ep.slug, show_id: @show.slug) do
+              .episode
+                .episode-img-box= image_tag(ep.episode_images.first.avatar(:medium), :id => "episode-pic")
+                .episode-info
+                  S#{ep.season} Episode #{ep.episode_number}
+                  %br #{ep.name}
+
+    .about-episode.noskimwords
+      .semitransparent-bg-2
+      - if @episode.episode_images.any?
+        .episode-picture{style: "background-image: url('#{@episode.episode_images.first.avatar(:cover)}')"}
+        / = image_tag(@episode.episode_images.primary.first.avatar.url(:cover), :id => "episodestill")
+        .overlay
+      .episode-name= @episode.name
+      .episode-airdate= @episode.airdate.strftime("Aired %m/%d/%Y")
+    .item-preview
+      .text
+        In this episode: 
+        %br
+        - @characters_with_exact_matches.each do |char, prods|
+          %span{style:"font-weight: 600"} #{char.name}
+          %span wore
+          - prods.take(3).each do |p|
+            - if p.product.product_categories.any?
+              - if p == prods.take(3).last && prods.length >= 2
+                %span and
+                - if p.product.product_categories.first.singular? 
+                  %span a 
+                  = link_to show_product_path(:format => :js, :show_id => @show.id, :id => p.product_id), :remote => true do
+                    %span{style: "border-bottom: 1px solid gray; color: lightgray"} #{p.product.brand.name} #{p.product.product_categories.first.name}
+                  %span .
+                - else
+                  = link_to show_product_path(:format => :js, :show_id => @show.id, :id => p.product_id), :remote => true do
+                    %span{style: "border-bottom: 1px solid gray; color: lightgray"} #{p.product.brand.name} #{p.product.product_categories.first.name}
+                  %span . 
+              - elsif p == prods.take(3).last && prods.length < 2
+                - if p.product.product_categories.first.singular? 
+                  %span a 
+                  = link_to show_product_path(:format => :js, :show_id => @show.id, :id => p.product_id), :remote => true do
+                    %span{style: "border-bottom: 1px solid gray; color: lightgray"} #{p.product.brand.name} #{p.product.product_categories.first.name}
+                  %span .
+                - else
+                  = link_to show_product_path(:format => :js, :show_id => @show.id, :id => p.product_id), :remote => true do
+                    %span{style: "border-bottom: 1px solid gray; color: lightgray"} #{p.product.brand.name} #{p.product.product_categories.first.name}
+                  %span . 
+              - elsif p != prods.take(3).last
+                - if p.product.product_categories.first.singular? 
+                  %span a 
+                  = link_to show_product_path(:format => :js, :show_id => @show.id, :id => p.product_id), :remote => true do
+                    %span{style: "border-bottom: 1px solid gray; color: lightgray"} #{p.product.brand.name} #{p.product.product_categories.first.name}
+                  %span ,
+                - else
+                  = link_to show_product_path(:format => :js, :show_id => @show.id, :id => p.product_id), :remote => true do
+                    %span{style: "border-bottom: 1px solid gray; color: lightgray"} #{p.product.brand.name} #{p.product.product_categories.first.name}
+                  %span ,
+      .find-other-exact-matches Explore other exact & similar matches below!
+
+  .filter-content#episode-filter-content
+    .choose-a-character Choose A Character
+    .wrapper
+      - @characters.each do |c|
+        %a{href: "#", class: "filter"}
+          .character-thumbbox
+            .character-thumbbox-img= image_tag(c.character_images.thumbnail.first.avatar.url(:thumb))
+            .character-thumbbox-name= c.name
+      / .character-thumbbox 
+      /   .character-thumbbox-name See all
+    .movie-options-wrap
+      .show-outfits-or-products#show-outfits SHOW OUTFITS
+      .show-outfits-or-products.nonactive#show-products SHOW PRODUCTS
+    #outfits-list
+      %ul.list
+        - @outfits.each do |outfit|
+          %li{style: "display: inline-block"}
+            = link_to outfit_path(:format => :js, :id => outfit.id, :show_id => @show.id), :remote => true do
+              .outfit-details{style: "display: none"}
+                .filter_attributes= outfit.filter_attributes
+              .outfit-image-box
+                = image_tag(outfit.outfit_images.first.avatar.url(:index_size))
+                .character= outfit.character.name
+                .type outfit
+        = render :partial => "products/product", :collection => @products
+
+      #more-outfit-loader.display-none
+        %center
+          = image_tag "loadmore.gif"
+
+      #more-product-loader.display-none
+        %center
+          = image_tag "loadmore.gif"
+
+  = hidden_field_tag 'outfit_page', params[:outfit_page]
+  = hidden_field_tag 'product_page', params[:product_page]
+
+#outfit_quick_overview
+
+/ js: outfit_prod_toggle.js
+
+:javascript
+  
+  var outfit_page = 0;
+  var product_page = 0;
+  
+  $(window).scroll(function(){
+    if ( $(window).scrollTop() == $(document).height() - $(window).height()) {
+      if ($('#show-products').hasClass('nonactive')) {
+        if ( ($('#outfit_page').val() == '-1') || ($('#outfit_page').val() == outfit_page) ) return;
+        $('#more-outfit-loader').show();
+        $.ajax({
+          url: "/shows/#{params[:show_id]}/episodes/#{params[:id]}?format=js&outfit_page=" + $('#outfit_page').val(),
+          success: function( data ) {
+          }
+        });
+        outfit_page = $('#outfit_page').val();
+      } else {
+        if ( ($('#product_page').val() == '-1') || ($('#product_page').val() == product_page) ) return;
+        $('#more-product-loader').show();
+        $.ajax({
+          url: "/shows/#{params[:show_id]}/episodes/#{params[:id]}?format=js&product_page=" + $('#product_page').val(),
+          success: function( data ) {
+          }
+        });
+        product_page = $('#product_page').val();
+      }
+    }
+  });
+
+  $(function() {
+    $('#episode-carousel').jcarousel();
+
+    $('.episode-prev').jcarouselControl({
+        target: '-=4'
+    });
+
+    $('.episode-next').jcarouselControl({
+        target: '+=4'
+    });
+
+  });
+
+    $(document).ready(function() {
+    
+      var newFunction = function(){   
+        $('.scrollableArea').each(function() {
+          var outfits = $(this).children('li').size();
+          var width = outfits*160;
+          $(this).css("width", width);
+        });
+      };
+
+      $("#makeMeScrollable0").smoothDivScroll({
+        autoScrollingMode: "",
+        hotSpotScrollingInterval: 45,
+        setupComplete: newFunction,
+      });
+
+      $("#makeMeScrollable1").smoothDivScroll({
+        autoScrollingMode: "",
+        hotSpotScrollingInterval: 5,
+        setupComplete: newFunction,
+      });
+
+       $("#makeMeScrollable2").smoothDivScroll({
+        autoScrollingMode: "",
+        hotSpotScrollingInterval: 5,
+        setupComplete: newFunction,
+      });
+
+       $("#makeMeScrollable3").smoothDivScroll({
+        autoScrollingMode: "",
+        hotSpotScrollingInterval: 5,
+        setupComplete: newFunction,
+      });
+
+       $("#makeMeScrollable4").smoothDivScroll({
+        autoScrollingMode: "",
+        hotSpotScrollingInterval: 5,
+        setupComplete: newFunction,
+      });
+
+    });
+
+    $('#accordion').accordionza({
+      autoPlay: false,
+      captionDelay: 1000,
+      captionEasing: 'easeOutBounce',
+      captionHeight: 40,
+      captionHeightClosed: 10,
+      navKey: true,
+      pauseOnHover: true,
+      slideSpeed: 700,
+      slideDelay: 6000,
+    });
+
+
+    $("ul#show-navigation-top > li").hover(function(){
+      $(this).children("div#slide-top").stop().slideToggle(500);
+    });
